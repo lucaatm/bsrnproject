@@ -7,7 +7,7 @@ config = toml.load("config.toml")
 handle = config.get("user", {}).get("handle", "Unknown")
 PORT = config.get("user", {}).get("ports", [5001])[0]
 WHOIS_PORT = config.get("network", {}).get("whoisport", 4000)
-BUFFER_SIZE = 1024
+BUFFER_SIZE = 512
 
 participants = {}  
 

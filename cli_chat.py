@@ -4,14 +4,14 @@ import threading
 import toml
 import os
 import time
-## discovery dienst
+import discovery
 
 config = toml.load("config.toml")
 HANDLE = config["user"]["handle"]
 PORT = config["user"]["port"][0]
 
 WHOIS_PORT = config["network"]["whoisport"]
-BUFFER_SIZE = 1024
+BUFFER_SIZE = 512
 
 known_users = {}
 buffered_users = {}
