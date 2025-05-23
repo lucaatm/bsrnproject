@@ -1,4 +1,4 @@
-from gui_oeffnen import MainUI
+##from gui_oeffnen import MainUI
 from cli_chat import start_cli
 import sys
 import os, toml
@@ -43,12 +43,13 @@ def main():
     auswahl = input("Auswahl (1/2): ").strip()
 
     if auswahl == "1":
-        from PyQt5.QtWidgets import QApplication
-        app = QApplication(sys.argv)
-        ui = MainUI()
-        ui.show()
-        sys.exit(app.exec_())
-    elif auswahl == "2":
+        ##from PyQt5.QtWidgets import QApplication
+        ##app = QApplication(sys.argv)
+        ##ui = MainUI()
+        ##ui.show()
+        ##sys.exit(app.exec_())
+        print("Not available yet")
+    if auswahl == "2":
         start_cli()
     else:
         print("Ungültige Auswahl")

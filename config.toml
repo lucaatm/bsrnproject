@@ -1,6 +1,6 @@
 [user]
-handle = ""
-port = [ 5003]
+handle = "Username"
+port = [ 5003,]
 imageport = 6000
 
 [network]
