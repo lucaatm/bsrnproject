@@ -1,11 +1,9 @@
-
 import socket
 import threading
 import toml
-import os
-import time
 import discovery
 import image_handler
+import os
 
 config = toml.load("config.toml")
 HANDLE = config["user"]["handle"]
@@ -14,9 +12,7 @@ IMAGE_PORT = config["user"].get("imageport", 6000)
 WHOIS_PORT = config["network"]["whoisport"]
 BUFFER_SIZE = 512
 
-known_users = {}
-buffered_users = {}
-last_who_time = 0
+known_users = {} 
 
 
 def listen_for_messages():
@@ -26,9 +22,9 @@ def listen_for_messages():
     while True:
         data, addr = sock.recvfrom(BUFFER_SIZE)
         try:
-            message = data.decode(errors="ignore")
+            message = data.decode( errors="ignore")
         except UnicodeDecodeError:
-            continue
+          continue
         if message.startswith("KNOWNUSERS"):
             parse_knownusers(message)
         elif message.startswith(HANDLE):
@@ -38,24 +34,16 @@ def listen_for_messages():
 
 
 def parse_knownusers(message):
-    global buffered_users, last_who_time
-    parts = message.split()[1:]
+    global known_users
+    known_users.clear()
+    parts = message.split()[1:]  
     for i in range(0, len(parts), 3):
         try:
             handle, ip, port = parts[i], parts[i + 1], int(parts[i + 2])
-            buffered_users[handle] = (ip, port)
+            known_users[handle] = (ip, port)
         except (IndexError, ValueError):
             continue
-    last_who_time = time.time()
-
-def flush_known_users():
-    global known_users, buffered_users, last_who_time
-    while True:
-        time.sleep(1)
-        if buffered_users and (time.time() - last_who_time > 0.5):
-            known_users = dict(buffered_users)
-            buffered_users.clear()
-            print(f"[{HANDLE}] Aktualisierte Benutzerliste: {known_users}")
+    print(f"[{HANDLE}] Aktualisierte Benutzerliste: {known_users}")
 
 
 def send_slcp_message():
@@ -102,6 +90,7 @@ def send_slcp_message():
 
 
 def start_cli():
+    discovery.start_discovery_service()
     threading.Thread(target=listen_for_messages, daemon=True).start()
     threading.Thread(target=image_handler.receive_image, args=(None, IMAGE_PORT), daemon=True).start()
     send_slcp_message()
