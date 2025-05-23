@@ -5,11 +5,12 @@ import toml
 import os
 import time
 import discovery
+import image_handler
 
 config = toml.load("config.toml")
 HANDLE = config["user"]["handle"]
 PORT = config["user"]["port"][0]
-
+IMAGE_PORT = config["user"].get("imageport", 6000)
 WHOIS_PORT = config["network"]["whoisport"]
 BUFFER_SIZE = 512
 
@@ -95,11 +96,12 @@ def send_slcp_message():
                 print(f"Unbekannter Benutzer: {empfaenger}")
                 continue
             ip, port = known_users[empfaenger]
+            image_handler.send_image(bildpfad, ip, IMAGE_PORT)
         else:
             print("Unbekannter Befehl.")
 
 
 def start_cli():
     threading.Thread(target=listen_for_messages, daemon=True).start()
-    threading.Thread(target=flush_known_users, daemon=True).start()
+    threading.Thread(target=image_handler.receive_image, args=(None, IMAGE_PORT), daemon=True).start()
     send_slcp_message()
