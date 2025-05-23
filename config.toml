@@ -1,6 +1,7 @@
 [user]
 handle = "Luca"
 port = [ 5003]
+imageport = 6000
 
 [network]
 whoisport = 8080
