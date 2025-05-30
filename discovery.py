@@ -32,7 +32,7 @@ def handle_join(tokens, addr):
     try:
         port = int(tokens[2])
         participants[handle] = (addr[0], port)
-        print(f"[Discovery] {handle} hinzugefügt: {addr[0]}:{port}")
+        print(f"[Discovery] JOIN {handle} {port}")
     except ValueError:
         print("[Discovery] Ungültiger Port in JOIN")
 
@@ -91,3 +91,5 @@ def start_discovery_service():
 def send_join(handle, port):
     message = f"JOIN {handle} {port}"
     broadcast(message)
+
+
