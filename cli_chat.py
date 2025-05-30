@@ -91,6 +91,7 @@ def send_slcp_message():
 
 def start_cli():
     discovery.start_discovery_service()
+    discovery.send_join(HANDLE, PORT) # man joint automatisch nachdem man cli startet
     threading.Thread(target=listen_for_messages, daemon=True).start()
     threading.Thread(target=image_handler.receive_image, args=(None, IMAGE_PORT), daemon=True).start()
     send_slcp_message()
