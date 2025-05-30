@@ -4,6 +4,7 @@ import toml
 import discovery
 import image_handler
 import os
+import atexit  
 
 config = toml.load("config.toml")
 HANDLE = config["user"]["handle"]
@@ -12,8 +13,17 @@ IMAGE_PORT = config["user"].get("imageport", 6000)
 WHOIS_PORT = config["network"]["whoisport"]
 BUFFER_SIZE = 512
 
-known_users = {} 
+known_users = {}
 
+def leave_chat():
+    try:
+        discovery.broadcast(f"LEAVE {HANDLE}")
+        print(f"[{HANDLE}] hat den Chat verlassen.")
+    except Exception as e:
+        print(f"[Fehler beim Verlassen] {e}")
+
+# Automatisch LEAVE beim Beenden
+atexit.register(leave_chat)
 
 def listen_for_messages():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -22,9 +32,9 @@ def listen_for_messages():
     while True:
         data, addr = sock.recvfrom(BUFFER_SIZE)
         try:
-            message = data.decode( errors="ignore")
+            message = data.decode(errors="ignore")
         except UnicodeDecodeError:
-          continue
+            continue
         if message.startswith("KNOWNUSERS"):
             parse_knownusers(message)
         elif message.startswith(HANDLE):
@@ -32,11 +42,10 @@ def listen_for_messages():
         else:
             print(f"[{addr[0]}]: {message}")
 
-
 def parse_knownusers(message):
     global known_users
     known_users.clear()
-    parts = message.split()[1:]  
+    parts = message.split()[1:]
     for i in range(0, len(parts), 3):
         try:
             handle, ip, port = parts[i], parts[i + 1], int(parts[i + 2])
@@ -45,11 +54,9 @@ def parse_knownusers(message):
             continue
     print(f"[{HANDLE}] Aktualisierte Benutzerliste: {known_users}")
 
-
 def send_slcp_message():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     print("SLCP: JOIN <Handle> <Port>, LEAVE <Handle>, WHO, MSG <Handle> <Nachricht>, IMG <Handle> <Bilddatei>")
-
     while True:
         user_input = input(f"{HANDLE}: ").strip()
         if not user_input:
@@ -60,7 +67,7 @@ def send_slcp_message():
         if command == "JOIN":
             discovery.send_join(HANDLE, PORT)
         elif command == "LEAVE":
-            discovery.broadcast(f"LEAVE {HANDLE}")
+            leave_chat()  # auch hier integriert
         elif command == "WHO":
             discovery.broadcast("WHO")
         elif command == "MSG":
@@ -88,10 +95,9 @@ def send_slcp_message():
         else:
             print("Unbekannter Befehl.")
 
-
 def start_cli():
     discovery.start_discovery_service()
-    discovery.send_join(HANDLE, PORT) # man joint automatisch nachdem man cli startet
+    discovery.send_join(HANDLE, PORT)
     threading.Thread(target=listen_for_messages, daemon=True).start()
     threading.Thread(target=image_handler.receive_image, args=(None, IMAGE_PORT), daemon=True).start()
     send_slcp_message()
