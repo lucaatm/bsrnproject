@@ -1,6 +1,6 @@
 import socket
-import discovery
-import image_handler
+import core.discovery as discovery
+import core.image_handler as image_handler
 
 BUFFER_SIZE = 512
 

@@ -1,12 +1,12 @@
-# cli_chat.py
+# cli/cli_chat.py
 
 import threading
 import toml
 import atexit
-from slcp import SLCPChat
-import discovery
+from core.slcp import SLCPChat
+import core.discovery as discovery
 
-config = toml.load("config.toml")
+config = toml.load("resources/config.toml")
 HANDLE = config["user"]["handle"]
 PORT = config["user"]["port"][0]
 IMAGE_PORT = config["user"].get("imageport", 6000)

@@ -1,9 +1,11 @@
-##from gui_oeffnen import MainUI
-import cli_chat
+##from open_gui import MainUI
+from config.config_loader import load_config, save_config
+import cli.cli_chat as cli_chat
 import sys
 import os, toml
 
-CONFIG_PATH = "config.toml"
+
+CONFIG_PATH = "resources/config.toml"
 
 def initialize_user():
     if not os.path.exists(CONFIG_PATH):
