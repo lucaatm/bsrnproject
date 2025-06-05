@@ -5,7 +5,7 @@ import os, toml
 
 CONFIG_PATH = "config.toml"
 
-def initialisiere_nutzer():
+def initialize_user():
     if not os.path.exists(CONFIG_PATH):
         print("⚠️ config.toml wurde nicht gefunden. Wird neu erstellt.")
         default_config = {
@@ -37,7 +37,7 @@ def initialisiere_nutzer():
 
 def main():
     print("Starte BSRN Chat")
-    initialisiere_nutzer()
+    initialize_user()
     print("1 = GUI starten")
     print("2 = CLI starten")
     auswahl = input("Auswahl (1/2): ").strip()

@@ -56,7 +56,7 @@ def parse_knownusers(message):
 
 def send_slcp_message():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    print("SLCP: JOIN <Handle> <Port>, LEAVE <Handle>, WHO, MSG <Handle> <Nachricht>, IMG <Handle> <Bilddatei>")
+    print("SLCP: JOIN <Handle> <Port>, LEAVE <Handle>, WHO, MSG <Handle> <message>, IMG <Handle> <Bilddatei>")
     while True:
         user_input = input(f"{HANDLE}: ").strip()
         if not user_input:
@@ -75,23 +75,23 @@ def send_slcp_message():
             if len(parts) != 3:
                 print("Falsches Format. Beispiel: MSG Bob Hallo")
                 continue
-            _, empfaenger, nachricht = parts
-            if empfaenger not in known_users:
-                print(f"Unbekannter Benutzer: {empfaenger}")
+            _, recipiant, message = parts
+            if recipiant not in known_users:
+                print(f"Unbekannter Benutzer: {recipiant}")
                 continue
-            ip, port = known_users[empfaenger]
-            sock.sendto(f"{HANDLE}: {nachricht}".encode(), (ip, port))
+            ip, port = known_users[recipiant]
+            sock.sendto(f"{HANDLE}: {message}".encode(), (ip, port))
         elif command == "IMG":
             parts = user_input.split(" ", 2)
             if len(parts) != 3:
                 print("Falsches Format. Beispiel: IMG Bob bild.png")
                 continue
-            _, empfaenger, bildpfad = parts
-            if empfaenger not in known_users:
-                print(f"Unbekannter Benutzer: {empfaenger}")
+            _, recipiant, image_path = parts
+            if recipiant not in known_users:
+                print(f"Unbekannter Benutzer: {recipiant}")
                 continue
-            ip, port = known_users[empfaenger]
-            image_handler.send_image(bildpfad, ip, IMAGE_PORT)
+            ip, port = known_users[recipiant]
+            image_handler.send_image(image_path, ip, IMAGE_PORT)
         else:
             print("Unbekannter Befehl.")
 
