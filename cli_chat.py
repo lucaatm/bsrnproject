@@ -1,103 +1,72 @@
-import socket
+# cli_chat.py
+
 import threading
 import toml
+import atexit
+from slcp import SLCPChat
 import discovery
-import image_handler
-import os
-import atexit  
 
 config = toml.load("config.toml")
 HANDLE = config["user"]["handle"]
 PORT = config["user"]["port"][0]
 IMAGE_PORT = config["user"].get("imageport", 6000)
 WHOIS_PORT = config["network"]["whoisport"]
-BUFFER_SIZE = 512
 
-known_users = {}
+chat = SLCPChat(HANDLE, PORT, IMAGE_PORT, WHOIS_PORT)
 
 def leave_chat():
     try:
-        discovery.broadcast(f"LEAVE {HANDLE}")
+        chat.leave()
         print(f"[{HANDLE}] hat den Chat verlassen.")
     except Exception as e:
         print(f"[Fehler beim Verlassen] {e}")
 
-# Automatisch LEAVE beim Beenden
 atexit.register(leave_chat)
 
-def listen_for_messages():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.bind(("", PORT))
-    print(f"[{HANDLE}] Empfang läuft auf Port {PORT}")
-    while True:
-        data, addr = sock.recvfrom(BUFFER_SIZE)
-        try:
-            message = data.decode(errors="ignore")
-        except UnicodeDecodeError:
-            continue
-        if message.startswith("KNOWNUSERS"):
-            parse_knownusers(message)
-        elif message.startswith(HANDLE):
-            print(f"[{addr[0]}]: {message}")
-        else:
-            print(f"[{addr[0]}]: {message}")
+def on_message(message, addr):
+    if message.startswith("KNOWNUSERS"):
+        users = chat.parse_knownusers(message)
+        print(f"[{HANDLE}] Aktualisierte Benutzerliste: {users}")
+    elif message.startswith(HANDLE):
+        print(f"[{addr[0]}]: {message}")
+    else:
+        print(f"[{addr[0]}]: {message}")
 
-def parse_knownusers(message):
-    global known_users
-    known_users.clear()
-    parts = message.split()[1:]
-    for i in range(0, len(parts), 3):
-        try:
-            handle, ip, port = parts[i], parts[i + 1], int(parts[i + 2])
-            known_users[handle] = (ip, port)
-        except (IndexError, ValueError):
-            continue
-    print(f"[{HANDLE}] Aktualisierte Benutzerliste: {known_users}")
-
-def send_slcp_message():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    print("SLCP: JOIN <Handle> <Port>, LEAVE <Handle>, WHO, MSG <Handle> <message>, IMG <Handle> <Bilddatei>")
+def input_loop():
+    print("SLCP: JOIN, LEAVE, WHO, MSG <Handle> <Nachricht>, IMG <Handle> <Bilddatei>")
     while True:
         user_input = input(f"{HANDLE}: ").strip()
         if not user_input:
             continue
 
-        command = user_input.split(" ", 1)[0].upper()
+        parts = user_input.split(" ", 2)
+        command = parts[0].upper()
 
         if command == "JOIN":
-            discovery.send_join(HANDLE, PORT)
+            chat.send_join()
         elif command == "LEAVE":
-            leave_chat()  # auch hier integriert
+            leave_chat()
         elif command == "WHO":
-            discovery.broadcast("WHO")
-        elif command == "MSG":
-            parts = user_input.split(" ", 2)
-            if len(parts) != 3:
-                print("Falsches Format. Beispiel: MSG Bob Hallo")
-                continue
-            _, recipiant, message = parts
-            if recipiant not in known_users:
-                print(f"Unbekannter Benutzer: {recipiant}")
-                continue
-            ip, port = known_users[recipiant]
-            sock.sendto(f"{HANDLE}: {message}".encode(), (ip, port))
-        elif command == "IMG":
-            parts = user_input.split(" ", 2)
-            if len(parts) != 3:
-                print("Falsches Format. Beispiel: IMG Bob bild.png")
-                continue
-            _, recipiant, image_path = parts
-            if recipiant not in known_users:
-                print(f"Unbekannter Benutzer: {recipiant}")
-                continue
-            ip, port = known_users[recipiant]
-            image_handler.send_image(image_path, ip, IMAGE_PORT)
+            chat.request_who()
+        elif command == "MSG" and len(parts) == 3:
+            _, recipient, message = parts
+            success, error = chat.send_message(recipient, message)
+            if not success:
+                print(error)
+        elif command == "IMG" and len(parts) == 3:
+            _, recipient, image_path = parts
+            success, error = chat.send_image(recipient, image_path)
+            if not success:
+                print(error)
         else:
-            print("Unbekannter Befehl.")
+            print("Ungültiger Befehl.")
 
-def start_cli():
+def main():
     discovery.start_discovery_service()
-    discovery.send_join(HANDLE, PORT)
-    threading.Thread(target=listen_for_messages, daemon=True).start()
-    threading.Thread(target=image_handler.receive_image, args=(None, IMAGE_PORT), daemon=True).start()
-    send_slcp_message()
+    chat.send_join()
+    threading.Thread(target=chat.listen_for_messages, args=(on_message,), daemon=True).start()
+    threading.Thread(target=chat.receive_images, daemon=True).start()
+    input_loop()
+
+if __name__ == "__main__":
+    main()

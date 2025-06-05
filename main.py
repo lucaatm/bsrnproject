@@ -1,5 +1,5 @@
 ##from gui_oeffnen import MainUI
-from cli_chat import start_cli
+import cli_chat
 import sys
 import os, toml
 
@@ -49,8 +49,8 @@ def main():
         ##ui.show()
         ##sys.exit(app.exec_())
         print("Not available yet")
-    if auswahl == "2":
-        start_cli()
+    elif auswahl == "2":
+        cli_chat.main()
     else:
         print("Ungültige Auswahl")
 
