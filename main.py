@@ -1,11 +1,13 @@
-##from gui_oeffnen import MainUI
-from cli_chat import start_cli
+
+from config.config_loader import load_config, save_config
+import cli.cli_chat as cli_chat
 import sys
 import os, toml
 
-CONFIG_PATH = "config.toml"
 
-def initialisiere_nutzer():
+CONFIG_PATH = "resources/config.toml"
+
+def initialize_user():
     if not os.path.exists(CONFIG_PATH):
         print("⚠️ config.toml wurde nicht gefunden. Wird neu erstellt.")
         default_config = {
@@ -37,20 +39,16 @@ def initialisiere_nutzer():
 
 def main():
     print("Starte BSRN Chat")
-    initialisiere_nutzer()
+    initialize_user()
     print("1 = GUI starten")
     print("2 = CLI starten")
     auswahl = input("Auswahl (1/2): ").strip()
 
     if auswahl == "1":
-        ##from PyQt5.QtWidgets import QApplication
-        ##app = QApplication(sys.argv)
-        ##ui = MainUI()
-        ##ui.show()
-        ##sys.exit(app.exec_())
+       
         print("Not available yet")
-    if auswahl == "2":
-        start_cli()
+    elif auswahl == "2":
+        cli_chat.main()
     else:
         print("Ungültige Auswahl")
 

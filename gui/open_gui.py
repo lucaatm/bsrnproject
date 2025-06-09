@@ -8,7 +8,7 @@ class ChatWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
 
-        ui_datei = os.path.join(os.path.dirname(__file__), "guidesign_bsrn.ui")
+        ui_datei = os.path.join(os.path.dirname(__file__), "gui_design.ui")
         uic.loadUi(ui_datei, self)
 
      
