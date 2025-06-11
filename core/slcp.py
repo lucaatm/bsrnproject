@@ -24,14 +24,14 @@ class SLCPChat:
 
     def send_message(self, recipient, message):
         if recipient not in self.known_users:
-            return False, f"Unbekannter Benutzer: {recipient}"
+            return False, f"Unknown user: {recipient}"
         ip, port = self.known_users[recipient]
         self.sock.sendto(f"{self.handle}: {message}".encode(), (ip, port))
         return True, None
 
     def send_image(self, recipient, image_path):
         if recipient not in self.known_users:
-            return False, f"Unbekannter Benutzer: {recipient}"
+            return False, f"Unknown user: {recipient}"
         ip, _ = self.known_users[recipient]
         image_handler.send_image(image_path, ip, self.image_port)
         return True, None

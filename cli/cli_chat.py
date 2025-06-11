@@ -6,6 +6,7 @@ import atexit
 from core.slcp import SLCPChat
 import core.discovery as discovery
 import time
+from prettytable import PrettyTable
 
 config = toml.load("resources/config.toml")
 HANDLE = config["user"]["handle"]
@@ -30,26 +31,37 @@ def on_message(message, addr):
     if message.startswith("KNOWNUSERS"):
         users = chat.parse_knownusers(message)
         print("Known users:")
+
+
+
+        t = PrettyTable(['Name', 'IP', "Port"])
+
+
+
+
+
         for user in users:
-            print(f"User: {user},\t\t IP: {users[user][0]},\t\t Port: {users[user][1]}")
+            t.add_row([user, users[user][0], users[user][1]])
+            ## print(f"{user}\tIP: {users[user][0]}\tPort: {users[user][1]}")
+        print(t)
     elif message.startswith(HANDLE):
         print(f"[{addr[0]}]: {message}")
     else:
         print(f"[{addr[0]}]: {message}")
 
+        # Always reload config for up-to-date INACTIVE and AUTOREPLYMSG
+        config = toml.load("resources/config.toml")
+        inactive = config["user"].get("inactive", False)
+        autoreplymsg = config["user"].get("autoreply", "")
 
-
-        # Automatische Antwort, wenn INACTIVE aktiv ist
-        if INACTIVE:
+        if inactive:
             sender_handle = message.split()[0].replace(":", "")
             if sender_handle != HANDLE:
-                # Versuche über known_users, sonst direkt an Absenderadresse
-                success, error = chat.send_message(sender_handle, AUTOREPLYMSG)
+                success, error = chat.send_message(sender_handle, autoreplymsg)
                 if not success:
-                    # Fallback: direkt an Absender-IP und Port antworten
                     try:
-                        chat.sock.sendto(f"{HANDLE}: {AUTOREPLYMSG}".encode(), addr)
-                        print(f"[AutoReply] Nachricht an {sender_handle} gesendet: {AUTOREPLYMSG}")
+                        chat.sock.sendto(f"{HANDLE}: {autoreplymsg}".encode(), addr)
+                        print(f"[AutoReply] Nachricht an {sender_handle} gesendet: {autoreplymsg}")
                     except Exception as e:
                         print(f"[AutoReply-Error] {e}")
 
@@ -63,7 +75,7 @@ def input_loop():
     while True:
         user_input = input(f"{HANDLE}: ").strip()
         if not user_input:
-            return
+            continue  # instead of return
 
         parts = user_input.split(" ", 2)
         command = parts[0].upper()
@@ -176,18 +188,20 @@ def input_loop():
 
         ## HELP-Command
         elif command == "HELP":
+            print("—————————————————————")
             print("Commands available:")
-            print("JOIN - Join the chat.")
-            print("LEAVE - Leave the chat.")
-            print("WHO - Show all known users.")
-            print("MSG <Handle> <Message> - Send a message to a specific user.")
-            print("IMG <Handle> <ImagePath> - Send an image to a specific user.")
-            print("CONFIG Handle <Handle> - Change your handle.")
-            print("CONFIG Port <Port> - Change your port.")
-            print("CONFIG ImagePort <ImagePort> - Change your image-port.")
-            print("CONFIG Inactive <ON/OFF> - Activate/deactivate autoreply.")
-            print("CONFIG Autoreply <Message> - Change the autoreply message.")
-            print("HELP - Show this help page.")
+            print("—————————————————————")
+            print("JOIN\t\t\t\tJoin the chat.")
+            print("LEAVE\t\t\t\tLeave the chat.")
+            print("WHO\t\t\t\tShow all known users.")
+            print("MSG <Handle> <Message>\t\tSend a message to a specific user.")
+            print("IMG <Handle> <ImagePath>\tSend an image to a specific user.")
+            print("CONFIG Handle <Handle>\t\tChange your handle.")
+            print("CONFIG Port <Port>\t\tChange your port.")
+            print("CONFIG ImagePort <ImagePort>\tChange your image-port.")
+            print("CONFIG Inactive <ON/OFF>\tActivate/deactivate autoreply.")
+            print("CONFIG Autoreply <Message>\tChange the autoreply message.")
+            print("HELP\t\t\t\tShow this help page.")
 
         else:
             print("Unknown command.")
