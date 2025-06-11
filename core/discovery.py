@@ -32,9 +32,9 @@ def handle_join(tokens, addr):
     try:
         port = int(tokens[2])
         participants[handle] = (addr[0], port)
-        print(f"[Discovery] JOIN {handle} {port}")
+        print(f"[Discovery] {handle} just joined!")
     except ValueError:
-        print("[Discovery] Ungültiger Port in JOIN")
+        print("[Discovery] Invalid port in JOIN")
 
 
 def handle_leave(tokens, addr):
@@ -43,7 +43,7 @@ def handle_leave(tokens, addr):
     handle = tokens[1]
     if handle in participants:
         del participants[handle]
-        print(f"[Discovery] {handle} entfernt")
+        print(f"[Discovery] {handle} just left!")
 
 def handle_who(addr):
     if not participants:
@@ -53,7 +53,7 @@ def handle_who(addr):
        if ip == addr[0]:  
             response = "KNOWNUSERS " + " ".join(f"{h} {ip} {p}" for h, (ip, p) in participants.items())
             send_direct(ip, p, response)  
-            print(f"[Discovery] KNOWNUSERS an {ip}:{p} gesendet")
+            print(f"[Discovery] KNOWNUSERS an {h} gesendet")
             return
 
 
@@ -62,7 +62,7 @@ def listen():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     sock.bind(('', WHOIS_PORT))
-    print(f"[Discovery] Lauscht auf Port {WHOIS_PORT}")
+    print(f"[Discovery] Listening on port {WHOIS_PORT}")
 
     while True:
         try:
@@ -80,7 +80,7 @@ def listen():
             elif command == "WHO":
                 handle_who(addr)
         except Exception as e:
-            print(f"[Discovery-Fehler] {e}")
+            print(f"[Discovery-Error] {e}")
 
 
 def start_discovery_service():

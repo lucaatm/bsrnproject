@@ -8,7 +8,7 @@ BUFFER_SIZE = 512
 
 def send_image(image_path, target_ip, target_port):
     if not os.path.isfile(image_path):
-        print(f"[Fehler] Datei nicht gefunden: {image_path}")
+        print(f"[Error] File not found: {image_path}")
         return
 
     with open(image_path, "rb") as f:
@@ -38,7 +38,7 @@ def receive_image(callback=None, port=5002, save_dir="./received_images"):
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.bind(("", port))
-    print(f"[Bild-Empfänger] Lauscht auf Port {port}...")
+    print(f"[Image-Handler] Listening on port: {port}...")
 
     while True:
         try:

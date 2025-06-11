@@ -1,7 +1,9 @@
 [user]
-handle = "Ani"
+handle = "Luca"
 port = [ 5001,]
 imageport = 6000
+inactive = false
+autoreply = "Hi! Not here."
 
 [network]
 whoisport = 4000

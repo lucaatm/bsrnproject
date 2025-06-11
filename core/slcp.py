@@ -45,6 +45,7 @@ class SLCPChat:
                 self.known_users[handle] = (ip, port)
             except (IndexError, ValueError):
                 continue
+            
         return self.known_users
 
     def listen_for_messages(self, on_message):

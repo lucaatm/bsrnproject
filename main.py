@@ -1,4 +1,3 @@
-##from open_gui import MainUI
 from config.config_loader import load_config, save_config
 import cli.cli_chat as cli_chat
 import sys
@@ -36,7 +35,6 @@ def initialize_user():
     else:
         print(f"Willkommen zurück, {config['user']['handle']}!")
 
-
 def main():
     print("Starte BSRN Chat")
     initialize_user()
@@ -45,11 +43,6 @@ def main():
     auswahl = input("Auswahl (1/2): ").strip()
 
     if auswahl == "1":
-        ##from PyQt5.QtWidgets import QApplication
-        ##app = QApplication(sys.argv)
-        ##ui = MainUI()
-        ##ui.show()
-        ##sys.exit(app.exec_())
         print("Not available yet")
     elif auswahl == "2":
         cli_chat.main()
