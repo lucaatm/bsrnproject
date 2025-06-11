@@ -2,10 +2,14 @@ import socket
 import os
 import platform
 import subprocess
+import toml
+
+config = toml.load("resources/config.toml")
 
 BUFFER_SIZE = 512
+IMAGEPATH = config["image"]["imagepath"]
 
-
+## Sends an image to a target IP and port using UDP
 def send_image(image_path, target_ip, target_port):
     if not os.path.isfile(image_path):
         print(f"[Error] File not found: {image_path}")
@@ -31,8 +35,8 @@ def send_image(image_path, target_ip, target_port):
     sock.close()
     print(f"[Bild gesendet] {image_name} ({image_size} Bytes)")
 
-
-def receive_image(callback=None, port=5002, save_dir="./received_images"):
+## Receives images sent via UDP and saves them to the specified directory
+def receive_image(callback=None, port=5002, save_dir=IMAGEPATH):
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
 

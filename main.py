@@ -3,7 +3,6 @@ import cli.cli_chat as cli_chat
 import sys
 import os, toml
 
-
 CONFIG_PATH = "resources/config.toml"
 
 def initialize_user():
@@ -48,7 +47,6 @@ def main():
         cli_chat.main()
     else:
         print("Ungültige Auswahl")
-
 
 if __name__ == "__main__":
     main()

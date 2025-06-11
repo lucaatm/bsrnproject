@@ -18,36 +18,31 @@ AUTOREPLYMSG = config["user"]["autoreply"]
 
 chat = SLCPChat(HANDLE, PORT, IMAGE_PORT, WHOIS_PORT)
 
+## Mechanism to leave the chat
 def leave_chat():
     try:
         chat.leave()
-        print(f"[{HANDLE}] just left!")
+        print(f"[{HANDLE}] You just left!")
     except Exception as e:
         print(f"[Error] Could not leave. {e}")
 
+## Leave the chat on exit
 atexit.register(leave_chat)
 
+## Callback function to handle incoming messages
+## Includes handling of known users, messages, and autoreplies
 def on_message(message, addr):
     if message.startswith("KNOWNUSERS"):
         users = chat.parse_knownusers(message)
         print("Known users:")
-
-
-
         t = PrettyTable(['Name', 'IP', "Port"])
-
-
-
-
-
         for user in users:
             t.add_row([user, users[user][0], users[user][1]])
-            ## print(f"{user}\tIP: {users[user][0]}\tPort: {users[user][1]}")
         print(t)
     elif message.startswith(HANDLE):
-        print(f"[{addr[0]}]: {message}")
+        print(f"{message}")
     else:
-        print(f"[{addr[0]}]: {message}")
+        print(f"{message}")
 
         # Always reload config for up-to-date INACTIVE and AUTOREPLYMSG
         config = toml.load("resources/config.toml")
@@ -65,15 +60,14 @@ def on_message(message, addr):
                     except Exception as e:
                         print(f"[AutoReply-Error] {e}")
 
-
-
-
+## Function to handle user input in a loop
+## infinite loop to keep the CLI running
 def input_loop():
-    print("You already Joined the chat as:", HANDLE, ". Enter 'WHO' to see other online users.")
+    print("\nYou already joined the chat as '" + HANDLE + "'. Enter 'WHO' to see other online users.")
     print("Use 'MSG <Handle> <Message>' to send a message, or 'IMG <Handle> <ImagePath>' to send an image.")
-    print("\nEnter 'LEAVE' to leave, 'JOIN' to join the chat.")
+    print("Enter 'LEAVE' to leave, 'JOIN' to join the chat.")
     while True:
-        user_input = input(f"{HANDLE}: ").strip()
+        user_input = input().strip()
         if not user_input:
             continue  # instead of return
 
@@ -206,12 +200,14 @@ def input_loop():
         else:
             print("Unknown command.")
 
+## Starting the discovery service, opening threads for listening to messages and images,
+## and sending the initial JOIN message as well as starting the input loop.
 def main():
     discovery.start_discovery_service()
-    chat.send_join()
     threading.Thread(target=chat.listen_for_messages, args=(on_message,), daemon=True).start()
     threading.Thread(target=chat.receive_images, daemon=True).start()
     time.sleep(0.5)
+    chat.send_join()
     input_loop()
 
 if __name__ == "__main__":
