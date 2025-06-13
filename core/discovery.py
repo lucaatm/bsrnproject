@@ -57,14 +57,16 @@ def handle_leave(tokens, addr):
 def handle_who(addr):
     if not participants:
         return
-
-    # Send only to the requester (addr)
-    response = "KNOWNUSERS " + " ".join(f"{h} {ip} {p}" for h, (ip, p) in participants.items())
-    send_direct(addr[0], addr[1], response)
-    print(f"[Discovery] KNOWNUSERS sent to {addr[0]}:{addr[1]}")
+    
+    for h, (ip,p) in participants.items():
+        if ip == addr[0]:
+            response = "KNOWNUSERS " + " ".join(f"{h} {ip} {p}" for h, (ip, p) in participants.items())
+            send_direct(ip, p,response)
+            print(f"[Discovery] KNOWNUSERS sent to {ip}:{p}")
+            return
 
 ## Listens for incoming discovery messages using the WHOIS_PORT such as JOIN, LEAVE, and WHO and handles them
-def listen():
+def listen(): 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     sock.bind(('', WHOIS_PORT))
