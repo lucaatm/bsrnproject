@@ -1,7 +1,12 @@
 [user]
-handle = "Ani"
-port = [ 5001,]
+handle = "Laptop"
+port = [ 5001 ]
 imageport = 6000
+inactive = false
+autoreply = "Hi! Not here."
+
+[image]
+imagepath = "received_images/"
 
 [network]
 whoisport = 4000

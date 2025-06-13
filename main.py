@@ -1,9 +1,7 @@
-
 from config.config_loader import load_config, save_config
 import cli.cli_chat as cli_chat
 import sys
 import os, toml
-
 
 CONFIG_PATH = "resources/config.toml"
 
@@ -36,7 +34,6 @@ def initialize_user():
     else:
         print(f"Willkommen zurück, {config['user']['handle']}!")
 
-
 def main():
     print("Starte BSRN Chat")
     initialize_user()
@@ -45,13 +42,11 @@ def main():
     auswahl = input("Auswahl (1/2): ").strip()
 
     if auswahl == "1":
-       
         print("Not available yet")
     elif auswahl == "2":
         cli_chat.main()
     else:
         print("Ungültige Auswahl")
-
 
 if __name__ == "__main__":
     main()
