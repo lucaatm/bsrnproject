@@ -1,0 +1,23 @@
+\doxysection{core/image\+\_\+handler.py File Reference}
+\hypertarget{image__handler_8py}{}\label{image__handler_8py}\index{core/image\_handler.py@{core/image\_handler.py}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceimage__handler}{image\+\_\+handler}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceimage__handler_a78d58578fc5a9cfc4cca68639b42c329}{image\+\_\+handler.\+send\+\_\+image}} (image\+\_\+path, target\+\_\+ip, target\+\_\+port)
+\begin{DoxyCompactList}\small\item\em Sends an image to a target IP and port using UDP. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceimage__handler_abd16acccab5e923e84e9992a2fb7d273}{image\+\_\+handler.\+receive\+\_\+image}} (callback=None, port=5002, save\+\_\+dir=\mbox{\hyperlink{namespaceimage__handler_ac253e13236c0c5f598beafd1a15f6e40}{IMAGEPATH}})
+\begin{DoxyCompactList}\small\item\em Receives images sent via UDP and saves them to the specified directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceimage__handler_a949822c2358c12bf48bd24729e2b9ce7}{image\+\_\+handler.\+config}} = toml.\+load("{}resources/config.\+toml"{})
+\item 
+int \mbox{\hyperlink{namespaceimage__handler_a0d2a18d8c39a16bc30388918a8483cf0}{image\+\_\+handler.\+BUFFER\+\_\+\+SIZE}} = 512
+\item 
+\mbox{\hyperlink{namespaceimage__handler_ac253e13236c0c5f598beafd1a15f6e40}{image\+\_\+handler.\+IMAGEPATH}} = \mbox{\hyperlink{namespaceimage__handler_a949822c2358c12bf48bd24729e2b9ce7}{config}}\mbox{[}"{}image"{}\mbox{]}\mbox{[}"{}imagepath"{}\mbox{]}
+\end{DoxyCompactItemize}

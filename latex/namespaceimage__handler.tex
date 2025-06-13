@@ -1,0 +1,62 @@
+\doxysection{image\+\_\+handler Namespace Reference}
+\hypertarget{namespaceimage__handler}{}\label{namespaceimage__handler}\index{image\_handler@{image\_handler}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceimage__handler_a78d58578fc5a9cfc4cca68639b42c329}{send\+\_\+image}} (image\+\_\+path, target\+\_\+ip, target\+\_\+port)
+\begin{DoxyCompactList}\small\item\em Sends an image to a target IP and port using UDP. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceimage__handler_abd16acccab5e923e84e9992a2fb7d273}{receive\+\_\+image}} (callback=None, port=5002, save\+\_\+dir=\mbox{\hyperlink{namespaceimage__handler_ac253e13236c0c5f598beafd1a15f6e40}{IMAGEPATH}})
+\begin{DoxyCompactList}\small\item\em Receives images sent via UDP and saves them to the specified directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceimage__handler_a949822c2358c12bf48bd24729e2b9ce7}{config}} = toml.\+load("{}resources/config.\+toml"{})
+\item 
+int \mbox{\hyperlink{namespaceimage__handler_a0d2a18d8c39a16bc30388918a8483cf0}{BUFFER\+\_\+\+SIZE}} = 512
+\item 
+\mbox{\hyperlink{namespaceimage__handler_ac253e13236c0c5f598beafd1a15f6e40}{IMAGEPATH}} = \mbox{\hyperlink{namespaceimage__handler_a949822c2358c12bf48bd24729e2b9ce7}{config}}\mbox{[}"{}image"{}\mbox{]}\mbox{[}"{}imagepath"{}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceimage__handler_abd16acccab5e923e84e9992a2fb7d273}\index{image\_handler@{image\_handler}!receive\_image@{receive\_image}}
+\index{receive\_image@{receive\_image}!image\_handler@{image\_handler}}
+\doxysubsubsection{\texorpdfstring{receive\_image()}{receive\_image()}}
+{\footnotesize\ttfamily \label{namespaceimage__handler_abd16acccab5e923e84e9992a2fb7d273} 
+image\+\_\+handler.\+receive\+\_\+image (\begin{DoxyParamCaption}\item[{}]{callback}{ = {\ttfamily None}, }\item[{}]{port}{ = {\ttfamily 5002}, }\item[{}]{save\+\_\+dir}{ = {\ttfamily \mbox{\hyperlink{namespaceimage__handler_ac253e13236c0c5f598beafd1a15f6e40}{IMAGEPATH}}}}\end{DoxyParamCaption})}
+
+
+
+Receives images sent via UDP and saves them to the specified directory. 
+
+\Hypertarget{namespaceimage__handler_a78d58578fc5a9cfc4cca68639b42c329}\index{image\_handler@{image\_handler}!send\_image@{send\_image}}
+\index{send\_image@{send\_image}!image\_handler@{image\_handler}}
+\doxysubsubsection{\texorpdfstring{send\_image()}{send\_image()}}
+{\footnotesize\ttfamily \label{namespaceimage__handler_a78d58578fc5a9cfc4cca68639b42c329} 
+image\+\_\+handler.\+send\+\_\+image (\begin{DoxyParamCaption}\item[{}]{image\+\_\+path}{, }\item[{}]{target\+\_\+ip}{, }\item[{}]{target\+\_\+port}{}\end{DoxyParamCaption})}
+
+
+
+Sends an image to a target IP and port using UDP. 
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespaceimage__handler_a0d2a18d8c39a16bc30388918a8483cf0}\index{image\_handler@{image\_handler}!BUFFER\_SIZE@{BUFFER\_SIZE}}
+\index{BUFFER\_SIZE@{BUFFER\_SIZE}!image\_handler@{image\_handler}}
+\doxysubsubsection{\texorpdfstring{BUFFER\_SIZE}{BUFFER\_SIZE}}
+{\footnotesize\ttfamily \label{namespaceimage__handler_a0d2a18d8c39a16bc30388918a8483cf0} 
+int image\+\_\+handler.\+BUFFER\+\_\+\+SIZE = 512}
+
+\Hypertarget{namespaceimage__handler_a949822c2358c12bf48bd24729e2b9ce7}\index{image\_handler@{image\_handler}!config@{config}}
+\index{config@{config}!image\_handler@{image\_handler}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily \label{namespaceimage__handler_a949822c2358c12bf48bd24729e2b9ce7} 
+image\+\_\+handler.\+config = toml.\+load("{}resources/config.\+toml"{})}
+
+\Hypertarget{namespaceimage__handler_ac253e13236c0c5f598beafd1a15f6e40}\index{image\_handler@{image\_handler}!IMAGEPATH@{IMAGEPATH}}
+\index{IMAGEPATH@{IMAGEPATH}!image\_handler@{image\_handler}}
+\doxysubsubsection{\texorpdfstring{IMAGEPATH}{IMAGEPATH}}
+{\footnotesize\ttfamily \label{namespaceimage__handler_ac253e13236c0c5f598beafd1a15f6e40} 
+image\+\_\+handler.\+IMAGEPATH = \mbox{\hyperlink{namespaceimage__handler_a949822c2358c12bf48bd24729e2b9ce7}{config}}\mbox{[}"{}image"{}\mbox{]}\mbox{[}"{}imagepath"{}\mbox{]}}
+

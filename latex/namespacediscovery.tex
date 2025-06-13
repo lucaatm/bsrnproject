@@ -1,0 +1,154 @@
+\doxysection{discovery Namespace Reference}
+\hypertarget{namespacediscovery}{}\label{namespacediscovery}\index{discovery@{discovery}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacediscovery_acc40d1bbc24b38cccab6c4c8308f4b99}{broadcast}} (msg)
+\begin{DoxyCompactList}\small\item\em Broadcasts a message to all participants in the network. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacediscovery_abbb5b6b278b34f3f9432190adadebf14}{send\+\_\+direct}} (ip, port, message)
+\begin{DoxyCompactList}\small\item\em Sends a direct message to a specific IP and port. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacediscovery_a0f42cd6ff77f45ea25c091445094ff13}{handle\+\_\+join}} (tokens, addr)
+\begin{DoxyCompactList}\small\item\em HANDLES Handles the JOIN command from a participant. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacediscovery_acc62fff6baf4e86c23b4cf680f419115}{handle\+\_\+leave}} (tokens, addr)
+\begin{DoxyCompactList}\small\item\em Handles the LEAVE command from a participant. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacediscovery_a21d734c4cc0411e1d7bfb924fa7ea9fc}{handle\+\_\+who}} (addr)
+\begin{DoxyCompactList}\small\item\em Handles the WHO command to list all known participants. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacediscovery_a81580e834d620291683c71036ec57192}{listen}} ()
+\begin{DoxyCompactList}\small\item\em Listens for incoming discovery messages using the WHOIS\+\_\+\+PORT such as JOIN, LEAVE, and WHO and handles them. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacediscovery_a991193ec2ebce229d4b3917c0b53f6bd}{start\+\_\+discovery\+\_\+service}} ()
+\begin{DoxyCompactList}\small\item\em Starts the discovery service which is used in \doxylink{cli__chat_8py}{cli\+\_\+chat.\+py} in a separate thread. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacediscovery_aa276fdb6d7fbf8b5125f51f1a667830a}{send\+\_\+join}} (\mbox{\hyperlink{namespacediscovery_ac38d644deb052f56a3efae94e6041a94}{handle}}, port)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacediscovery_a81b30924aaa9c7f5125dccd366f14a7f}{config}} = toml.\+load("{}resources/config.\+toml"{})
+\item 
+\mbox{\hyperlink{namespacediscovery_ac38d644deb052f56a3efae94e6041a94}{handle}} = config.\+get("{}user"{}, \{\}).get("{}handle"{}, "{}Unknown"{})
+\item 
+\mbox{\hyperlink{namespacediscovery_a0aa97ffa8a9517aaaef75aca6b65382c}{PORT}} = config.\+get("{}user"{}, \{\}).get("{}ports"{}, \mbox{[}5001\mbox{]})\mbox{[}0\mbox{]}
+\item 
+\mbox{\hyperlink{namespacediscovery_a53bc3ff8fe5a96652e5f6bc400d3149c}{WHOIS\+\_\+\+PORT}} = config.\+get("{}network"{}, \{\}).get("{}whoisport"{}, 4000)
+\item 
+int \mbox{\hyperlink{namespacediscovery_acd23f441d9d2fc98bfcca377640f2d8f}{BUFFER\+\_\+\+SIZE}} = 512
+\item 
+dict \mbox{\hyperlink{namespacediscovery_ae844df2eb781578fb293cd470ed96293}{participants}} = \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacediscovery_acc40d1bbc24b38cccab6c4c8308f4b99}\index{discovery@{discovery}!broadcast@{broadcast}}
+\index{broadcast@{broadcast}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{broadcast()}{broadcast()}}
+{\footnotesize\ttfamily \label{namespacediscovery_acc40d1bbc24b38cccab6c4c8308f4b99} 
+discovery.\+broadcast (\begin{DoxyParamCaption}\item[{}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Broadcasts a message to all participants in the network. 
+
+\Hypertarget{namespacediscovery_a0f42cd6ff77f45ea25c091445094ff13}\index{discovery@{discovery}!handle\_join@{handle\_join}}
+\index{handle\_join@{handle\_join}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{handle\_join()}{handle\_join()}}
+{\footnotesize\ttfamily \label{namespacediscovery_a0f42cd6ff77f45ea25c091445094ff13} 
+discovery.\+handle\+\_\+join (\begin{DoxyParamCaption}\item[{}]{tokens}{, }\item[{}]{addr}{}\end{DoxyParamCaption})}
+
+
+
+HANDLES Handles the JOIN command from a participant. 
+
+\Hypertarget{namespacediscovery_acc62fff6baf4e86c23b4cf680f419115}\index{discovery@{discovery}!handle\_leave@{handle\_leave}}
+\index{handle\_leave@{handle\_leave}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{handle\_leave()}{handle\_leave()}}
+{\footnotesize\ttfamily \label{namespacediscovery_acc62fff6baf4e86c23b4cf680f419115} 
+discovery.\+handle\+\_\+leave (\begin{DoxyParamCaption}\item[{}]{tokens}{, }\item[{}]{addr}{}\end{DoxyParamCaption})}
+
+
+
+Handles the LEAVE command from a participant. 
+
+\Hypertarget{namespacediscovery_a21d734c4cc0411e1d7bfb924fa7ea9fc}\index{discovery@{discovery}!handle\_who@{handle\_who}}
+\index{handle\_who@{handle\_who}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{handle\_who()}{handle\_who()}}
+{\footnotesize\ttfamily \label{namespacediscovery_a21d734c4cc0411e1d7bfb924fa7ea9fc} 
+discovery.\+handle\+\_\+who (\begin{DoxyParamCaption}\item[{}]{addr}{}\end{DoxyParamCaption})}
+
+
+
+Handles the WHO command to list all known participants. 
+
+\Hypertarget{namespacediscovery_a81580e834d620291683c71036ec57192}\index{discovery@{discovery}!listen@{listen}}
+\index{listen@{listen}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{listen()}{listen()}}
+{\footnotesize\ttfamily \label{namespacediscovery_a81580e834d620291683c71036ec57192} 
+discovery.\+listen (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Listens for incoming discovery messages using the WHOIS\+\_\+\+PORT such as JOIN, LEAVE, and WHO and handles them. 
+
+\Hypertarget{namespacediscovery_abbb5b6b278b34f3f9432190adadebf14}\index{discovery@{discovery}!send\_direct@{send\_direct}}
+\index{send\_direct@{send\_direct}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{send\_direct()}{send\_direct()}}
+{\footnotesize\ttfamily \label{namespacediscovery_abbb5b6b278b34f3f9432190adadebf14} 
+discovery.\+send\+\_\+direct (\begin{DoxyParamCaption}\item[{}]{ip}{, }\item[{}]{port}{, }\item[{}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Sends a direct message to a specific IP and port. 
+
+\Hypertarget{namespacediscovery_aa276fdb6d7fbf8b5125f51f1a667830a}\index{discovery@{discovery}!send\_join@{send\_join}}
+\index{send\_join@{send\_join}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{send\_join()}{send\_join()}}
+{\footnotesize\ttfamily \label{namespacediscovery_aa276fdb6d7fbf8b5125f51f1a667830a} 
+discovery.\+send\+\_\+join (\begin{DoxyParamCaption}\item[{}]{handle}{, }\item[{}]{port}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespacediscovery_a991193ec2ebce229d4b3917c0b53f6bd}\index{discovery@{discovery}!start\_discovery\_service@{start\_discovery\_service}}
+\index{start\_discovery\_service@{start\_discovery\_service}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{start\_discovery\_service()}{start\_discovery\_service()}}
+{\footnotesize\ttfamily \label{namespacediscovery_a991193ec2ebce229d4b3917c0b53f6bd} 
+discovery.\+start\+\_\+discovery\+\_\+service (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Starts the discovery service which is used in \doxylink{cli__chat_8py}{cli\+\_\+chat.\+py} in a separate thread. 
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacediscovery_acd23f441d9d2fc98bfcca377640f2d8f}\index{discovery@{discovery}!BUFFER\_SIZE@{BUFFER\_SIZE}}
+\index{BUFFER\_SIZE@{BUFFER\_SIZE}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{BUFFER\_SIZE}{BUFFER\_SIZE}}
+{\footnotesize\ttfamily \label{namespacediscovery_acd23f441d9d2fc98bfcca377640f2d8f} 
+int discovery.\+BUFFER\+\_\+\+SIZE = 512}
+
+\Hypertarget{namespacediscovery_a81b30924aaa9c7f5125dccd366f14a7f}\index{discovery@{discovery}!config@{config}}
+\index{config@{config}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily \label{namespacediscovery_a81b30924aaa9c7f5125dccd366f14a7f} 
+dict discovery.\+config = toml.\+load("{}resources/config.\+toml"{})}
+
+\Hypertarget{namespacediscovery_ac38d644deb052f56a3efae94e6041a94}\index{discovery@{discovery}!handle@{handle}}
+\index{handle@{handle}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{handle}{handle}}
+{\footnotesize\ttfamily \label{namespacediscovery_ac38d644deb052f56a3efae94e6041a94} 
+discovery.\+handle = config.\+get("{}user"{}, \{\}).get("{}handle"{}, "{}Unknown"{})}
+
+\Hypertarget{namespacediscovery_ae844df2eb781578fb293cd470ed96293}\index{discovery@{discovery}!participants@{participants}}
+\index{participants@{participants}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{participants}{participants}}
+{\footnotesize\ttfamily \label{namespacediscovery_ae844df2eb781578fb293cd470ed96293} 
+dict discovery.\+participants = \{\}}
+
+\Hypertarget{namespacediscovery_a0aa97ffa8a9517aaaef75aca6b65382c}\index{discovery@{discovery}!PORT@{PORT}}
+\index{PORT@{PORT}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{PORT}{PORT}}
+{\footnotesize\ttfamily \label{namespacediscovery_a0aa97ffa8a9517aaaef75aca6b65382c} 
+discovery.\+PORT = config.\+get("{}user"{}, \{\}).get("{}ports"{}, \mbox{[}5001\mbox{]})\mbox{[}0\mbox{]}}
+
+\Hypertarget{namespacediscovery_a53bc3ff8fe5a96652e5f6bc400d3149c}\index{discovery@{discovery}!WHOIS\_PORT@{WHOIS\_PORT}}
+\index{WHOIS\_PORT@{WHOIS\_PORT}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{WHOIS\_PORT}{WHOIS\_PORT}}
+{\footnotesize\ttfamily \label{namespacediscovery_a53bc3ff8fe5a96652e5f6bc400d3149c} 
+discovery.\+WHOIS\+\_\+\+PORT = config.\+get("{}network"{}, \{\}).get("{}whoisport"{}, 4000)}
+
