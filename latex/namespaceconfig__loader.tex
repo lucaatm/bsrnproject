@@ -4,9 +4,9 @@
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{namespaceconfig__loader_a7f16cfe1fcd69b44fbc587186303d38c}{load\+\_\+config}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Lädt die Konfiguration aus der angegebenen TOML-\/\+Datei. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespaceconfig__loader_a4dc5e2ccf994d757f88dcd25297fc2a8}{save\+\_\+config}} (config)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Speichert die gegebene Konfiguration in der angegebenen TOML-\/\+Datei. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -21,12 +21,31 @@ str \mbox{\hyperlink{namespaceconfig__loader_a7875791f23405c158058bd5c2567ff9e}{
 {\footnotesize\ttfamily \label{namespaceconfig__loader_a7f16cfe1fcd69b44fbc587186303d38c} 
 config\+\_\+loader.\+load\+\_\+config (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Lädt die Konfiguration aus der angegebenen TOML-\/\+Datei. 
+
+\begin{DoxyReturn}{Returns}
+Gibt die geladene Konfiguration als Dictionary zurück. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Raises File\+Not\+Found\+Error Wenn die Konfigurationsdatei nicht gefunden wird. 
+\end{DoxyNote}
 \Hypertarget{namespaceconfig__loader_a4dc5e2ccf994d757f88dcd25297fc2a8}\index{config\_loader@{config\_loader}!save\_config@{save\_config}}
 \index{save\_config@{save\_config}!config\_loader@{config\_loader}}
 \doxysubsubsection{\texorpdfstring{save\_config()}{save\_config()}}
 {\footnotesize\ttfamily \label{namespaceconfig__loader_a4dc5e2ccf994d757f88dcd25297fc2a8} 
 config\+\_\+loader.\+save\+\_\+config (\begin{DoxyParamCaption}\item[{}]{config}{}\end{DoxyParamCaption})}
 
+
+
+Speichert die gegebene Konfiguration in der angegebenen TOML-\/\+Datei. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & Der zu speichernde Dictionary-\/\+Eintrag. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Variable Documentation}

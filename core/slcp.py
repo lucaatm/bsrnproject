@@ -1,64 +1,73 @@
 import socket
-import threading
+import core.discovery as discovery
+import core.image_handler as image_handler
 
+BUFFER_SIZE = 512
 
 class SLCPChat:
-    def __init__(self, username, listen_port, peers):
-        self.username = username
-        self.listen_port = listen_port
-        self.peers = peers  # Liste von (IP, Port)
-        self.running = False
-        self.callback = None  # Wird gesetzt durch register_callback()
-
-        # UDP-Socket einrichten
+    def __init__(self, handle, port, image_port, whois_port):
+        self.handle = handle
+        self.port = port
+        self.image_port = image_port
+        self.whois_port = whois_port
+        self.known_users = {}
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.sock.bind(("0.0.0.0", self.listen_port))
 
-    def start(self):
-        self.running = True
-        self.thread = threading.Thread(target=self.listen_loop, daemon=True)
-        self.thread.start()
+    ## SLCPChat is used by cli_chat.py to handle the chat functionality and is used in cli_chat.py in input_loop
 
-    def stop(self):
-        self.running = False
-        try:
-            self.sock.close()
-        except Exception:
-            pass
+    ## Sends a JOIN message to the discovery service
+    def send_join(self):
+        discovery.send_join(self.handle, self.port)
 
-    def register_callback(self, callback):
-        """Setzt die Methode, die auf empfangene Nachrichten reagieren soll."""
-        self.callback = callback
+    ## Sends a LEAVE message to the discovery service
+    def leave(self):
+        discovery.broadcast(f"LEAVE {self.handle}")
 
-    def send_message(self, message):
-        """Sendet die Nachricht an alle eingetragenen Peers."""
-        if not message:
-            return
+    ## Sends a broadcast WHO request to the discovery service to get a list of known users
+    def request_who(self):
+        discovery.broadcast("WHO")
 
-        full_message = f"{self.username}:{message}"
-        data = full_message.encode("utf-8")
+    ## Sends a message to a specific user
+    def send_message(self, recipient, message):
+        if recipient not in self.known_users:
+            return False, f"Unknown user: {recipient}"
+        ip, port = self.known_users[recipient]
+        self.sock.sendto(f"{self.handle}: {message}".encode(), (ip, port))
+        return True, None
 
-        for ip, port in self.peers:
+    ## Sends an image to a specific user
+    def send_image(self, recipient, image_path):
+        if recipient not in self.known_users:
+            return False, f"Unknown user: {recipient}"
+        ip, _ = self.known_users[recipient]
+        image_handler.send_image(image_path, ip, self.image_port)
+        return True, None
+
+    ## Parses the KNOWNUSERS message to update the list of known users
+    def parse_knownusers(self, message):
+        self.known_users.clear()
+        parts = message.split()[1:]
+        for i in range(0, len(parts), 3):
             try:
-                self.sock.sendto(data, (ip, port))
-            except Exception as e:
-                print(f"[Fehler beim Senden an {ip}:{port}] {e}")
+                handle, ip, port = parts[i], parts[i + 1], int(parts[i + 2])
+                self.known_users[handle] = (ip, port)
+            except (IndexError, ValueError):
+                continue
+            
+        return self.known_users
 
-    def listen_loop(self):
-        while self.running:
+    ## Listens for incoming messages and calls the provided callback function on_message
+    def listen_for_messages(self, on_message):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.bind(("", self.port))
+        while True:
+            data, addr = sock.recvfrom(BUFFER_SIZE)
             try:
-                data, addr = self.sock.recvfrom(4096)
-                text = data.decode("utf-8")
+                message = data.decode(errors="ignore")
+            except UnicodeDecodeError:
+                continue
+            on_message(message, addr)
 
-                # Erwartetes Format: "Username:Nachricht"
-                if ":" in text:
-                    sender, message = text.split(":", 1)
-                else:
-                    sender, message = "Unbekannt", text
-
-                if self.callback:
-                    self.callback(sender.strip(), message.strip())
-
-            except Exception as e:
-                if self.running:
-                    print(f"[Empfangsfehler] {e}")
+    ## Starts listening for incoming images on the specified image port
+    def receive_images(self):
+        image_handler.receive_image(self.image_port)

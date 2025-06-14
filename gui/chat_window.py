@@ -1,62 +1,46 @@
-import os
 import sys
-
-# Pfad zur Projektwurzel hinzufügen
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
+import os
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QListWidgetItem, QLabel, QWidget, QVBoxLayout
-from PyQt5.QtCore import Qt, QMetaObject, Q_ARG, pyqtSlot
-from core.slcp import SLCPChat
-
+from PyQt5.QtCore import Qt
 
 class ChatWindow(QtWidgets.QMainWindow):
-    def __init__(self, username, listen_port, peers):
+    def __init__(self):
         super().__init__()
 
-        # Lade das UI-Layout
-        ui_datei = os.path.join(os.path.dirname(__file__), "gui_design.ui")
+        ui_datei = os.path.join(os.path.dirname(__file__), "guidesign_bsrn.ui")
         uic.loadUi(ui_datei, self)
 
-        # SLCP-Chat starten
-        self.chat = SLCPChat(username=username, listen_port=listen_port, peers=peers)
-        self.chat.register_callback(self.on_message_received)
-        self.chat.start()
+        # Beispielhafte Namen zur Chatliste hinzufügen
+        self.chatList.addItems([
+            "Support",
+            "Anna",
+            "Ben",
+            "Lisa",
+            "Projektgruppe",
+            "Admin"
+        ])
 
-        # Kontakte hinzufügen
-        self.chatList.addItems(["Sohal", "Sumaya", "Luca", "Ani"])
+        # Verbindung zum Senden-Button
         self.pushButton.clicked.connect(self.nachricht_senden)
+
+        # Verbindung zur Enter-Taste im Eingabefeld
         self.lineEdit.returnPressed.connect(self.nachricht_senden)
 
-        # Begrüßung anzeigen
-        self.add_fremde_nachricht(f"Willkommen, {username}!")
+        # Begrüßung
+        self.add_fremde_nachricht("Willkommen im Chat!")
+        self.add_fremde_nachricht("Support: Wie kann ich helfen?")
+
         self.show()
 
     def nachricht_senden(self):
         text = self.lineEdit.text().strip()
         if text:
-            self.add_chat_bubble(text, align="right", color="#ccffcc")
-            self.chat.send_message(text)
+            self.add_chat_bubble(text, align="right", color="#ccffcc")  # Eigene Nachricht
             self.lineEdit.clear()
 
-    def on_message_received(self, sender, message):
-        # Thread-sicheres Update im GUI-Thread
-        def update_ui():
-            self.add_chat_bubble(f"{sender}: {message}", align="left", color="#eeeeee")
-
-        QMetaObject.invokeMethod(
-            self,
-            "invoke_ui_update",
-            Qt.QueuedConnection,
-            Q_ARG(object, update_ui)
-        )
-
-    @pyqtSlot(object)
-    def invoke_ui_update(self, func):
-        func()
-
     def add_fremde_nachricht(self, text):
-        self.add_chat_bubble(text, align="left", color="#eeeeee")
+        self.add_chat_bubble(text, align="left", color="#eeeeee")  # System oder Fremder
 
     def add_chat_bubble(self, text, align="left", color="#e6f2ff"):
         bubble_widget = QWidget()
@@ -77,6 +61,7 @@ class ChatWindow(QtWidgets.QMainWindow):
             """
         )
         label.setAlignment(Qt.AlignLeft if align == "left" else Qt.AlignRight)
+
         layout.addWidget(label, alignment=Qt.AlignLeft if align == "left" else Qt.AlignRight)
         bubble_widget.setLayout(layout)
 
@@ -84,9 +69,10 @@ class ChatWindow(QtWidgets.QMainWindow):
         item.setSizeHint(bubble_widget.sizeHint())
         self.listWidget.addItem(item)
         self.listWidget.setItemWidget(item, bubble_widget)
+
         self.listWidget.scrollToBottom()
 
-    def closeEvent(self, event):
-        self.chat.stop()
-        event.accept()
-
+if __name__ == "__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    fenster = ChatWindow()
+    sys.exit(app.exec_())

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nachricht_5fsenden_0',['nachricht_senden',['../classchat__window_1_1_chat_window.html#a7a714f4dd54dfe872cfd38f15319358a',1,'chat_window::ChatWindow']]]
+  ['on_5fmessage_0',['on_message',['../namespacecli__chat.html#a3062cc6437e0e83c35d0991f408b6421',1,'cli_chat']]]
 ];

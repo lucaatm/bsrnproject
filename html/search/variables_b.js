@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['sock_0',['sock',['../classslcp_1_1_s_l_c_p_chat.html#a47f58a21c636a84491efcd027dca57e5',1,'slcp::SLCPChat']]]
+  ['whois_5fport_0',['WHOIS_PORT',['../namespacecli__chat.html#a766e76b99241d6899f8a21c4ef346771',1,'cli_chat.WHOIS_PORT'],['../namespacediscovery.html#a53bc3ff8fe5a96652e5f6bc400d3149c',1,'discovery.WHOIS_PORT']]],
+  ['whois_5fport_1',['whois_port',['../classslcp_1_1_s_l_c_p_chat.html#a98b78541b2b3dd0ffdb5a26078df66c9',1,'slcp::SLCPChat']]]
 ];

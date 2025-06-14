@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['receive_5fimage_0',['receive_image',['../namespaceimage__handler.html#abd16acccab5e923e84e9992a2fb7d273',1,'image_handler']]],
-  ['register_5fcallback_1',['register_callback',['../classslcp_1_1_s_l_c_p_chat.html#a169209b80034b0e70b1e1f9f059771d9',1,'slcp::SLCPChat']]],
-  ['running_2',['running',['../classslcp_1_1_s_l_c_p_chat.html#a663995a53adaa43a022a0519ef0cd3a9',1,'slcp::SLCPChat']]]
+  ['parse_5fknownusers_0',['parse_knownusers',['../classslcp_1_1_s_l_c_p_chat.html#af660891532c556e3dbd11b5979c7d7e4',1,'slcp::SLCPChat']]],
+  ['participants_1',['participants',['../namespacediscovery.html#ae844df2eb781578fb293cd470ed96293',1,'discovery']]],
+  ['port_2',['PORT',['../namespacecli__chat.html#a6ef90929e4ec2c44ed42f5e7f05857af',1,'cli_chat.PORT'],['../namespacediscovery.html#a0aa97ffa8a9517aaaef75aca6b65382c',1,'discovery.PORT']]],
+  ['port_3',['port',['../classslcp_1_1_s_l_c_p_chat.html#a276d92fca7e8f232589de383826c2536',1,'slcp::SLCPChat']]]
 ];

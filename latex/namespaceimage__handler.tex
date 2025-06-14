@@ -4,14 +4,14 @@
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{namespaceimage__handler_a78d58578fc5a9cfc4cca68639b42c329}{send\+\_\+image}} (image\+\_\+path, target\+\_\+ip, target\+\_\+port)
-\begin{DoxyCompactList}\small\item\em Sends an image to a target IP and port using UDP. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespaceimage__handler_abd16acccab5e923e84e9992a2fb7d273}{receive\+\_\+image}} (callback=None, port=5002, save\+\_\+dir=\mbox{\hyperlink{namespaceimage__handler_ac253e13236c0c5f598beafd1a15f6e40}{IMAGEPATH}})
-\begin{DoxyCompactList}\small\item\em Receives images sent via UDP and saves them to the specified directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sendet ein Bild über UDP an die angegebene IP-\/\+Adresse und den Port. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceimage__handler_a32204305452143840a2624270aa2b6ae}{receive\+\_\+image}} (callback=None, port=6000, save\+\_\+dir=\mbox{\hyperlink{namespaceimage__handler_ac253e13236c0c5f598beafd1a15f6e40}{IMAGEPATH}})
+\begin{DoxyCompactList}\small\item\em Empfängt Bilder über UDP und speichert sie im angegebenen Verzeichnis. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{namespaceimage__handler_a949822c2358c12bf48bd24729e2b9ce7}{config}} = toml.\+load("{}resources/config.\+toml"{})
-\item 
+\begin{DoxyCompactList}\small\item\em Die Konfigurationsdatei wird eingelesen, um alle wichtigen Benutzereinstellungen zu laden. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{namespaceimage__handler_a0d2a18d8c39a16bc30388918a8483cf0}{BUFFER\+\_\+\+SIZE}} = 512
 \item 
 \mbox{\hyperlink{namespaceimage__handler_ac253e13236c0c5f598beafd1a15f6e40}{IMAGEPATH}} = \mbox{\hyperlink{namespaceimage__handler_a949822c2358c12bf48bd24729e2b9ce7}{config}}\mbox{[}"{}image"{}\mbox{]}\mbox{[}"{}imagepath"{}\mbox{]}
@@ -19,16 +19,26 @@ int \mbox{\hyperlink{namespaceimage__handler_a0d2a18d8c39a16bc30388918a8483cf0}{
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{namespaceimage__handler_abd16acccab5e923e84e9992a2fb7d273}\index{image\_handler@{image\_handler}!receive\_image@{receive\_image}}
+\Hypertarget{namespaceimage__handler_a32204305452143840a2624270aa2b6ae}\index{image\_handler@{image\_handler}!receive\_image@{receive\_image}}
 \index{receive\_image@{receive\_image}!image\_handler@{image\_handler}}
 \doxysubsubsection{\texorpdfstring{receive\_image()}{receive\_image()}}
-{\footnotesize\ttfamily \label{namespaceimage__handler_abd16acccab5e923e84e9992a2fb7d273} 
-image\+\_\+handler.\+receive\+\_\+image (\begin{DoxyParamCaption}\item[{}]{callback}{ = {\ttfamily None}, }\item[{}]{port}{ = {\ttfamily 5002}, }\item[{}]{save\+\_\+dir}{ = {\ttfamily \mbox{\hyperlink{namespaceimage__handler_ac253e13236c0c5f598beafd1a15f6e40}{IMAGEPATH}}}}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{namespaceimage__handler_a32204305452143840a2624270aa2b6ae} 
+image\+\_\+handler.\+receive\+\_\+image (\begin{DoxyParamCaption}\item[{}]{callback}{ = {\ttfamily None}, }\item[{}]{port}{ = {\ttfamily 6000}, }\item[{}]{save\+\_\+dir}{ = {\ttfamily \mbox{\hyperlink{namespaceimage__handler_ac253e13236c0c5f598beafd1a15f6e40}{IMAGEPATH}}}}\end{DoxyParamCaption})}
 
 
 
-Receives images sent via UDP and saves them to the specified directory. 
+Empfängt Bilder über UDP und speichert sie im angegebenen Verzeichnis. 
 
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Der Port, auf dem der Client auf eingehende Bildübertragungen wartet. \\
+\hline
+{\em save\+\_\+dir} & Das Verzeichnis, in dem die empfangenen Bilder gespeichert werden sollen. Standardmäßig ist dies der in der Konfigurationsdatei festgelegte IMAGEPATH. Wenn ein Bild empfangen wird, wird es im angegebenen Verzeichnis gespeichert und versucht, es automatisch zu öffnen. Die Funktion wird in CLI-\/\+Chat durch die Funktion {\ttfamily threading.\+Thread(target=chat.\+receive\+\_\+images, daemon=True).start()} als Daemon aufgerufen. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Diese Funktion enthält eine Endlosschleife, die auf eingehende UDP-\/\+Pakete wartet. 
+\end{DoxyNote}
 \Hypertarget{namespaceimage__handler_a78d58578fc5a9cfc4cca68639b42c329}\index{image\_handler@{image\_handler}!send\_image@{send\_image}}
 \index{send\_image@{send\_image}!image\_handler@{image\_handler}}
 \doxysubsubsection{\texorpdfstring{send\_image()}{send\_image()}}
@@ -37,9 +47,18 @@ image\+\_\+handler.\+send\+\_\+image (\begin{DoxyParamCaption}\item[{}]{image\+\
 
 
 
-Sends an image to a target IP and port using UDP. 
+Sendet ein Bild über UDP an die angegebene IP-\/\+Adresse und den Port. 
 
 
+\begin{DoxyParams}{Parameters}
+{\em image\+\_\+path} & Der Pfad zum Bild, das gesendet werden soll. \\
+\hline
+{\em target\+\_\+ip} & Die IP-\/\+Adresse des Empfängers. \\
+\hline
+{\em target\+\_\+port} & Der Port des Empfängers, an den das Bild gesendet werden soll.\\
+\hline
+\end{DoxyParams}
+Diese Funktion teilt das Bild in kleinere Pakete (mit der Größe BUFFER\+\_\+\+SIZE) auf und sendet sie über UDP. Zuvor wird ein Header gesendet, der den Namen und die exakte Größe des Bildes enthält. Diese kann verwendet werden, als Empfänger nachzuschauen, ob das Bild vollständig empfangen wurde. 
 
 \doxysubsection{Variable Documentation}
 \Hypertarget{namespaceimage__handler_a0d2a18d8c39a16bc30388918a8483cf0}\index{image\_handler@{image\_handler}!BUFFER\_SIZE@{BUFFER\_SIZE}}
@@ -53,6 +72,10 @@ int image\+\_\+handler.\+BUFFER\+\_\+\+SIZE = 512}
 \doxysubsubsection{\texorpdfstring{config}{config}}
 {\footnotesize\ttfamily \label{namespaceimage__handler_a949822c2358c12bf48bd24729e2b9ce7} 
 image\+\_\+handler.\+config = toml.\+load("{}resources/config.\+toml"{})}
+
+
+
+Die Konfigurationsdatei wird eingelesen, um alle wichtigen Benutzereinstellungen zu laden. 
 
 \Hypertarget{namespaceimage__handler_ac253e13236c0c5f598beafd1a15f6e40}\index{image\_handler@{image\_handler}!IMAGEPATH@{IMAGEPATH}}
 \index{IMAGEPATH@{IMAGEPATH}!image\_handler@{image\_handler}}

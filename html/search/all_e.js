@@ -1,19 +1,6 @@
 var searchData=
 [
-  ['save_5fconfig_0',['save_config',['../namespaceconfig__loader.html#a4dc5e2ccf994d757f88dcd25297fc2a8',1,'config_loader']]],
-  ['send_5fdirect_1',['send_direct',['../namespacediscovery.html#abbb5b6b278b34f3f9432190adadebf14',1,'discovery']]],
-  ['send_5fimage_2',['send_image',['../namespaceimage__handler.html#a78d58578fc5a9cfc4cca68639b42c329',1,'image_handler']]],
-  ['send_5fjoin_3',['send_join',['../namespacediscovery.html#aa276fdb6d7fbf8b5125f51f1a667830a',1,'discovery']]],
-  ['send_5fmessage_4',['send_message',['../classslcp_1_1_s_l_c_p_chat.html#aff387a9a8b9597a164fc2debc1cca2ac',1,'slcp::SLCPChat']]],
-  ['slcp_5',['slcp',['../namespaceslcp.html',1,'']]],
-  ['slcp_2epy_6',['slcp.py',['../slcp_8py.html',1,'']]],
-  ['slcpchat_7',['SLCPChat',['../classslcp_1_1_s_l_c_p_chat.html',1,'slcp']]],
-  ['sock_8',['sock',['../classslcp_1_1_s_l_c_p_chat.html#a47f58a21c636a84491efcd027dca57e5',1,'slcp::SLCPChat']]],
-  ['start_9',['start',['../classslcp_1_1_s_l_c_p_chat.html#a8194f344f6783ad1fe2dd3c01f077b7e',1,'slcp::SLCPChat']]],
-  ['start_5fdiscovery_5fservice_10',['start_discovery_service',['../namespacediscovery.html#a991193ec2ebce229d4b3917c0b53f6bd',1,'discovery']]],
-  ['start_5fsohal_11',['start_sohal',['../namespacestart__sohal.html',1,'']]],
-  ['start_5fsohal_2epy_12',['start_sohal.py',['../start__sohal_8py.html',1,'']]],
-  ['start_5fsumaya_13',['start_sumaya',['../namespacestart__sumaya.html',1,'']]],
-  ['start_5fsumaya_2epy_14',['start_sumaya.py',['../start__sumaya_8py.html',1,'']]],
-  ['stop_15',['stop',['../classslcp_1_1_s_l_c_p_chat.html#a4d54737157d1e461b35ec11146c30e4b',1,'slcp::SLCPChat']]]
+  ['receive_5fimage_0',['receive_image',['../namespaceimage__handler.html#a32204305452143840a2624270aa2b6ae',1,'image_handler']]],
+  ['receive_5fimages_1',['receive_images',['../classslcp_1_1_s_l_c_p_chat.html#a8e31b6ec698fef2f3d8d20dd103da117',1,'slcp::SLCPChat']]],
+  ['request_5fwho_2',['request_who',['../classslcp_1_1_s_l_c_p_chat.html#a37ca126c7b9c1793edf87ccc22c607cb',1,'slcp::SLCPChat']]]
 ];

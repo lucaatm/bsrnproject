@@ -112,15 +112,16 @@ $(function(){initNavTree('namespaceimage__handler.html',''); initResizable(true)
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a78d58578fc5a9cfc4cca68639b42c329" id="r_a78d58578fc5a9cfc4cca68639b42c329"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78d58578fc5a9cfc4cca68639b42c329">send_image</a> (image_path, target_ip, target_port)</td></tr>
-<tr class="memdesc:a78d58578fc5a9cfc4cca68639b42c329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an image to a target IP and port using UDP.  <br /></td></tr>
+<tr class="memdesc:a78d58578fc5a9cfc4cca68639b42c329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sendet ein Bild über UDP an die angegebene IP-Adresse und den Port.  <br /></td></tr>
 <tr class="separator:a78d58578fc5a9cfc4cca68639b42c329"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd16acccab5e923e84e9992a2fb7d273" id="r_abd16acccab5e923e84e9992a2fb7d273"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd16acccab5e923e84e9992a2fb7d273">receive_image</a> (callback=None, port=5002, save_dir=<a class="el" href="#ac253e13236c0c5f598beafd1a15f6e40">IMAGEPATH</a>)</td></tr>
-<tr class="memdesc:abd16acccab5e923e84e9992a2fb7d273"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives images sent via UDP and saves them to the specified directory.  <br /></td></tr>
-<tr class="separator:abd16acccab5e923e84e9992a2fb7d273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32204305452143840a2624270aa2b6ae" id="r_a32204305452143840a2624270aa2b6ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32204305452143840a2624270aa2b6ae">receive_image</a> (callback=None, port=6000, save_dir=<a class="el" href="#ac253e13236c0c5f598beafd1a15f6e40">IMAGEPATH</a>)</td></tr>
+<tr class="memdesc:a32204305452143840a2624270aa2b6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empfängt Bilder über UDP und speichert sie im angegebenen Verzeichnis.  <br /></td></tr>
+<tr class="separator:a32204305452143840a2624270aa2b6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a949822c2358c12bf48bd24729e2b9ce7" id="r_a949822c2358c12bf48bd24729e2b9ce7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a949822c2358c12bf48bd24729e2b9ce7">config</a> = toml.load(&quot;resources/config.toml&quot;)</td></tr>
+<tr class="memdesc:a949822c2358c12bf48bd24729e2b9ce7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Die Konfigurationsdatei wird eingelesen, um alle wichtigen Benutzereinstellungen zu laden.  <br /></td></tr>
 <tr class="separator:a949822c2358c12bf48bd24729e2b9ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d2a18d8c39a16bc30388918a8483cf0" id="r_a0d2a18d8c39a16bc30388918a8483cf0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d2a18d8c39a16bc30388918a8483cf0">BUFFER_SIZE</a> = 512</td></tr>
 <tr class="separator:a0d2a18d8c39a16bc30388918a8483cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,8 +129,8 @@ Variables</h2></td></tr>
 <tr class="separator:ac253e13236c0c5f598beafd1a15f6e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="abd16acccab5e923e84e9992a2fb7d273" name="abd16acccab5e923e84e9992a2fb7d273"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd16acccab5e923e84e9992a2fb7d273">&#9670;&#160;</a></span>receive_image()</h2>
+<a id="a32204305452143840a2624270aa2b6ae" name="a32204305452143840a2624270aa2b6ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32204305452143840a2624270aa2b6ae">&#9670;&#160;</a></span>receive_image()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,7 +143,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>port</em></span><span class="paramdefsep"> = </span><span class="paramdefval">5002</span>, </td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>port</em></span><span class="paramdefsep"> = </span><span class="paramdefval">6000</span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -152,7 +153,15 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Receives images sent via UDP and saves them to the specified directory. </p>
+<p>Empfängt Bilder über UDP und speichert sie im angegebenen Verzeichnis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Der Port, auf dem der Client auf eingehende Bildübertragungen wartet. </td></tr>
+    <tr><td class="paramname">save_dir</td><td>Das Verzeichnis, in dem die empfangenen Bilder gespeichert werden sollen. Standardmäßig ist dies der in der Konfigurationsdatei festgelegte IMAGEPATH. Wenn ein Bild empfangen wird, wird es im angegebenen Verzeichnis gespeichert und versucht, es automatisch zu öffnen. Die Funktion wird in CLI-Chat durch die Funktion <code>threading.Thread(target=chat.receive_images, daemon=True).start()</code> als Daemon aufgerufen. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Diese Funktion enthält eine Endlosschleife, die auf eingehende UDP-Pakete wartet. </dd></dl>
 
 </div>
 </div>
@@ -180,7 +189,16 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends an image to a target IP and port using UDP. </p>
+<p>Sendet ein Bild über UDP an die angegebene IP-Adresse und den Port. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image_path</td><td>Der Pfad zum Bild, das gesendet werden soll. </td></tr>
+    <tr><td class="paramname">target_ip</td><td>Die IP-Adresse des Empfängers. </td></tr>
+    <tr><td class="paramname">target_port</td><td>Der Port des Empfängers, an den das Bild gesendet werden soll.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Diese Funktion teilt das Bild in kleinere Pakete (mit der Größe BUFFER_SIZE) auf und sendet sie über UDP. Zuvor wird ein Header gesendet, der den Namen und die exakte Größe des Bildes enthält. Diese kann verwendet werden, als Empfänger nachzuschauen, ob das Bild vollständig empfangen wurde. </p>
 
 </div>
 </div>
@@ -210,6 +228,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Die Konfigurationsdatei wird eingelesen, um alle wichtigen Benutzereinstellungen zu laden. </p>
 
 </div>
 </div>

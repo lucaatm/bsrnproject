@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['nachricht_5fsenden_0',['nachricht_senden',['../classchat__window_1_1_chat_window.html#addc9da3bd7233e1f5b37de136c2a0ce6',1,'chat_window.ChatWindow.nachricht_senden'],['../classchat__window_1_1_chat_window.html#a7a714f4dd54dfe872cfd38f15319358a',1,'chat_window.ChatWindow.nachricht_senden(self)']]]
+  ['main_0',['main',['../namespacemain.html',1,'main'],['../namespacecli__chat.html#af6f907b40f6d767c587f865c67a5bc35',1,'cli_chat.main()'],['../namespacemain.html#a3140e9a5b6a71ffbf498198cfc471b88',1,'main.main()']]],
+  ['main_2epy_1',['main.py',['../main_8py.html',1,'']]]
 ];

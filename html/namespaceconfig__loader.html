@@ -112,8 +112,10 @@ $(function(){initNavTree('namespaceconfig__loader.html',''); initResizable(true)
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a7f16cfe1fcd69b44fbc587186303d38c" id="r_a7f16cfe1fcd69b44fbc587186303d38c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f16cfe1fcd69b44fbc587186303d38c">load_config</a> ()</td></tr>
+<tr class="memdesc:a7f16cfe1fcd69b44fbc587186303d38c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lädt die Konfiguration aus der angegebenen TOML-Datei.  <br /></td></tr>
 <tr class="separator:a7f16cfe1fcd69b44fbc587186303d38c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4dc5e2ccf994d757f88dcd25297fc2a8" id="r_a4dc5e2ccf994d757f88dcd25297fc2a8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4dc5e2ccf994d757f88dcd25297fc2a8">save_config</a> (config)</td></tr>
+<tr class="memdesc:a4dc5e2ccf994d757f88dcd25297fc2a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speichert die gegebene Konfiguration in der angegebenen TOML-Datei.  <br /></td></tr>
 <tr class="separator:a4dc5e2ccf994d757f88dcd25297fc2a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -137,6 +139,10 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Lädt die Konfiguration aus der angegebenen TOML-Datei. </p>
+<dl class="section return"><dt>Returns</dt><dd>Gibt die geladene Konfiguration als Dictionary zurück. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Raises FileNotFoundError Wenn die Konfigurationsdatei nicht gefunden wird. </dd></dl>
+
 </div>
 </div>
 <a id="a4dc5e2ccf994d757f88dcd25297fc2a8" name="a4dc5e2ccf994d757f88dcd25297fc2a8"></a>
@@ -153,6 +159,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Speichert die gegebene Konfiguration in der angegebenen TOML-Datei. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Der zu speichernde Dictionary-Eintrag. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

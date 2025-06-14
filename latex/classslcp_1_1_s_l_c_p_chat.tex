@@ -3,105 +3,157 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_ad4c187ce60ce57e85499f3c44c71b2f4}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_aeecda86dfed21f7a619787314b2080c5}{username}}, \mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_aaccea2b3f24197a14f3acc258fbd58a3}{listen\+\_\+port}}, \mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a088c275e0e67e4a91ffcbbdbca267bfa}{peers}})
+\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_aa4452e02cdf11986bcf623b22f77995e}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a5ccfaa0ae0158b761426956182f2fa51}{handle}}, \mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a276d92fca7e8f232589de383826c2536}{port}}, \mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a3aeb30ea39d8d33e58e7267e497eb298}{image\+\_\+port}}, \mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a98b78541b2b3dd0ffdb5a26078df66c9}{whois\+\_\+port}})
 \item 
-\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a8194f344f6783ad1fe2dd3c01f077b7e}{start}} (self)
-\item 
-\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a4d54737157d1e461b35ec11146c30e4b}{stop}} (self)
-\item 
-\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a169209b80034b0e70b1e1f9f059771d9}{register\+\_\+callback}} (self, \mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a532b4ed7703ac8a0047a8c1dd649d977}{callback}})
-\item 
-\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_aff387a9a8b9597a164fc2debc1cca2ac}{send\+\_\+message}} (self, message)
-\item 
-\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a529e733577fd76b89524450b6913cb65}{listen\+\_\+loop}} (self)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a14474e677b9155e40edaba2542eb6802}{send\+\_\+join}} (self)
+\begin{DoxyCompactList}\small\item\em \doxylink{classslcp_1_1_s_l_c_p_chat}{SLCPChat} is used by \doxylink{cli__chat_8py}{cli\+\_\+chat.\+py} to handle the chat functionality and is used in \doxylink{cli__chat_8py}{cli\+\_\+chat.\+py} in input\+\_\+loop. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a7f79f5edf69342de22367ca6526fff8b}{leave}} (self)
+\begin{DoxyCompactList}\small\item\em Sends a LEAVE message to the discovery service. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a37ca126c7b9c1793edf87ccc22c607cb}{request\+\_\+who}} (self)
+\begin{DoxyCompactList}\small\item\em Sends a broadcast WHO request to the discovery service to get a list of known users. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a6437f889fbd9b3a466abe53b26aff112}{send\+\_\+message}} (self, recipient, message)
+\begin{DoxyCompactList}\small\item\em Sends a message to a specific user. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a10041d7a0c73229e9eddb5516186c4c3}{send\+\_\+image}} (self, recipient, image\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Sends an image to a specific user. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_af660891532c556e3dbd11b5979c7d7e4}{parse\+\_\+knownusers}} (self, message)
+\begin{DoxyCompactList}\small\item\em Parses the KNOWNUSERS message to update the list of known users. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a173c6063a487d4d0243bd3b0c4d69141}{listen\+\_\+for\+\_\+messages}} (self, on\+\_\+message)
+\begin{DoxyCompactList}\small\item\em Listens for incoming messages and calls the provided callback function on\+\_\+message. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a8e31b6ec698fef2f3d8d20dd103da117}{receive\+\_\+images}} (self)
+\begin{DoxyCompactList}\small\item\em Starts listening for incoming images on the specified image port. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_aeecda86dfed21f7a619787314b2080c5}{username}} = username
+\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a5ccfaa0ae0158b761426956182f2fa51}{handle}} = handle
 \item 
-\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_aaccea2b3f24197a14f3acc258fbd58a3}{listen\+\_\+port}} = listen\+\_\+port
+\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a276d92fca7e8f232589de383826c2536}{port}} = port
 \item 
-\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a088c275e0e67e4a91ffcbbdbca267bfa}{peers}} = peers
+\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a3aeb30ea39d8d33e58e7267e497eb298}{image\+\_\+port}} = image\+\_\+port
 \item 
-bool \mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a663995a53adaa43a022a0519ef0cd3a9}{running}} = False
+\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a98b78541b2b3dd0ffdb5a26078df66c9}{whois\+\_\+port}} = whois\+\_\+port
 \item 
-\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a532b4ed7703ac8a0047a8c1dd649d977}{callback}} = None
+dict \mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a53eb313ea8fb19b274c9a7e9bb454581}{known\+\_\+users}} = \{\}
 \item 
 \mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_a47f58a21c636a84491efcd027dca57e5}{sock}} = socket.\+socket(socket.\+AF\+\_\+\+INET, socket.\+SOCK\+\_\+\+DGRAM)
-\item 
-\mbox{\hyperlink{classslcp_1_1_s_l_c_p_chat_acb39feb0baacc1e7ceba46cde28e6502}{thread}} = threading.\+Thread(target=self.\+listen\+\_\+loop, daemon=True)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classslcp_1_1_s_l_c_p_chat_ad4c187ce60ce57e85499f3c44c71b2f4}\index{slcp.SLCPChat@{slcp.SLCPChat}!\_\_init\_\_@{\_\_init\_\_}}
+\Hypertarget{classslcp_1_1_s_l_c_p_chat_aa4452e02cdf11986bcf623b22f77995e}\index{slcp.SLCPChat@{slcp.SLCPChat}!\_\_init\_\_@{\_\_init\_\_}}
 \index{\_\_init\_\_@{\_\_init\_\_}!slcp.SLCPChat@{slcp.SLCPChat}}
 \doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
-{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_ad4c187ce60ce57e85499f3c44c71b2f4} 
-slcp.\+SLCPChat.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{username}{, }\item[{}]{listen\+\_\+port}{, }\item[{}]{peers}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_aa4452e02cdf11986bcf623b22f77995e} 
+slcp.\+SLCPChat.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{handle}{, }\item[{}]{port}{, }\item[{}]{image\+\_\+port}{, }\item[{}]{whois\+\_\+port}{}\end{DoxyParamCaption})}
 
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classslcp_1_1_s_l_c_p_chat_a529e733577fd76b89524450b6913cb65}\index{slcp.SLCPChat@{slcp.SLCPChat}!listen\_loop@{listen\_loop}}
-\index{listen\_loop@{listen\_loop}!slcp.SLCPChat@{slcp.SLCPChat}}
-\doxysubsubsection{\texorpdfstring{listen\_loop()}{listen\_loop()}}
-{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a529e733577fd76b89524450b6913cb65} 
-slcp.\+SLCPChat.\+listen\+\_\+loop (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+\Hypertarget{classslcp_1_1_s_l_c_p_chat_a7f79f5edf69342de22367ca6526fff8b}\index{slcp.SLCPChat@{slcp.SLCPChat}!leave@{leave}}
+\index{leave@{leave}!slcp.SLCPChat@{slcp.SLCPChat}}
+\doxysubsubsection{\texorpdfstring{leave()}{leave()}}
+{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a7f79f5edf69342de22367ca6526fff8b} 
+slcp.\+SLCPChat.\+leave (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
 
-\Hypertarget{classslcp_1_1_s_l_c_p_chat_a169209b80034b0e70b1e1f9f059771d9}\index{slcp.SLCPChat@{slcp.SLCPChat}!register\_callback@{register\_callback}}
-\index{register\_callback@{register\_callback}!slcp.SLCPChat@{slcp.SLCPChat}}
-\doxysubsubsection{\texorpdfstring{register\_callback()}{register\_callback()}}
-{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a169209b80034b0e70b1e1f9f059771d9} 
-slcp.\+SLCPChat.\+register\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{callback}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Setzt die Methode, die auf empfangene Nachrichten reagieren soll.\end{DoxyVerb}
- \Hypertarget{classslcp_1_1_s_l_c_p_chat_aff387a9a8b9597a164fc2debc1cca2ac}\index{slcp.SLCPChat@{slcp.SLCPChat}!send\_message@{send\_message}}
+
+Sends a LEAVE message to the discovery service. 
+
+\Hypertarget{classslcp_1_1_s_l_c_p_chat_a173c6063a487d4d0243bd3b0c4d69141}\index{slcp.SLCPChat@{slcp.SLCPChat}!listen\_for\_messages@{listen\_for\_messages}}
+\index{listen\_for\_messages@{listen\_for\_messages}!slcp.SLCPChat@{slcp.SLCPChat}}
+\doxysubsubsection{\texorpdfstring{listen\_for\_messages()}{listen\_for\_messages()}}
+{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a173c6063a487d4d0243bd3b0c4d69141} 
+slcp.\+SLCPChat.\+listen\+\_\+for\+\_\+messages (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{on\+\_\+message}{}\end{DoxyParamCaption})}
+
+
+
+Listens for incoming messages and calls the provided callback function on\+\_\+message. 
+
+\Hypertarget{classslcp_1_1_s_l_c_p_chat_af660891532c556e3dbd11b5979c7d7e4}\index{slcp.SLCPChat@{slcp.SLCPChat}!parse\_knownusers@{parse\_knownusers}}
+\index{parse\_knownusers@{parse\_knownusers}!slcp.SLCPChat@{slcp.SLCPChat}}
+\doxysubsubsection{\texorpdfstring{parse\_knownusers()}{parse\_knownusers()}}
+{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_af660891532c556e3dbd11b5979c7d7e4} 
+slcp.\+SLCPChat.\+parse\+\_\+knownusers (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Parses the KNOWNUSERS message to update the list of known users. 
+
+\Hypertarget{classslcp_1_1_s_l_c_p_chat_a8e31b6ec698fef2f3d8d20dd103da117}\index{slcp.SLCPChat@{slcp.SLCPChat}!receive\_images@{receive\_images}}
+\index{receive\_images@{receive\_images}!slcp.SLCPChat@{slcp.SLCPChat}}
+\doxysubsubsection{\texorpdfstring{receive\_images()}{receive\_images()}}
+{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a8e31b6ec698fef2f3d8d20dd103da117} 
+slcp.\+SLCPChat.\+receive\+\_\+images (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Starts listening for incoming images on the specified image port. 
+
+\Hypertarget{classslcp_1_1_s_l_c_p_chat_a37ca126c7b9c1793edf87ccc22c607cb}\index{slcp.SLCPChat@{slcp.SLCPChat}!request\_who@{request\_who}}
+\index{request\_who@{request\_who}!slcp.SLCPChat@{slcp.SLCPChat}}
+\doxysubsubsection{\texorpdfstring{request\_who()}{request\_who()}}
+{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a37ca126c7b9c1793edf87ccc22c607cb} 
+slcp.\+SLCPChat.\+request\+\_\+who (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Sends a broadcast WHO request to the discovery service to get a list of known users. 
+
+\Hypertarget{classslcp_1_1_s_l_c_p_chat_a10041d7a0c73229e9eddb5516186c4c3}\index{slcp.SLCPChat@{slcp.SLCPChat}!send\_image@{send\_image}}
+\index{send\_image@{send\_image}!slcp.SLCPChat@{slcp.SLCPChat}}
+\doxysubsubsection{\texorpdfstring{send\_image()}{send\_image()}}
+{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a10041d7a0c73229e9eddb5516186c4c3} 
+slcp.\+SLCPChat.\+send\+\_\+image (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{recipient}{, }\item[{}]{image\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+Sends an image to a specific user. 
+
+\Hypertarget{classslcp_1_1_s_l_c_p_chat_a14474e677b9155e40edaba2542eb6802}\index{slcp.SLCPChat@{slcp.SLCPChat}!send\_join@{send\_join}}
+\index{send\_join@{send\_join}!slcp.SLCPChat@{slcp.SLCPChat}}
+\doxysubsubsection{\texorpdfstring{send\_join()}{send\_join()}}
+{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a14474e677b9155e40edaba2542eb6802} 
+slcp.\+SLCPChat.\+send\+\_\+join (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+\doxylink{classslcp_1_1_s_l_c_p_chat}{SLCPChat} is used by \doxylink{cli__chat_8py}{cli\+\_\+chat.\+py} to handle the chat functionality and is used in \doxylink{cli__chat_8py}{cli\+\_\+chat.\+py} in input\+\_\+loop. 
+
+Sends a JOIN message to the discovery service \Hypertarget{classslcp_1_1_s_l_c_p_chat_a6437f889fbd9b3a466abe53b26aff112}\index{slcp.SLCPChat@{slcp.SLCPChat}!send\_message@{send\_message}}
 \index{send\_message@{send\_message}!slcp.SLCPChat@{slcp.SLCPChat}}
 \doxysubsubsection{\texorpdfstring{send\_message()}{send\_message()}}
-{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_aff387a9a8b9597a164fc2debc1cca2ac} 
-slcp.\+SLCPChat.\+send\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{message}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a6437f889fbd9b3a466abe53b26aff112} 
+slcp.\+SLCPChat.\+send\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{recipient}{, }\item[{}]{message}{}\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Sendet die Nachricht an alle eingetragenen Peers.\end{DoxyVerb}
- \Hypertarget{classslcp_1_1_s_l_c_p_chat_a8194f344f6783ad1fe2dd3c01f077b7e}\index{slcp.SLCPChat@{slcp.SLCPChat}!start@{start}}
-\index{start@{start}!slcp.SLCPChat@{slcp.SLCPChat}}
-\doxysubsubsection{\texorpdfstring{start()}{start()}}
-{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a8194f344f6783ad1fe2dd3c01f077b7e} 
-slcp.\+SLCPChat.\+start (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
 
-\Hypertarget{classslcp_1_1_s_l_c_p_chat_a4d54737157d1e461b35ec11146c30e4b}\index{slcp.SLCPChat@{slcp.SLCPChat}!stop@{stop}}
-\index{stop@{stop}!slcp.SLCPChat@{slcp.SLCPChat}}
-\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
-{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a4d54737157d1e461b35ec11146c30e4b} 
-slcp.\+SLCPChat.\+stop (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+Sends a message to a specific user. 
 
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classslcp_1_1_s_l_c_p_chat_a532b4ed7703ac8a0047a8c1dd649d977}\index{slcp.SLCPChat@{slcp.SLCPChat}!callback@{callback}}
-\index{callback@{callback}!slcp.SLCPChat@{slcp.SLCPChat}}
-\doxysubsubsection{\texorpdfstring{callback}{callback}}
-{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a532b4ed7703ac8a0047a8c1dd649d977} 
-slcp.\+SLCPChat.\+callback = None}
+\Hypertarget{classslcp_1_1_s_l_c_p_chat_a5ccfaa0ae0158b761426956182f2fa51}\index{slcp.SLCPChat@{slcp.SLCPChat}!handle@{handle}}
+\index{handle@{handle}!slcp.SLCPChat@{slcp.SLCPChat}}
+\doxysubsubsection{\texorpdfstring{handle}{handle}}
+{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a5ccfaa0ae0158b761426956182f2fa51} 
+slcp.\+SLCPChat.\+handle = handle}
 
-\Hypertarget{classslcp_1_1_s_l_c_p_chat_aaccea2b3f24197a14f3acc258fbd58a3}\index{slcp.SLCPChat@{slcp.SLCPChat}!listen\_port@{listen\_port}}
-\index{listen\_port@{listen\_port}!slcp.SLCPChat@{slcp.SLCPChat}}
-\doxysubsubsection{\texorpdfstring{listen\_port}{listen\_port}}
-{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_aaccea2b3f24197a14f3acc258fbd58a3} 
-slcp.\+SLCPChat.\+listen\+\_\+port = listen\+\_\+port}
+\Hypertarget{classslcp_1_1_s_l_c_p_chat_a3aeb30ea39d8d33e58e7267e497eb298}\index{slcp.SLCPChat@{slcp.SLCPChat}!image\_port@{image\_port}}
+\index{image\_port@{image\_port}!slcp.SLCPChat@{slcp.SLCPChat}}
+\doxysubsubsection{\texorpdfstring{image\_port}{image\_port}}
+{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a3aeb30ea39d8d33e58e7267e497eb298} 
+slcp.\+SLCPChat.\+image\+\_\+port = image\+\_\+port}
 
-\Hypertarget{classslcp_1_1_s_l_c_p_chat_a088c275e0e67e4a91ffcbbdbca267bfa}\index{slcp.SLCPChat@{slcp.SLCPChat}!peers@{peers}}
-\index{peers@{peers}!slcp.SLCPChat@{slcp.SLCPChat}}
-\doxysubsubsection{\texorpdfstring{peers}{peers}}
-{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a088c275e0e67e4a91ffcbbdbca267bfa} 
-slcp.\+SLCPChat.\+peers = peers}
+\Hypertarget{classslcp_1_1_s_l_c_p_chat_a53eb313ea8fb19b274c9a7e9bb454581}\index{slcp.SLCPChat@{slcp.SLCPChat}!known\_users@{known\_users}}
+\index{known\_users@{known\_users}!slcp.SLCPChat@{slcp.SLCPChat}}
+\doxysubsubsection{\texorpdfstring{known\_users}{known\_users}}
+{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a53eb313ea8fb19b274c9a7e9bb454581} 
+dict slcp.\+SLCPChat.\+known\+\_\+users = \{\}}
 
-\Hypertarget{classslcp_1_1_s_l_c_p_chat_a663995a53adaa43a022a0519ef0cd3a9}\index{slcp.SLCPChat@{slcp.SLCPChat}!running@{running}}
-\index{running@{running}!slcp.SLCPChat@{slcp.SLCPChat}}
-\doxysubsubsection{\texorpdfstring{running}{running}}
-{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a663995a53adaa43a022a0519ef0cd3a9} 
-bool slcp.\+SLCPChat.\+running = False}
+\Hypertarget{classslcp_1_1_s_l_c_p_chat_a276d92fca7e8f232589de383826c2536}\index{slcp.SLCPChat@{slcp.SLCPChat}!port@{port}}
+\index{port@{port}!slcp.SLCPChat@{slcp.SLCPChat}}
+\doxysubsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a276d92fca7e8f232589de383826c2536} 
+slcp.\+SLCPChat.\+port = port}
 
 \Hypertarget{classslcp_1_1_s_l_c_p_chat_a47f58a21c636a84491efcd027dca57e5}\index{slcp.SLCPChat@{slcp.SLCPChat}!sock@{sock}}
 \index{sock@{sock}!slcp.SLCPChat@{slcp.SLCPChat}}
@@ -109,17 +161,11 @@ bool slcp.\+SLCPChat.\+running = False}
 {\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a47f58a21c636a84491efcd027dca57e5} 
 slcp.\+SLCPChat.\+sock = socket.\+socket(socket.\+AF\+\_\+\+INET, socket.\+SOCK\+\_\+\+DGRAM)}
 
-\Hypertarget{classslcp_1_1_s_l_c_p_chat_acb39feb0baacc1e7ceba46cde28e6502}\index{slcp.SLCPChat@{slcp.SLCPChat}!thread@{thread}}
-\index{thread@{thread}!slcp.SLCPChat@{slcp.SLCPChat}}
-\doxysubsubsection{\texorpdfstring{thread}{thread}}
-{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_acb39feb0baacc1e7ceba46cde28e6502} 
-slcp.\+SLCPChat.\+thread = threading.\+Thread(target=self.\+listen\+\_\+loop, daemon=True)}
-
-\Hypertarget{classslcp_1_1_s_l_c_p_chat_aeecda86dfed21f7a619787314b2080c5}\index{slcp.SLCPChat@{slcp.SLCPChat}!username@{username}}
-\index{username@{username}!slcp.SLCPChat@{slcp.SLCPChat}}
-\doxysubsubsection{\texorpdfstring{username}{username}}
-{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_aeecda86dfed21f7a619787314b2080c5} 
-slcp.\+SLCPChat.\+username = username}
+\Hypertarget{classslcp_1_1_s_l_c_p_chat_a98b78541b2b3dd0ffdb5a26078df66c9}\index{slcp.SLCPChat@{slcp.SLCPChat}!whois\_port@{whois\_port}}
+\index{whois\_port@{whois\_port}!slcp.SLCPChat@{slcp.SLCPChat}}
+\doxysubsubsection{\texorpdfstring{whois\_port}{whois\_port}}
+{\footnotesize\ttfamily \label{classslcp_1_1_s_l_c_p_chat_a98b78541b2b3dd0ffdb5a26078df66c9} 
+slcp.\+SLCPChat.\+whois\+\_\+port = whois\+\_\+port}
 
 
 
