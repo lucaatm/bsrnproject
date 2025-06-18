@@ -8,6 +8,7 @@ import os
 import platform
 import subprocess
 import toml
+import time
 
 ## Die Konfigurationsdatei wird eingelesen, um alle wichtigen Benutzereinstellungen zu laden.
 config = toml.load("resources/config.toml")
@@ -69,7 +70,8 @@ def receive_image(callback=None, port=6000, save_dir=IMAGEPATH):
             if message.startswith("IMG"):
                 _, image_name, image_size = message.split()
                 image_size = int(image_size)
-                image_path = os.path.join(save_dir, image_name)
+                image_path = os.path.abspath(os.path.join(save_dir, image_name))
+
 
                 # Da die Datei ein Bild ist, wird hier "wb" verwendet. Dies steht für "write binary" und stellt sicher, dass die Datei im Binärformat geschrieben wird.
                 with open(image_path, "wb") as f:
@@ -80,12 +82,13 @@ def receive_image(callback=None, port=6000, save_dir=IMAGEPATH):
                         bytes_received += len(chunk)
 
                 print(f"[Bild empfangen] Gespeichert als {image_path}")
-                if callback:
-                    callback(f"[Bild gespeichert unter: {image_path}]")
+                
+                time.sleep(2)
                 
                 # Bild wird automatisch geöffnet. Abhängig vom Betriebssystem wird das entsprechende Kommando verwendet.
                 try:
                     if platform.system() == "Windows":
+                        print('here')
                         os.startfile(image_path)
                     elif platform.system() == "Darwin":
                         subprocess.run(["open", image_path])
