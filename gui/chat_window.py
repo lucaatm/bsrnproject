@@ -1,20 +1,25 @@
 import sys
 import os
 from PyQt5 import QtWidgets, uic
-from PyQt5.QtWidgets import QListWidgetItem, QLabel, QWidget, QVBoxLayout
+from PyQt5.QtWidgets import QListWidgetItem, QLabel, QWidget, QVBoxLayout, QInputDialog
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QStatusTipEvent  # ✅ Richtiger Import
+from PyQt5.QtGui import QStatusTipEvent
 
-# ✅ Pfad zur Projektwurzel ergänzen, damit "core" gefunden wird
+# Pfad zur Projektwurzel ergänzen, damit "core" gefunden wird
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from core.udp_handler import UDPHandler  # UDP-Modul einbinden
 
 class ChatWindow(QtWidgets.QMainWindow):
-    def __init__(self, username, listen_port, peers):
+    def __init__(self, listen_port, peers):
         super().__init__()
 
-        # Übergabeparameter speichern
-        self.username = username
+        # Benutzername beim Start abfragen
+        name, ok = QInputDialog.getText(self, "Benutzername", "Wie heißt du?")
+        if ok and name.strip():
+            self.username = name.strip()
+        else:
+            self.username = "Unbekannt"
+
         self.listen_port = listen_port
         self.peers = peers
 
@@ -25,57 +30,43 @@ class ChatWindow(QtWidgets.QMainWindow):
         # Setze das Fenster-Title basierend auf dem Username
         self.setWindowTitle(f"BSRN Chat – {self.username}")
 
-        # Beispielhafte Namen zur Chatliste hinzufügen
-        self.chatList.addItems([
-            "Support",
-            "Anna",
-            "Ben",
-            "Lisa",
-            "Projektgruppe",
-            "Admin"
-        ])
-
         # Verbindung zum Senden-Button
-        self.pushButton.clicked.connect(self.nachricht_senden)
+        self.pushButton.clicked.connect(self.send_message)
 
         # Verbindung zur Enter-Taste im Eingabefeld
-        self.lineEdit.returnPressed.connect(self.nachricht_senden)
-
-        # Begrüßung
-        self.add_fremde_nachricht("Willkommen im Chat!")
-        self.add_fremde_nachricht("Support: Wie kann ich helfen?")
+        self.lineEdit.returnPressed.connect(self.send_message)
 
         # UDP-Empfang starten (läuft im Hintergrund)
-        self.udp = UDPHandler(self.listen_port, self.nachricht_empfangen)
+        self.udp = UDPHandler(self.listen_port, self.receive_message)
         self.udp.start()
 
         # GUI anzeigen
         self.show()
 
-    # ✅ Methode zum Senden einer Nachricht – war vorher vermutlich gelöscht
-    def nachricht_senden(self):
+    ## @brief Sendet eine eingegebene Nachricht über UDP und zeigt sie lokal an.
+    def send_message(self):
         text = self.lineEdit.text().strip()
         if text:
             self.add_chat_bubble(f"{self.username}: {text}", align="right", color="#ccffcc")
             self.lineEdit.clear()
             self.udp.send_message(f"{self.username}: {text}", self.peers)
 
-    # Methode, die von UDP-Handler aufgerufen wird
-    def nachricht_empfangen(self, text):
-        QtWidgets.QApplication.instance().postEvent(self, QStatusTipEvent(text))  # ✅ korrekt aufgerufen
+    ## @brief Wird vom UDP-Thread aufgerufen – leitet empfangene Nachrichten an das GUI weiter.
+    def receive_message(self, text):
+        QtWidgets.QApplication.instance().postEvent(self, QStatusTipEvent(text))
 
-    # ✅ Event-Handler für empfangene UDP-Nachrichten
+    ## @brief Event-Handler für StatusTipEvent (UDP-Textnachrichten)
     def event(self, event):
         if isinstance(event, QStatusTipEvent):
-            self.add_fremde_nachricht(event.tip())
+            self.add_foreign_message(event.tip())
             return True
         return super().event(event)
 
-    # Methode zum Hinzufügen einer fremden Nachricht
-    def add_fremde_nachricht(self, text):
+    ## @brief Zeigt eine empfangene Nachricht im Chatverlauf an.
+    def add_foreign_message(self, text):
         self.add_chat_bubble(text, align="left", color="#eeeeee")
 
-    # Methode zum Erstellen und Anzeigen einer Chat-Bubble
+    ## @brief Erstellt und zeigt eine neue Chat-Bubble (Nachricht)
     def add_chat_bubble(self, text, align="left", color="#e6f2ff"):
         bubble_widget = QWidget()
         layout = QVBoxLayout()
@@ -96,6 +87,7 @@ class ChatWindow(QtWidgets.QMainWindow):
         )
         label.setAlignment(Qt.AlignLeft if align == "left" else Qt.AlignRight)
         layout.addWidget(label, alignment=Qt.AlignLeft if align == "left" else Qt.AlignRight)
+
         bubble_widget.setLayout(layout)
 
         item = QListWidgetItem()
@@ -104,8 +96,8 @@ class ChatWindow(QtWidgets.QMainWindow):
         self.listWidget.setItemWidget(item, bubble_widget)
         self.listWidget.scrollToBottom()
 
-# Nur zu Testzwecken – im echten Start per start_sohal.py oder start_sumaya.py
+# Testzwecke – im echten Start per start_sohal.py oder start_sumaya.py
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    fenster = ChatWindow(username="Sohal", listen_port=4567, peers=[("127.0.0.1", 4568)])
+    fenster = ChatWindow(listen_port=4567, peers=[("127.0.0.1", 4568)])
     sys.exit(app.exec_())

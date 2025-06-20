@@ -11,7 +11,7 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
 
     fenster = ChatWindow(
-        username="Sohal",
+        
         listen_port=4567,  # Sohals eigener Port
         peers=[("127.0.0.1", 4568)]  # Sumayas Port
     )
