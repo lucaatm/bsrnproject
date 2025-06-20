@@ -1,3 +1,10 @@
+## @file slcp.py
+# @brief Einfache Chat-Klasse (SLCPChat) für das Chat-Projekt.
+# @details Diese Klasse kapselt die komplette Chatlogik für einen Nutzer:
+# - **JOIN/LEAVE/WHO** werden an den Discovery-Dienst weitergeleitet.
+# - Textnachrichten und Bilder können an bekannte Nutzer gesendet werden.
+# - Eingehende Datagramme (Text) werden über einen Callback an die CLI weitergereicht.
+
 import socket
 import core.discovery as discovery
 import core.image_handler as image_handler
@@ -5,69 +12,85 @@ import core.image_handler as image_handler
 BUFFER_SIZE = 512
 
 class SLCPChat:
-    def __init__(self, handle, port, image_port, whois_port):
-        self.handle = handle
-        self.port = port
-        self.image_port = image_port
-        self.whois_port = whois_port
-        self.known_users = {}
-        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    # @class SLCPChat
+    # @brief Kernklasse, die einen Chat-Client vertritt.
+    # @details Die Instanz verwaltet den eigenen Handle, Ports für Text- und Bilddaten
+    # sowie eine kleine Tabelle aller bekannten Nutzer (`known_users`).
 
-    ## SLCPChat is used by cli_chat.py to handle the chat functionality and is used in cli_chat.py in input_loop
+    def __init__(selbst, Handle: str, Port: int, Bildport: int, whois_port: int):
+        # @brief Konstruktor.
+        # @param handle Eigener Chat-Name
+        # @param port UDP-Port für Textnachrichten
+        # @param image_port UDP-Port für Bilddaten
+        # @param whois_port Discovery-Port (WHOIS)
+        selbst.handle = Handle
+        selbst.port = Port
+        selbst.image_port = Bildport
+        selbst.whois_port = whois_port
+        selbst.known_users: dict[str, tuple[str, int]] = {}
+        selbst.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-    ## Sends a JOIN message to the discovery service
-    def send_join(self):
+    def send_join(self) -> None:
+        # @brief Meldet den Client beim Discovery-Service an.
         discovery.send_join(self.handle, self.port)
 
-    ## Sends a LEAVE message to the discovery service
-    def leave(self):
+    def leave(self) -> None:
+        # @brief Meldet den Client beim Discovery-Service ab.
         discovery.broadcast(f"LEAVE {self.handle}")
 
-    ## Sends a broadcast WHO request to the discovery service to get a list of known users
-    def request_who(self):
+    def request_who(self) -> None:
+        # @brief Fragt per Broadcast alle bekannten Nutzer ab.
         discovery.broadcast("WHO")
 
-    ## Sends a message to a specific user
-    def send_message(self, recipient, message):
-        if recipient not in self.known_users:
-            return False, f"Unknown user: {recipient}"
-        ip, port = self.known_users[recipient]
-        self.sock.sendto(f"{self.handle}: {message}".encode(), (ip, port))
+    def send_message(selbst, Empfänger: str, Nachricht: str) -> tuple[bool, str | None]:
+        # @brief Sendet eine Textnachricht an *recipient*.
+        # @param Empfänger Ziel-Handle
+        # @param Inhalt der Nachricht
+         
+        if Empfänger not in selbst.known_users:
+            return False, f"Unbekannter Nutzer: {Empfänger}"
+        IP, Port = selbst.known_users[Empfänger]
+        selbst.sock.sendto(f"{selbst.handle}: {Nachricht}".encode(), (IP, Port))
         return True, None
 
-    ## Sends an image to a specific user
-    def send_image(self, recipient, image_path):
-        if recipient not in self.known_users:
-            return False, f"Unknown user: {recipient}"
-        ip, _ = self.known_users[recipient]
-        image_handler.send_image(image_path, ip, self.image_port)
+    def send_image(selbst, Empfänger: str, Bildpfad: str) -> tuple[bool, str | None]:
+        # @brief Sendet ein Bild an *recipient*.
+        # @param Empfänger Ziel-Handle
+        # @param Bildpfad Pfad zur Bilddatei
+    
+        if Empfänger not in selbst.known_users:
+            return False, f"Unbekannter Nutzer: {Empfänger}"
+        ip, _ = selbst.known_users[Empfänger]
+        image_handler.send_image(Bildpfad, ip, selbst.image_port)
         return True, None
 
-    ## Parses the KNOWNUSERS message to update the list of known users
-    def parse_knownusers(self, message):
-        self.known_users.clear()
-        parts = message.split()[1:]
-        for i in range(0, len(parts), 3):
+    def parse_knownusers(selbst, Nachricht: str) -> dict[str, tuple[str, int]]:
+        # @brief Aktualisiert `known_users` basierend auf einer **KNOWNUSERS**-Nachricht.
+        # @param Nachricht Komplette KNOWNUSERS-Zeile
+        # @return Aktualisiertes dictionary
+        selbst.known_users.clear()
+        Teile = Nachricht.split()[1:]
+        for i in range(0, len(Teile), 3):
             try:
-                handle, ip, port = parts[i], parts[i + 1], int(parts[i + 2])
-                self.known_users[handle] = (ip, port)
+                Handle, IP, Port = Teile[i], Teile[i+1], int(Teile[i+2])
+                selbst.known_users[Handle] = (IP, Port)
             except (IndexError, ValueError):
                 continue
-            
-        return self.known_users
+        return selbst.known_users
 
-    ## Listens for incoming messages and calls the provided callback function on_message
-    def listen_for_messages(self, on_message):
+    def listen_for_messages(self, on_message) -> None:
+        # @brief Blockiert und lauscht auf eingehende Textnachrichten.
+        # @param on_message Callback `(message: str, addr: tuple) -> None
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.bind(("", self.port))
         while True:
-            data, addr = sock.recvfrom(BUFFER_SIZE)
+            Daten, Adresse = sock.recvfrom(BUFFER_SIZE)
             try:
-                message = data.decode(errors="ignore")
+                Nachricht = Daten.decode(errors="ignore")
             except UnicodeDecodeError:
                 continue
-            on_message(message, addr)
+            on_message(Nachricht, Adresse)
 
-    ## Starts listening for incoming images on the specified image port
-    def receive_images(self):
+    def receive_images(self) -> None:
+        # @brief Startet den Bildempfang über `image_handler`.
         image_handler.receive_image(self.image_port)

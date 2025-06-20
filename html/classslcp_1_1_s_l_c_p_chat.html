@@ -112,51 +112,37 @@ $(function(){initNavTree('classslcp_1_1_s_l_c_p_chat.html',''); initResizable(tr
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa4452e02cdf11986bcf623b22f77995e" id="r_aa4452e02cdf11986bcf623b22f77995e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4452e02cdf11986bcf623b22f77995e">__init__</a> (self, <a class="el" href="#a5ccfaa0ae0158b761426956182f2fa51">handle</a>, <a class="el" href="#a276d92fca7e8f232589de383826c2536">port</a>, <a class="el" href="#a3aeb30ea39d8d33e58e7267e497eb298">image_port</a>, <a class="el" href="#a98b78541b2b3dd0ffdb5a26078df66c9">whois_port</a>)</td></tr>
-<tr class="separator:aa4452e02cdf11986bcf623b22f77995e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14474e677b9155e40edaba2542eb6802" id="r_a14474e677b9155e40edaba2542eb6802"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14474e677b9155e40edaba2542eb6802">send_join</a> (self)</td></tr>
-<tr class="memdesc:a14474e677b9155e40edaba2542eb6802"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classslcp_1_1_s_l_c_p_chat.html">SLCPChat</a> is used by <a class="el" href="cli__chat_8py.html" title="Diese Datei implementiert die Kommandozeilen-Schnittstelle (CLI) für den SLCP-Chat.">cli_chat.py</a> to handle the chat functionality and is used in <a class="el" href="cli__chat_8py.html" title="Diese Datei implementiert die Kommandozeilen-Schnittstelle (CLI) für den SLCP-Chat.">cli_chat.py</a> in input_loop.  <br /></td></tr>
-<tr class="separator:a14474e677b9155e40edaba2542eb6802"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f79f5edf69342de22367ca6526fff8b" id="r_a7f79f5edf69342de22367ca6526fff8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f79f5edf69342de22367ca6526fff8b">leave</a> (self)</td></tr>
-<tr class="memdesc:a7f79f5edf69342de22367ca6526fff8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a LEAVE message to the discovery service.  <br /></td></tr>
-<tr class="separator:a7f79f5edf69342de22367ca6526fff8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37ca126c7b9c1793edf87ccc22c607cb" id="r_a37ca126c7b9c1793edf87ccc22c607cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37ca126c7b9c1793edf87ccc22c607cb">request_who</a> (self)</td></tr>
-<tr class="memdesc:a37ca126c7b9c1793edf87ccc22c607cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a broadcast WHO request to the discovery service to get a list of known users.  <br /></td></tr>
-<tr class="separator:a37ca126c7b9c1793edf87ccc22c607cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6437f889fbd9b3a466abe53b26aff112" id="r_a6437f889fbd9b3a466abe53b26aff112"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6437f889fbd9b3a466abe53b26aff112">send_message</a> (self, recipient, message)</td></tr>
-<tr class="memdesc:a6437f889fbd9b3a466abe53b26aff112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message to a specific user.  <br /></td></tr>
-<tr class="separator:a6437f889fbd9b3a466abe53b26aff112"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10041d7a0c73229e9eddb5516186c4c3" id="r_a10041d7a0c73229e9eddb5516186c4c3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10041d7a0c73229e9eddb5516186c4c3">send_image</a> (self, recipient, image_path)</td></tr>
-<tr class="memdesc:a10041d7a0c73229e9eddb5516186c4c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an image to a specific user.  <br /></td></tr>
-<tr class="separator:a10041d7a0c73229e9eddb5516186c4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af660891532c556e3dbd11b5979c7d7e4" id="r_af660891532c556e3dbd11b5979c7d7e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af660891532c556e3dbd11b5979c7d7e4">parse_knownusers</a> (self, message)</td></tr>
-<tr class="memdesc:af660891532c556e3dbd11b5979c7d7e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the KNOWNUSERS message to update the list of known users.  <br /></td></tr>
-<tr class="separator:af660891532c556e3dbd11b5979c7d7e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a173c6063a487d4d0243bd3b0c4d69141" id="r_a173c6063a487d4d0243bd3b0c4d69141"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a173c6063a487d4d0243bd3b0c4d69141">listen_for_messages</a> (self, on_message)</td></tr>
-<tr class="memdesc:a173c6063a487d4d0243bd3b0c4d69141"><td class="mdescLeft">&#160;</td><td class="mdescRight">Listens for incoming messages and calls the provided callback function on_message.  <br /></td></tr>
-<tr class="separator:a173c6063a487d4d0243bd3b0c4d69141"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e31b6ec698fef2f3d8d20dd103da117" id="r_a8e31b6ec698fef2f3d8d20dd103da117"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e31b6ec698fef2f3d8d20dd103da117">receive_images</a> (self)</td></tr>
-<tr class="memdesc:a8e31b6ec698fef2f3d8d20dd103da117"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts listening for incoming images on the specified image port.  <br /></td></tr>
-<tr class="separator:a8e31b6ec698fef2f3d8d20dd103da117"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fb308558e262b063a0e360d2d6c7303" id="r_a5fb308558e262b063a0e360d2d6c7303"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fb308558e262b063a0e360d2d6c7303">__init__</a> (selbst, str Handle, int Port, int Bildport, int whois_port)</td></tr>
+<tr class="separator:a5fb308558e262b063a0e360d2d6c7303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7addb8983e09db09471be49b7ee9b106" id="r_a7addb8983e09db09471be49b7ee9b106"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7addb8983e09db09471be49b7ee9b106">send_join</a> (self)</td></tr>
+<tr class="separator:a7addb8983e09db09471be49b7ee9b106"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a951198464b0a8ddf1e2b38a7a8282d9d" id="r_a951198464b0a8ddf1e2b38a7a8282d9d"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a951198464b0a8ddf1e2b38a7a8282d9d">leave</a> (self)</td></tr>
+<tr class="separator:a951198464b0a8ddf1e2b38a7a8282d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4394ab68f0878dbe948704dad9f4469" id="r_ac4394ab68f0878dbe948704dad9f4469"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4394ab68f0878dbe948704dad9f4469">request_who</a> (self)</td></tr>
+<tr class="separator:ac4394ab68f0878dbe948704dad9f4469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47bcfc1206f48cbf6cfc4039d586b115" id="r_a47bcfc1206f48cbf6cfc4039d586b115"><td class="memItemLeft" align="right" valign="top">tuple[bool, str|None]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47bcfc1206f48cbf6cfc4039d586b115">send_message</a> (selbst, str Empfänger, str Nachricht)</td></tr>
+<tr class="separator:a47bcfc1206f48cbf6cfc4039d586b115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bf87b578693c9651b0ed17c1bfdaf27" id="r_a8bf87b578693c9651b0ed17c1bfdaf27"><td class="memItemLeft" align="right" valign="top">tuple[bool, str|None]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bf87b578693c9651b0ed17c1bfdaf27">send_image</a> (selbst, str Empfänger, str Bildpfad)</td></tr>
+<tr class="separator:a8bf87b578693c9651b0ed17c1bfdaf27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f3426f2744a0e05af324c4ebe890e6d" id="r_a4f3426f2744a0e05af324c4ebe890e6d"><td class="memItemLeft" align="right" valign="top">dict[str, tuple[str, int]]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f3426f2744a0e05af324c4ebe890e6d">parse_knownusers</a> (selbst, str Nachricht)</td></tr>
+<tr class="separator:a4f3426f2744a0e05af324c4ebe890e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a454ce8e196ed1a26787614ed506eed94" id="r_a454ce8e196ed1a26787614ed506eed94"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a454ce8e196ed1a26787614ed506eed94">listen_for_messages</a> (self, on_message)</td></tr>
+<tr class="separator:a454ce8e196ed1a26787614ed506eed94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a685681b1fc042068de49b1fdfb479789" id="r_a685681b1fc042068de49b1fdfb479789"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a685681b1fc042068de49b1fdfb479789">receive_images</a> (self)</td></tr>
+<tr class="separator:a685681b1fc042068de49b1fdfb479789"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a5ccfaa0ae0158b761426956182f2fa51" id="r_a5ccfaa0ae0158b761426956182f2fa51"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ccfaa0ae0158b761426956182f2fa51">handle</a> = handle</td></tr>
+<tr class="memitem:a5ccfaa0ae0158b761426956182f2fa51" id="r_a5ccfaa0ae0158b761426956182f2fa51"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ccfaa0ae0158b761426956182f2fa51">handle</a></td></tr>
 <tr class="separator:a5ccfaa0ae0158b761426956182f2fa51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a276d92fca7e8f232589de383826c2536" id="r_a276d92fca7e8f232589de383826c2536"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a276d92fca7e8f232589de383826c2536">port</a> = port</td></tr>
+<tr class="memitem:a276d92fca7e8f232589de383826c2536" id="r_a276d92fca7e8f232589de383826c2536"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a276d92fca7e8f232589de383826c2536">port</a></td></tr>
 <tr class="separator:a276d92fca7e8f232589de383826c2536"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3aeb30ea39d8d33e58e7267e497eb298" id="r_a3aeb30ea39d8d33e58e7267e497eb298"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3aeb30ea39d8d33e58e7267e497eb298">image_port</a> = image_port</td></tr>
+<tr class="memitem:a3aeb30ea39d8d33e58e7267e497eb298" id="r_a3aeb30ea39d8d33e58e7267e497eb298"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3aeb30ea39d8d33e58e7267e497eb298">image_port</a></td></tr>
 <tr class="separator:a3aeb30ea39d8d33e58e7267e497eb298"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98b78541b2b3dd0ffdb5a26078df66c9" id="r_a98b78541b2b3dd0ffdb5a26078df66c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98b78541b2b3dd0ffdb5a26078df66c9">whois_port</a> = whois_port</td></tr>
-<tr class="separator:a98b78541b2b3dd0ffdb5a26078df66c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53eb313ea8fb19b274c9a7e9bb454581" id="r_a53eb313ea8fb19b274c9a7e9bb454581"><td class="memItemLeft" align="right" valign="top">dict&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53eb313ea8fb19b274c9a7e9bb454581">known_users</a> = {}</td></tr>
-<tr class="separator:a53eb313ea8fb19b274c9a7e9bb454581"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47f58a21c636a84491efcd027dca57e5" id="r_a47f58a21c636a84491efcd027dca57e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47f58a21c636a84491efcd027dca57e5">sock</a> = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</td></tr>
-<tr class="separator:a47f58a21c636a84491efcd027dca57e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa4452e02cdf11986bcf623b22f77995e" name="aa4452e02cdf11986bcf623b22f77995e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4452e02cdf11986bcf623b22f77995e">&#9670;&#160;</a></span>__init__()</h2>
+<a id="a5fb308558e262b063a0e360d2d6c7303" name="a5fb308558e262b063a0e360d2d6c7303"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fb308558e262b063a0e360d2d6c7303">&#9670;&#160;</a></span>__init__()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,27 +150,27 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">slcp.SLCPChat.__init__ </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>selbst</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>Handle</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>Port</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>image_port</em></span>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>Bildport</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>whois_port</em></span>&#160;)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>whois_port</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -192,14 +178,14 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7f79f5edf69342de22367ca6526fff8b" name="a7f79f5edf69342de22367ca6526fff8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f79f5edf69342de22367ca6526fff8b">&#9670;&#160;</a></span>leave()</h2>
+<a id="a951198464b0a8ddf1e2b38a7a8282d9d" name="a951198464b0a8ddf1e2b38a7a8282d9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a951198464b0a8ddf1e2b38a7a8282d9d">&#9670;&#160;</a></span>leave()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">slcp.SLCPChat.leave </td>
+          <td class="memname"> None slcp.SLCPChat.leave </td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
           <td></td>
@@ -207,18 +193,16 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends a LEAVE message to the discovery service. </p>
-
 </div>
 </div>
-<a id="a173c6063a487d4d0243bd3b0c4d69141" name="a173c6063a487d4d0243bd3b0c4d69141"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a173c6063a487d4d0243bd3b0c4d69141">&#9670;&#160;</a></span>listen_for_messages()</h2>
+<a id="a454ce8e196ed1a26787614ed506eed94" name="a454ce8e196ed1a26787614ed506eed94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a454ce8e196ed1a26787614ed506eed94">&#9670;&#160;</a></span>listen_for_messages()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">slcp.SLCPChat.listen_for_messages </td>
+          <td class="memname"> None slcp.SLCPChat.listen_for_messages </td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
         </tr>
@@ -230,41 +214,37 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Listens for incoming messages and calls the provided callback function on_message. </p>
-
 </div>
 </div>
-<a id="af660891532c556e3dbd11b5979c7d7e4" name="af660891532c556e3dbd11b5979c7d7e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af660891532c556e3dbd11b5979c7d7e4">&#9670;&#160;</a></span>parse_knownusers()</h2>
+<a id="a4f3426f2744a0e05af324c4ebe890e6d" name="a4f3426f2744a0e05af324c4ebe890e6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f3426f2744a0e05af324c4ebe890e6d">&#9670;&#160;</a></span>parse_knownusers()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">slcp.SLCPChat.parse_knownusers </td>
+          <td class="memname"> dict[str, tuple[str, int]] slcp.SLCPChat.parse_knownusers </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>selbst</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>message</em></span>&#160;)</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>Nachricht</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Parses the KNOWNUSERS message to update the list of known users. </p>
-
 </div>
 </div>
-<a id="a8e31b6ec698fef2f3d8d20dd103da117" name="a8e31b6ec698fef2f3d8d20dd103da117"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e31b6ec698fef2f3d8d20dd103da117">&#9670;&#160;</a></span>receive_images()</h2>
+<a id="a685681b1fc042068de49b1fdfb479789" name="a685681b1fc042068de49b1fdfb479789"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a685681b1fc042068de49b1fdfb479789">&#9670;&#160;</a></span>receive_images()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">slcp.SLCPChat.receive_images </td>
+          <td class="memname"> None slcp.SLCPChat.receive_images </td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
           <td></td>
@@ -272,18 +252,16 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Starts listening for incoming images on the specified image port. </p>
-
 </div>
 </div>
-<a id="a37ca126c7b9c1793edf87ccc22c607cb" name="a37ca126c7b9c1793edf87ccc22c607cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37ca126c7b9c1793edf87ccc22c607cb">&#9670;&#160;</a></span>request_who()</h2>
+<a id="ac4394ab68f0878dbe948704dad9f4469" name="ac4394ab68f0878dbe948704dad9f4469"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4394ab68f0878dbe948704dad9f4469">&#9670;&#160;</a></span>request_who()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">slcp.SLCPChat.request_who </td>
+          <td class="memname"> None slcp.SLCPChat.request_who </td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
           <td></td>
@@ -291,46 +269,42 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends a broadcast WHO request to the discovery service to get a list of known users. </p>
-
 </div>
 </div>
-<a id="a10041d7a0c73229e9eddb5516186c4c3" name="a10041d7a0c73229e9eddb5516186c4c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10041d7a0c73229e9eddb5516186c4c3">&#9670;&#160;</a></span>send_image()</h2>
+<a id="a8bf87b578693c9651b0ed17c1bfdaf27" name="a8bf87b578693c9651b0ed17c1bfdaf27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bf87b578693c9651b0ed17c1bfdaf27">&#9670;&#160;</a></span>send_image()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">slcp.SLCPChat.send_image </td>
+          <td class="memname"> tuple[bool, str | None] slcp.SLCPChat.send_image </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>selbst</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>recipient</em></span>, </td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>Empfänger</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>image_path</em></span>&#160;)</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>Bildpfad</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends an image to a specific user. </p>
-
 </div>
 </div>
-<a id="a14474e677b9155e40edaba2542eb6802" name="a14474e677b9155e40edaba2542eb6802"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14474e677b9155e40edaba2542eb6802">&#9670;&#160;</a></span>send_join()</h2>
+<a id="a7addb8983e09db09471be49b7ee9b106" name="a7addb8983e09db09471be49b7ee9b106"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7addb8983e09db09471be49b7ee9b106">&#9670;&#160;</a></span>send_join()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">slcp.SLCPChat.send_join </td>
+          <td class="memname"> None slcp.SLCPChat.send_join </td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
           <td></td>
@@ -338,36 +312,31 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classslcp_1_1_s_l_c_p_chat.html">SLCPChat</a> is used by <a class="el" href="cli__chat_8py.html" title="Diese Datei implementiert die Kommandozeilen-Schnittstelle (CLI) für den SLCP-Chat.">cli_chat.py</a> to handle the chat functionality and is used in <a class="el" href="cli__chat_8py.html" title="Diese Datei implementiert die Kommandozeilen-Schnittstelle (CLI) für den SLCP-Chat.">cli_chat.py</a> in input_loop. </p>
-<p>Sends a JOIN message to the discovery service </p>
-
 </div>
 </div>
-<a id="a6437f889fbd9b3a466abe53b26aff112" name="a6437f889fbd9b3a466abe53b26aff112"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6437f889fbd9b3a466abe53b26aff112">&#9670;&#160;</a></span>send_message()</h2>
+<a id="a47bcfc1206f48cbf6cfc4039d586b115" name="a47bcfc1206f48cbf6cfc4039d586b115"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47bcfc1206f48cbf6cfc4039d586b115">&#9670;&#160;</a></span>send_message()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">slcp.SLCPChat.send_message </td>
+          <td class="memname"> tuple[bool, str | None] slcp.SLCPChat.send_message </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>selbst</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>recipient</em></span>, </td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>Empfänger</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>message</em></span>&#160;)</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>Nachricht</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Sends a message to a specific user. </p>
 
 </div>
 </div>
@@ -379,7 +348,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">slcp.SLCPChat.handle = handle</td>
+          <td class="memname">slcp.SLCPChat.handle</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -393,21 +362,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">slcp.SLCPChat.image_port = image_port</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a53eb313ea8fb19b274c9a7e9bb454581" name="a53eb313ea8fb19b274c9a7e9bb454581"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53eb313ea8fb19b274c9a7e9bb454581">&#9670;&#160;</a></span>known_users</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">dict slcp.SLCPChat.known_users = {}</td>
+          <td class="memname">slcp.SLCPChat.image_port</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -421,35 +376,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">slcp.SLCPChat.port = port</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a47f58a21c636a84491efcd027dca57e5" name="a47f58a21c636a84491efcd027dca57e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47f58a21c636a84491efcd027dca57e5">&#9670;&#160;</a></span>sock</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">slcp.SLCPChat.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a98b78541b2b3dd0ffdb5a26078df66c9" name="a98b78541b2b3dd0ffdb5a26078df66c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98b78541b2b3dd0ffdb5a26078df66c9">&#9670;&#160;</a></span>whois_port</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">slcp.SLCPChat.whois_port = whois_port</td>
+          <td class="memname">slcp.SLCPChat.port</td>
         </tr>
       </table>
 </div><div class="memdoc">

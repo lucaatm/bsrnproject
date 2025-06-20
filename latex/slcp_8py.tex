@@ -1,5 +1,10 @@
 \doxysection{core/slcp.py File Reference}
 \hypertarget{slcp_8py}{}\label{slcp_8py}\index{core/slcp.py@{core/slcp.py}}
+
+
+Einfache Chat-\/\+Klasse (SLCPChat) für das Chat-\/\+Projekt.  
+
+
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,3 +20,14 @@ namespace \mbox{\hyperlink{namespaceslcp}{slcp}}
 \item 
 int \mbox{\hyperlink{namespaceslcp_a98e0b473c928f6c2903f791fdcd70c70}{slcp.\+BUFFER\+\_\+\+SIZE}} = 512
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Einfache Chat-\/\+Klasse (SLCPChat) für das Chat-\/\+Projekt. 
+
+Diese Klasse kapselt die komplette Chatlogik für einen Nutzer\+:
+\begin{DoxyItemize}
+\item {\bfseries{JOIN/\+LEAVE/\+WHO}} werden an den Discovery-\/\+Dienst weitergeleitet.
+\item Textnachrichten und Bilder können an bekannte Nutzer gesendet werden.
+\item Eingehende Datagramme (Text) werden über einen Callback an die CLI weitergereicht. 
+\end{DoxyItemize}

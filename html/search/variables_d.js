@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['username_0',['username',['../classslcp_1_1_s_l_c_p_chat.html#aeecda86dfed21f7a619787314b2080c5',1,'slcp::SLCPChat']]]
+  ['whois_5fport_0',['WHOIS_PORT',['../namespacediscovery.html#abcefe6306f290ff2b7344592913cc7fd',1,'discovery']]]
 ];

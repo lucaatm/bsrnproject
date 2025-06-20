@@ -4,9 +4,11 @@
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{namespacemain_a6470dc00293701240ae057b3f7d69aae}{initialize\+\_\+user}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Erstellt eine Standard-\/\+Konfigurationsdatei, falls nicht vorhanden. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_add0f8841c73145fbc4149b2b731a713f}{start\+\_\+gui}} (username, port, peers)
+\begin{DoxyCompactList}\small\item\em Startet eine GUI-\/\+Instanz in diesem Prozess. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacemain_a3140e9a5b6a71ffbf498198cfc471b88}{main}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Hauptfunktion mit Auswahl zwischen GUI und CLI. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -21,12 +23,39 @@ str \mbox{\hyperlink{namespacemain_a84cf41708442c975b79cd28e5a682d25}{CONFIG\+\_
 {\footnotesize\ttfamily \label{namespacemain_a6470dc00293701240ae057b3f7d69aae} 
 main.\+initialize\+\_\+user (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{namespacemain_a3140e9a5b6a71ffbf498198cfc471b88}\index{main@{main}!main@{main}}
+
+
+Erstellt eine Standard-\/\+Konfigurationsdatei, falls nicht vorhanden. 
+
+Legt {\ttfamily config.\+toml} mit Default-\/\+Werten an und fragt den Handle ab, falls dieser leer ist oder fehlt. \Hypertarget{namespacemain_a3140e9a5b6a71ffbf498198cfc471b88}\index{main@{main}!main@{main}}
 \index{main@{main}!main@{main}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily \label{namespacemain_a3140e9a5b6a71ffbf498198cfc471b88} 
 main.\+main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Hauptfunktion mit Auswahl zwischen GUI und CLI. 
+
+Fragt den Benutzer, ob er eine oder zwei GUI-\/\+Fenster starten möchte oder in den CLI-\/\+Modus wechselt. \Hypertarget{namespacemain_add0f8841c73145fbc4149b2b731a713f}\index{main@{main}!start\_gui@{start\_gui}}
+\index{start\_gui@{start\_gui}!main@{main}}
+\doxysubsubsection{\texorpdfstring{start\_gui()}{start\_gui()}}
+{\footnotesize\ttfamily \label{namespacemain_add0f8841c73145fbc4149b2b731a713f} 
+main.\+start\+\_\+gui (\begin{DoxyParamCaption}\item[{}]{username}{, }\item[{}]{port}{, }\item[{}]{peers}{}\end{DoxyParamCaption})}
+
+
+
+Startet eine GUI-\/\+Instanz in diesem Prozess. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & Benutzer-\/\+Handle (wird aktuell nicht direkt genutzt). \\
+\hline
+{\em port} & UDP-\/\+Port zum Empfang von Nachrichten. \\
+\hline
+{\em peers} & Liste von {\ttfamily (ip, port)}-\/Tupeln der Chat-\/\+Teilnehmer. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Variable Documentation}

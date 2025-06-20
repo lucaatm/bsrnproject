@@ -112,8 +112,13 @@ $(function(){initNavTree('namespacemain.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6470dc00293701240ae057b3f7d69aae" id="r_a6470dc00293701240ae057b3f7d69aae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6470dc00293701240ae057b3f7d69aae">initialize_user</a> ()</td></tr>
+<tr class="memdesc:a6470dc00293701240ae057b3f7d69aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erstellt eine Standard-Konfigurationsdatei, falls nicht vorhanden.  <br /></td></tr>
 <tr class="separator:a6470dc00293701240ae057b3f7d69aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add0f8841c73145fbc4149b2b731a713f" id="r_add0f8841c73145fbc4149b2b731a713f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add0f8841c73145fbc4149b2b731a713f">start_gui</a> (username, port, peers)</td></tr>
+<tr class="memdesc:add0f8841c73145fbc4149b2b731a713f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Startet eine GUI-Instanz in diesem Prozess.  <br /></td></tr>
+<tr class="separator:add0f8841c73145fbc4149b2b731a713f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3140e9a5b6a71ffbf498198cfc471b88" id="r_a3140e9a5b6a71ffbf498198cfc471b88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3140e9a5b6a71ffbf498198cfc471b88">main</a> ()</td></tr>
+<tr class="memdesc:a3140e9a5b6a71ffbf498198cfc471b88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hauptfunktion mit Auswahl zwischen GUI und CLI.  <br /></td></tr>
 <tr class="separator:a3140e9a5b6a71ffbf498198cfc471b88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -137,6 +142,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Erstellt eine Standard-Konfigurationsdatei, falls nicht vorhanden. </p>
+<p>Legt <code>config.toml</code> mit Default-Werten an und fragt den Handle ab, falls dieser leer ist oder fehlt. </p>
+
 </div>
 </div>
 <a id="a3140e9a5b6a71ffbf498198cfc471b88" name="a3140e9a5b6a71ffbf498198cfc471b88"></a>
@@ -153,6 +161,45 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Hauptfunktion mit Auswahl zwischen GUI und CLI. </p>
+<p>Fragt den Benutzer, ob er eine oder zwei GUI-Fenster starten möchte oder in den CLI-Modus wechselt. </p>
+
+</div>
+</div>
+<a id="add0f8841c73145fbc4149b2b731a713f" name="add0f8841c73145fbc4149b2b731a713f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add0f8841c73145fbc4149b2b731a713f">&#9670;&#160;</a></span>start_gui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.start_gui </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>username</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>peers</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Startet eine GUI-Instanz in diesem Prozess. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>Benutzer-Handle (wird aktuell nicht direkt genutzt). </td></tr>
+    <tr><td class="paramname">port</td><td>UDP-Port zum Empfang von Nachrichten. </td></tr>
+    <tr><td class="paramname">peers</td><td>Liste von <code>(ip, port)</code>-Tupeln der Chat-Teilnehmer. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

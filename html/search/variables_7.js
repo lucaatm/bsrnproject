@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nachricht_5fsenden_0',['nachricht_senden',['../classchat__window_1_1_chat_window.html#addc9da3bd7233e1f5b37de136c2a0ce6',1,'chat_window::ChatWindow']]]
+  ['on_5freceive_5fcallback_0',['on_receive_callback',['../classudp__handler_1_1_u_d_p_handler.html#a6956343541e4aa5e946d4fa8dcc9d0f4',1,'udp_handler::UDPHandler']]]
 ];

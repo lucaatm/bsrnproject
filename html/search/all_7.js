@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['image_5fhandler_0',['image_handler',['../namespaceimage__handler.html',1,'']]],
-  ['image_5fhandler_2epy_1',['image_handler.py',['../image__handler_8py.html',1,'']]],
-  ['image_5fport_2',['IMAGE_PORT',['../namespacecli__chat.html#a8fc4a9b41ecae467c5c03d5aeef4ac2a',1,'cli_chat']]],
-  ['image_5fport_3',['image_port',['../classslcp_1_1_s_l_c_p_chat.html#a3aeb30ea39d8d33e58e7267e497eb298',1,'slcp::SLCPChat']]],
-  ['imagepath_4',['IMAGEPATH',['../namespaceimage__handler.html#ac253e13236c0c5f598beafd1a15f6e40',1,'image_handler']]],
-  ['inactive_5',['INACTIVE',['../namespacecli__chat.html#a3c75b1a7ff476688f7e466880660be75',1,'cli_chat']]],
-  ['initialize_5fuser_6',['initialize_user',['../namespacemain.html#a6470dc00293701240ae057b3f7d69aae',1,'main']]],
-  ['input_5floop_7',['input_loop',['../namespacecli__chat.html#aa7d7df9de059c1d9d5ca840fef5ee56c',1,'cli_chat']]]
+  ['handle_0',['HANDLE',['../namespacediscovery.html#a14e2ab739346fda96614eb1da47e9044',1,'discovery']]],
+  ['handle_1',['handle',['../classslcp_1_1_s_l_c_p_chat.html#a5ccfaa0ae0158b761426956182f2fa51',1,'slcp::SLCPChat']]],
+  ['handle_5fjoin_2',['handle_join',['../namespacediscovery.html#a219a786c1621657eecf3c40898eda368',1,'discovery']]],
+  ['handle_5fleave_3',['handle_leave',['../namespacediscovery.html#a841fbb6bb0353b7bcea4d50addc996d8',1,'discovery']]],
+  ['handle_5fwho_4',['handle_who',['../namespacediscovery.html#ae9ebfcc49b4be211712f71faf3aa58da',1,'discovery']]]
 ];

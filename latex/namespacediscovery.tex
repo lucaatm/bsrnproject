@@ -3,115 +3,159 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespacediscovery_acc40d1bbc24b38cccab6c4c8308f4b99}{broadcast}} (msg)
-\begin{DoxyCompactList}\small\item\em Broadcasts a message to all participants in the network. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacediscovery_abbb5b6b278b34f3f9432190adadebf14}{send\+\_\+direct}} (ip, port, message)
-\begin{DoxyCompactList}\small\item\em Sends a direct message to a specific IP and port. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacediscovery_a0f42cd6ff77f45ea25c091445094ff13}{handle\+\_\+join}} (tokens, addr)
-\begin{DoxyCompactList}\small\item\em HANDLES Handles the JOIN command from a participant. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacediscovery_acc62fff6baf4e86c23b4cf680f419115}{handle\+\_\+leave}} (tokens, addr)
-\begin{DoxyCompactList}\small\item\em Handles the LEAVE command from a participant. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacediscovery_a21d734c4cc0411e1d7bfb924fa7ea9fc}{handle\+\_\+who}} (addr)
-\begin{DoxyCompactList}\small\item\em Handles the WHO command to list all known participants. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacediscovery_a81580e834d620291683c71036ec57192}{listen}} ()
-\begin{DoxyCompactList}\small\item\em Listens for incoming discovery messages using the WHOIS\+\_\+\+PORT such as JOIN, LEAVE, and WHO and handles them. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacediscovery_a991193ec2ebce229d4b3917c0b53f6bd}{start\+\_\+discovery\+\_\+service}} ()
-\begin{DoxyCompactList}\small\item\em Starts the discovery service which is used in \doxylink{cli__chat_8py}{cli\+\_\+chat.\+py} in a separate thread. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacediscovery_aa276fdb6d7fbf8b5125f51f1a667830a}{send\+\_\+join}} (\mbox{\hyperlink{namespacediscovery_ac38d644deb052f56a3efae94e6041a94}{handle}}, port)
-\end{DoxyCompactItemize}
+None \mbox{\hyperlink{namespacediscovery_a8c78d50d1420f8df68651443b1a20dd0}{broadcast}} (str message)
+\begin{DoxyCompactList}\small\item\em Sendet {\ttfamily message} als UDP-\/\+Broadcast an WHOIS\+\_\+\+PORT. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{namespacediscovery_a951a971f9951c43a25a905b865cc1932}{send\+\_\+direct}} (str ip, int port, str message)
+\begin{DoxyCompactList}\small\item\em Sendet eine UDP-\/\+Nachricht direkt an ip\+:port. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{namespacediscovery_a219a786c1621657eecf3c40898eda368}{handle\+\_\+join}} (list\mbox{[}str\mbox{]} tokens, Tuple\mbox{[}str, int\mbox{]} addr)
+\begin{DoxyCompactList}\small\item\em Verarbeitet ein eingehendes JOIN-\/\+Kommando. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{namespacediscovery_a841fbb6bb0353b7bcea4d50addc996d8}{handle\+\_\+leave}} (list\mbox{[}str\mbox{]} tokens, Tuple\mbox{[}str, int\mbox{]} addr)
+\begin{DoxyCompactList}\small\item\em Verarbeitet ein eingehendes LEAVE-\/\+Kommando. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{namespacediscovery_ae9ebfcc49b4be211712f71faf3aa58da}{handle\+\_\+who}} (Tuple\mbox{[}str, int\mbox{]} addr)
+\begin{DoxyCompactList}\small\item\em Beantwortet ein WHO-\/\+Kommando mit allen bekannten Nutzern. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{namespacediscovery_ad436042b230b5458aa6064ea86b2d420}{listen}} ()
+\begin{DoxyCompactList}\small\item\em Lauscht auf WHOIS\+\_\+\+PORT auf Discovery-\/\+Kommandos (JOIN, LEAVE, WHO) in Endlosschleife. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{namespacediscovery_a004d67498ce598df44da340245c107e0}{start\+\_\+discovery\+\_\+service}} ()
+\begin{DoxyCompactList}\small\item\em Startet den Discovery-\/\+Dienst in einem Hintergrundthread. \end{DoxyCompactList}\item 
+None \mbox{\hyperlink{namespacediscovery_ad27b6c11e4cac10ade3a238a1c91fe63}{send\+\_\+join}} (str handle, int port)
+\begin{DoxyCompactList}\small\item\em Kündigt die eigene Anwesenheit im Netzwerk an. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{namespacediscovery_a81b30924aaa9c7f5125dccd366f14a7f}{config}} = toml.\+load("{}resources/config.\+toml"{})
-\item 
-\mbox{\hyperlink{namespacediscovery_ac38d644deb052f56a3efae94e6041a94}{handle}} = config.\+get("{}user"{}, \{\}).get("{}handle"{}, "{}Unknown"{})
-\item 
-\mbox{\hyperlink{namespacediscovery_a0aa97ffa8a9517aaaef75aca6b65382c}{PORT}} = config.\+get("{}user"{}, \{\}).get("{}ports"{}, \mbox{[}5001\mbox{]})\mbox{[}0\mbox{]}
-\item 
-\mbox{\hyperlink{namespacediscovery_a53bc3ff8fe5a96652e5f6bc400d3149c}{WHOIS\+\_\+\+PORT}} = config.\+get("{}network"{}, \{\}).get("{}whoisport"{}, 4000)
-\item 
+\begin{DoxyCompactList}\small\item\em Konfiguration laden (Fehlende oder fehlerhafte Konfig wird abgefangen) \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{namespacediscovery_a14e2ab739346fda96614eb1da47e9044}{HANDLE}} = config.\+get("{}user"{}, \{\}).get("{}handle"{}, "{}Unbekannt"{})
+\begin{DoxyCompactList}\small\item\em Der eigene Handle aus der Konfiguration. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacediscovery_aedeefcb93bf5b2ed915d29cc8da214b1}{PORT}} = config.\+get("{}user"{}, \{\}).get("{}ports"{}, \mbox{[}5001\mbox{]})\mbox{[}0\mbox{]}
+\begin{DoxyCompactList}\small\item\em Der Port für eingehende Discovery-\/\+Nachrichten. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacediscovery_abcefe6306f290ff2b7344592913cc7fd}{WHOIS\+\_\+\+PORT}} = config.\+get("{}network"{}, \{\}).get("{}whoisport"{}, 4000)
+\begin{DoxyCompactList}\small\item\em Der Port, auf dem Discovery-\/\+Anfragen empfangen werden. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{namespacediscovery_acd23f441d9d2fc98bfcca377640f2d8f}{BUFFER\+\_\+\+SIZE}} = 512
-\item 
+\begin{DoxyCompactList}\small\item\em Maximale Puffergröße für UDP-\/\+Pakete. \end{DoxyCompactList}\item 
 dict \mbox{\hyperlink{namespacediscovery_ae844df2eb781578fb293cd470ed96293}{participants}} = \{\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em In-\/\+Memory-\/\+Verzeichnis\+: \{handle\+: (ip, port)\}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{namespacediscovery_acc40d1bbc24b38cccab6c4c8308f4b99}\index{discovery@{discovery}!broadcast@{broadcast}}
+\Hypertarget{namespacediscovery_a8c78d50d1420f8df68651443b1a20dd0}\index{discovery@{discovery}!broadcast@{broadcast}}
 \index{broadcast@{broadcast}!discovery@{discovery}}
 \doxysubsubsection{\texorpdfstring{broadcast()}{broadcast()}}
-{\footnotesize\ttfamily \label{namespacediscovery_acc40d1bbc24b38cccab6c4c8308f4b99} 
-discovery.\+broadcast (\begin{DoxyParamCaption}\item[{}]{msg}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{namespacediscovery_a8c78d50d1420f8df68651443b1a20dd0} 
+ None discovery.\+broadcast (\begin{DoxyParamCaption}\item[{str}]{message}{}\end{DoxyParamCaption})}
 
 
 
-Broadcasts a message to all participants in the network. 
+Sendet {\ttfamily message} als UDP-\/\+Broadcast an WHOIS\+\_\+\+PORT. 
 
-\Hypertarget{namespacediscovery_a0f42cd6ff77f45ea25c091445094ff13}\index{discovery@{discovery}!handle\_join@{handle\_join}}
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Nachricht, die als UTF-\/8 gesendet wird. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacediscovery_a219a786c1621657eecf3c40898eda368}\index{discovery@{discovery}!handle\_join@{handle\_join}}
 \index{handle\_join@{handle\_join}!discovery@{discovery}}
 \doxysubsubsection{\texorpdfstring{handle\_join()}{handle\_join()}}
-{\footnotesize\ttfamily \label{namespacediscovery_a0f42cd6ff77f45ea25c091445094ff13} 
-discovery.\+handle\+\_\+join (\begin{DoxyParamCaption}\item[{}]{tokens}{, }\item[{}]{addr}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{namespacediscovery_a219a786c1621657eecf3c40898eda368} 
+ None discovery.\+handle\+\_\+join (\begin{DoxyParamCaption}\item[{list\mbox{[}str\mbox{]}}]{tokens}{, }\item[{Tuple\mbox{[}str, int\mbox{]}}]{addr}{}\end{DoxyParamCaption})}
 
 
 
-HANDLES Handles the JOIN command from a participant. 
+Verarbeitet ein eingehendes JOIN-\/\+Kommando. 
 
-\Hypertarget{namespacediscovery_acc62fff6baf4e86c23b4cf680f419115}\index{discovery@{discovery}!handle\_leave@{handle\_leave}}
+Erwartetes Format\+: {\ttfamily JOIN \texorpdfstring{$<$}{<}handle\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}port\texorpdfstring{$>$}{>}} 
+\begin{DoxyParams}{Parameters}
+{\em tokens} & Tokenisierte Nachricht als Liste von Strings. \\
+\hline
+{\em addr} & Absenderadresse (IP, Port) des Sockets. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacediscovery_a841fbb6bb0353b7bcea4d50addc996d8}\index{discovery@{discovery}!handle\_leave@{handle\_leave}}
 \index{handle\_leave@{handle\_leave}!discovery@{discovery}}
 \doxysubsubsection{\texorpdfstring{handle\_leave()}{handle\_leave()}}
-{\footnotesize\ttfamily \label{namespacediscovery_acc62fff6baf4e86c23b4cf680f419115} 
-discovery.\+handle\+\_\+leave (\begin{DoxyParamCaption}\item[{}]{tokens}{, }\item[{}]{addr}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{namespacediscovery_a841fbb6bb0353b7bcea4d50addc996d8} 
+ None discovery.\+handle\+\_\+leave (\begin{DoxyParamCaption}\item[{list\mbox{[}str\mbox{]}}]{tokens}{, }\item[{Tuple\mbox{[}str, int\mbox{]}}]{addr}{}\end{DoxyParamCaption})}
 
 
 
-Handles the LEAVE command from a participant. 
+Verarbeitet ein eingehendes LEAVE-\/\+Kommando. 
 
-\Hypertarget{namespacediscovery_a21d734c4cc0411e1d7bfb924fa7ea9fc}\index{discovery@{discovery}!handle\_who@{handle\_who}}
+Erwartetes Format\+: {\ttfamily LEAVE \texorpdfstring{$<$}{<}handle\texorpdfstring{$>$}{>}} 
+\begin{DoxyParams}{Parameters}
+{\em tokens} & Tokenisierte Nachricht als Liste von Strings. \\
+\hline
+{\em addr} & Absenderadresse (IP, Port). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacediscovery_ae9ebfcc49b4be211712f71faf3aa58da}\index{discovery@{discovery}!handle\_who@{handle\_who}}
 \index{handle\_who@{handle\_who}!discovery@{discovery}}
 \doxysubsubsection{\texorpdfstring{handle\_who()}{handle\_who()}}
-{\footnotesize\ttfamily \label{namespacediscovery_a21d734c4cc0411e1d7bfb924fa7ea9fc} 
-discovery.\+handle\+\_\+who (\begin{DoxyParamCaption}\item[{}]{addr}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{namespacediscovery_ae9ebfcc49b4be211712f71faf3aa58da} 
+ None discovery.\+handle\+\_\+who (\begin{DoxyParamCaption}\item[{Tuple\mbox{[}str, int\mbox{]}}]{addr}{}\end{DoxyParamCaption})}
 
 
 
-Handles the WHO command to list all known participants. 
+Beantwortet ein WHO-\/\+Kommando mit allen bekannten Nutzern. 
 
-\Hypertarget{namespacediscovery_a81580e834d620291683c71036ec57192}\index{discovery@{discovery}!listen@{listen}}
+Sendet eine {\ttfamily KNOWNUSERS}-\/Antwort direkt (Unicast) zurück. 
+\begin{DoxyParams}{Parameters}
+{\em addr} & Absenderadresse (IP, Port) für die Antwort. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacediscovery_ad436042b230b5458aa6064ea86b2d420}\index{discovery@{discovery}!listen@{listen}}
 \index{listen@{listen}!discovery@{discovery}}
 \doxysubsubsection{\texorpdfstring{listen()}{listen()}}
-{\footnotesize\ttfamily \label{namespacediscovery_a81580e834d620291683c71036ec57192} 
-discovery.\+listen (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{namespacediscovery_ad436042b230b5458aa6064ea86b2d420} 
+ None discovery.\+listen (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Listens for incoming discovery messages using the WHOIS\+\_\+\+PORT such as JOIN, LEAVE, and WHO and handles them. 
+Lauscht auf WHOIS\+\_\+\+PORT auf Discovery-\/\+Kommandos (JOIN, LEAVE, WHO) in Endlosschleife. 
 
-\Hypertarget{namespacediscovery_abbb5b6b278b34f3f9432190adadebf14}\index{discovery@{discovery}!send\_direct@{send\_direct}}
+\Hypertarget{namespacediscovery_a951a971f9951c43a25a905b865cc1932}\index{discovery@{discovery}!send\_direct@{send\_direct}}
 \index{send\_direct@{send\_direct}!discovery@{discovery}}
 \doxysubsubsection{\texorpdfstring{send\_direct()}{send\_direct()}}
-{\footnotesize\ttfamily \label{namespacediscovery_abbb5b6b278b34f3f9432190adadebf14} 
-discovery.\+send\+\_\+direct (\begin{DoxyParamCaption}\item[{}]{ip}{, }\item[{}]{port}{, }\item[{}]{message}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{namespacediscovery_a951a971f9951c43a25a905b865cc1932} 
+ None discovery.\+send\+\_\+direct (\begin{DoxyParamCaption}\item[{str}]{ip}{, }\item[{int}]{port}{, }\item[{str}]{message}{}\end{DoxyParamCaption})}
 
 
 
-Sends a direct message to a specific IP and port. 
+Sendet eine UDP-\/\+Nachricht direkt an ip\+:port. 
 
-\Hypertarget{namespacediscovery_aa276fdb6d7fbf8b5125f51f1a667830a}\index{discovery@{discovery}!send\_join@{send\_join}}
+
+\begin{DoxyParams}{Parameters}
+{\em ip} & Ziel-\/\+IP-\/\+Adresse (String) \\
+\hline
+{\em port} & Ziel-\/\+Port (int) \\
+\hline
+{\em message} & Inhalt der Nachricht (UTF-\/8 String) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacediscovery_ad27b6c11e4cac10ade3a238a1c91fe63}\index{discovery@{discovery}!send\_join@{send\_join}}
 \index{send\_join@{send\_join}!discovery@{discovery}}
 \doxysubsubsection{\texorpdfstring{send\_join()}{send\_join()}}
-{\footnotesize\ttfamily \label{namespacediscovery_aa276fdb6d7fbf8b5125f51f1a667830a} 
-discovery.\+send\+\_\+join (\begin{DoxyParamCaption}\item[{}]{handle}{, }\item[{}]{port}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{namespacediscovery_ad27b6c11e4cac10ade3a238a1c91fe63} 
+ None discovery.\+send\+\_\+join (\begin{DoxyParamCaption}\item[{str}]{handle}{, }\item[{int}]{port}{}\end{DoxyParamCaption})}
 
-\Hypertarget{namespacediscovery_a991193ec2ebce229d4b3917c0b53f6bd}\index{discovery@{discovery}!start\_discovery\_service@{start\_discovery\_service}}
+
+
+Kündigt die eigene Anwesenheit im Netzwerk an. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Benutzername, unter dem man im Netzwerk bekannt sein will. \\
+\hline
+{\em port} & Port, auf dem das eigene Programm Chatdaten empfängt. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacediscovery_a004d67498ce598df44da340245c107e0}\index{discovery@{discovery}!start\_discovery\_service@{start\_discovery\_service}}
 \index{start\_discovery\_service@{start\_discovery\_service}!discovery@{discovery}}
 \doxysubsubsection{\texorpdfstring{start\_discovery\_service()}{start\_discovery\_service()}}
-{\footnotesize\ttfamily \label{namespacediscovery_a991193ec2ebce229d4b3917c0b53f6bd} 
-discovery.\+start\+\_\+discovery\+\_\+service (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{namespacediscovery_a004d67498ce598df44da340245c107e0} 
+ None discovery.\+start\+\_\+discovery\+\_\+service (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Starts the discovery service which is used in \doxylink{cli__chat_8py}{cli\+\_\+chat.\+py} in a separate thread. 
+Startet den Discovery-\/\+Dienst in einem Hintergrundthread. 
 
 
 
@@ -122,17 +166,29 @@ Starts the discovery service which is used in \doxylink{cli__chat_8py}{cli\+\_\+
 {\footnotesize\ttfamily \label{namespacediscovery_acd23f441d9d2fc98bfcca377640f2d8f} 
 int discovery.\+BUFFER\+\_\+\+SIZE = 512}
 
+
+
+Maximale Puffergröße für UDP-\/\+Pakete. 
+
 \Hypertarget{namespacediscovery_a81b30924aaa9c7f5125dccd366f14a7f}\index{discovery@{discovery}!config@{config}}
 \index{config@{config}!discovery@{discovery}}
 \doxysubsubsection{\texorpdfstring{config}{config}}
 {\footnotesize\ttfamily \label{namespacediscovery_a81b30924aaa9c7f5125dccd366f14a7f} 
 dict discovery.\+config = toml.\+load("{}resources/config.\+toml"{})}
 
-\Hypertarget{namespacediscovery_ac38d644deb052f56a3efae94e6041a94}\index{discovery@{discovery}!handle@{handle}}
-\index{handle@{handle}!discovery@{discovery}}
-\doxysubsubsection{\texorpdfstring{handle}{handle}}
-{\footnotesize\ttfamily \label{namespacediscovery_ac38d644deb052f56a3efae94e6041a94} 
-discovery.\+handle = config.\+get("{}user"{}, \{\}).get("{}handle"{}, "{}Unknown"{})}
+
+
+Konfiguration laden (Fehlende oder fehlerhafte Konfig wird abgefangen) 
+
+\Hypertarget{namespacediscovery_a14e2ab739346fda96614eb1da47e9044}\index{discovery@{discovery}!HANDLE@{HANDLE}}
+\index{HANDLE@{HANDLE}!discovery@{discovery}}
+\doxysubsubsection{\texorpdfstring{HANDLE}{HANDLE}}
+{\footnotesize\ttfamily \label{namespacediscovery_a14e2ab739346fda96614eb1da47e9044} 
+str discovery.\+HANDLE = config.\+get("{}user"{}, \{\}).get("{}handle"{}, "{}Unbekannt"{})}
+
+
+
+Der eigene Handle aus der Konfiguration. 
 
 \Hypertarget{namespacediscovery_ae844df2eb781578fb293cd470ed96293}\index{discovery@{discovery}!participants@{participants}}
 \index{participants@{participants}!discovery@{discovery}}
@@ -140,15 +196,27 @@ discovery.\+handle = config.\+get("{}user"{}, \{\}).get("{}handle"{}, "{}Unknown
 {\footnotesize\ttfamily \label{namespacediscovery_ae844df2eb781578fb293cd470ed96293} 
 dict discovery.\+participants = \{\}}
 
-\Hypertarget{namespacediscovery_a0aa97ffa8a9517aaaef75aca6b65382c}\index{discovery@{discovery}!PORT@{PORT}}
+
+
+In-\/\+Memory-\/\+Verzeichnis\+: \{handle\+: (ip, port)\}. 
+
+\Hypertarget{namespacediscovery_aedeefcb93bf5b2ed915d29cc8da214b1}\index{discovery@{discovery}!PORT@{PORT}}
 \index{PORT@{PORT}!discovery@{discovery}}
 \doxysubsubsection{\texorpdfstring{PORT}{PORT}}
-{\footnotesize\ttfamily \label{namespacediscovery_a0aa97ffa8a9517aaaef75aca6b65382c} 
-discovery.\+PORT = config.\+get("{}user"{}, \{\}).get("{}ports"{}, \mbox{[}5001\mbox{]})\mbox{[}0\mbox{]}}
+{\footnotesize\ttfamily \label{namespacediscovery_aedeefcb93bf5b2ed915d29cc8da214b1} 
+int discovery.\+PORT = config.\+get("{}user"{}, \{\}).get("{}ports"{}, \mbox{[}5001\mbox{]})\mbox{[}0\mbox{]}}
 
-\Hypertarget{namespacediscovery_a53bc3ff8fe5a96652e5f6bc400d3149c}\index{discovery@{discovery}!WHOIS\_PORT@{WHOIS\_PORT}}
+
+
+Der Port für eingehende Discovery-\/\+Nachrichten. 
+
+\Hypertarget{namespacediscovery_abcefe6306f290ff2b7344592913cc7fd}\index{discovery@{discovery}!WHOIS\_PORT@{WHOIS\_PORT}}
 \index{WHOIS\_PORT@{WHOIS\_PORT}!discovery@{discovery}}
 \doxysubsubsection{\texorpdfstring{WHOIS\_PORT}{WHOIS\_PORT}}
-{\footnotesize\ttfamily \label{namespacediscovery_a53bc3ff8fe5a96652e5f6bc400d3149c} 
-discovery.\+WHOIS\+\_\+\+PORT = config.\+get("{}network"{}, \{\}).get("{}whoisport"{}, 4000)}
+{\footnotesize\ttfamily \label{namespacediscovery_abcefe6306f290ff2b7344592913cc7fd} 
+int discovery.\+WHOIS\+\_\+\+PORT = config.\+get("{}network"{}, \{\}).get("{}whoisport"{}, 4000)}
+
+
+
+Der Port, auf dem Discovery-\/\+Anfragen empfangen werden. 
 

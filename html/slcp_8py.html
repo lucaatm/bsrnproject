@@ -109,6 +109,9 @@ $(function(){initNavTree('slcp_8py.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">slcp.py File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Einfache Chat-Klasse (SLCPChat) für das Chat-Projekt.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -125,7 +128,14 @@ Variables</h2></td></tr>
 <tr class="memitem:a98e0b473c928f6c2903f791fdcd70c70" id="r_a98e0b473c928f6c2903f791fdcd70c70"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceslcp.html#a98e0b473c928f6c2903f791fdcd70c70">slcp.BUFFER_SIZE</a> = 512</td></tr>
 <tr class="separator:a98e0b473c928f6c2903f791fdcd70c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Einfache Chat-Klasse (SLCPChat) für das Chat-Projekt. </p>
+<p>Diese Klasse kapselt die komplette Chatlogik für einen Nutzer:</p><ul>
+<li><b>JOIN/LEAVE/WHO</b> werden an den Discovery-Dienst weitergeleitet.</li>
+<li>Textnachrichten und Bilder können an bekannte Nutzer gesendet werden.</li>
+<li>Eingehende Datagramme (Text) werden über einen Callback an die CLI weitergereicht. </li>
+</ul>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

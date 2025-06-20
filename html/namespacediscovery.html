@@ -111,138 +111,171 @@ $(function(){initNavTree('namespacediscovery.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:acc40d1bbc24b38cccab6c4c8308f4b99" id="r_acc40d1bbc24b38cccab6c4c8308f4b99"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc40d1bbc24b38cccab6c4c8308f4b99">broadcast</a> (msg)</td></tr>
-<tr class="memdesc:acc40d1bbc24b38cccab6c4c8308f4b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcasts a message to all participants in the network.  <br /></td></tr>
-<tr class="separator:acc40d1bbc24b38cccab6c4c8308f4b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbb5b6b278b34f3f9432190adadebf14" id="r_abbb5b6b278b34f3f9432190adadebf14"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbb5b6b278b34f3f9432190adadebf14">send_direct</a> (ip, port, message)</td></tr>
-<tr class="memdesc:abbb5b6b278b34f3f9432190adadebf14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a direct message to a specific IP and port.  <br /></td></tr>
-<tr class="separator:abbb5b6b278b34f3f9432190adadebf14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f42cd6ff77f45ea25c091445094ff13" id="r_a0f42cd6ff77f45ea25c091445094ff13"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f42cd6ff77f45ea25c091445094ff13">handle_join</a> (tokens, addr)</td></tr>
-<tr class="memdesc:a0f42cd6ff77f45ea25c091445094ff13"><td class="mdescLeft">&#160;</td><td class="mdescRight">HANDLES Handles the JOIN command from a participant.  <br /></td></tr>
-<tr class="separator:a0f42cd6ff77f45ea25c091445094ff13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc62fff6baf4e86c23b4cf680f419115" id="r_acc62fff6baf4e86c23b4cf680f419115"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc62fff6baf4e86c23b4cf680f419115">handle_leave</a> (tokens, addr)</td></tr>
-<tr class="memdesc:acc62fff6baf4e86c23b4cf680f419115"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the LEAVE command from a participant.  <br /></td></tr>
-<tr class="separator:acc62fff6baf4e86c23b4cf680f419115"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21d734c4cc0411e1d7bfb924fa7ea9fc" id="r_a21d734c4cc0411e1d7bfb924fa7ea9fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21d734c4cc0411e1d7bfb924fa7ea9fc">handle_who</a> (addr)</td></tr>
-<tr class="memdesc:a21d734c4cc0411e1d7bfb924fa7ea9fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the WHO command to list all known participants.  <br /></td></tr>
-<tr class="separator:a21d734c4cc0411e1d7bfb924fa7ea9fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81580e834d620291683c71036ec57192" id="r_a81580e834d620291683c71036ec57192"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81580e834d620291683c71036ec57192">listen</a> ()</td></tr>
-<tr class="memdesc:a81580e834d620291683c71036ec57192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Listens for incoming discovery messages using the WHOIS_PORT such as JOIN, LEAVE, and WHO and handles them.  <br /></td></tr>
-<tr class="separator:a81580e834d620291683c71036ec57192"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a991193ec2ebce229d4b3917c0b53f6bd" id="r_a991193ec2ebce229d4b3917c0b53f6bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a991193ec2ebce229d4b3917c0b53f6bd">start_discovery_service</a> ()</td></tr>
-<tr class="memdesc:a991193ec2ebce229d4b3917c0b53f6bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the discovery service which is used in <a class="el" href="cli__chat_8py.html" title="Diese Datei implementiert die Kommandozeilen-Schnittstelle (CLI) für den SLCP-Chat.">cli_chat.py</a> in a separate thread.  <br /></td></tr>
-<tr class="separator:a991193ec2ebce229d4b3917c0b53f6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa276fdb6d7fbf8b5125f51f1a667830a" id="r_aa276fdb6d7fbf8b5125f51f1a667830a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa276fdb6d7fbf8b5125f51f1a667830a">send_join</a> (<a class="el" href="#ac38d644deb052f56a3efae94e6041a94">handle</a>, port)</td></tr>
-<tr class="separator:aa276fdb6d7fbf8b5125f51f1a667830a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c78d50d1420f8df68651443b1a20dd0" id="r_a8c78d50d1420f8df68651443b1a20dd0"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c78d50d1420f8df68651443b1a20dd0">broadcast</a> (str message)</td></tr>
+<tr class="memdesc:a8c78d50d1420f8df68651443b1a20dd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sendet <code>message</code> als UDP-Broadcast an WHOIS_PORT.  <br /></td></tr>
+<tr class="separator:a8c78d50d1420f8df68651443b1a20dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a951a971f9951c43a25a905b865cc1932" id="r_a951a971f9951c43a25a905b865cc1932"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a951a971f9951c43a25a905b865cc1932">send_direct</a> (str ip, int port, str message)</td></tr>
+<tr class="memdesc:a951a971f9951c43a25a905b865cc1932"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sendet eine UDP-Nachricht direkt an ip:port.  <br /></td></tr>
+<tr class="separator:a951a971f9951c43a25a905b865cc1932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a219a786c1621657eecf3c40898eda368" id="r_a219a786c1621657eecf3c40898eda368"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a219a786c1621657eecf3c40898eda368">handle_join</a> (list[str] tokens, Tuple[str, int] addr)</td></tr>
+<tr class="memdesc:a219a786c1621657eecf3c40898eda368"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verarbeitet ein eingehendes JOIN-Kommando.  <br /></td></tr>
+<tr class="separator:a219a786c1621657eecf3c40898eda368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a841fbb6bb0353b7bcea4d50addc996d8" id="r_a841fbb6bb0353b7bcea4d50addc996d8"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a841fbb6bb0353b7bcea4d50addc996d8">handle_leave</a> (list[str] tokens, Tuple[str, int] addr)</td></tr>
+<tr class="memdesc:a841fbb6bb0353b7bcea4d50addc996d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verarbeitet ein eingehendes LEAVE-Kommando.  <br /></td></tr>
+<tr class="separator:a841fbb6bb0353b7bcea4d50addc996d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9ebfcc49b4be211712f71faf3aa58da" id="r_ae9ebfcc49b4be211712f71faf3aa58da"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9ebfcc49b4be211712f71faf3aa58da">handle_who</a> (Tuple[str, int] addr)</td></tr>
+<tr class="memdesc:ae9ebfcc49b4be211712f71faf3aa58da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Beantwortet ein WHO-Kommando mit allen bekannten Nutzern.  <br /></td></tr>
+<tr class="separator:ae9ebfcc49b4be211712f71faf3aa58da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad436042b230b5458aa6064ea86b2d420" id="r_ad436042b230b5458aa6064ea86b2d420"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad436042b230b5458aa6064ea86b2d420">listen</a> ()</td></tr>
+<tr class="memdesc:ad436042b230b5458aa6064ea86b2d420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lauscht auf WHOIS_PORT auf Discovery-Kommandos (JOIN, LEAVE, WHO) in Endlosschleife.  <br /></td></tr>
+<tr class="separator:ad436042b230b5458aa6064ea86b2d420"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a004d67498ce598df44da340245c107e0" id="r_a004d67498ce598df44da340245c107e0"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a004d67498ce598df44da340245c107e0">start_discovery_service</a> ()</td></tr>
+<tr class="memdesc:a004d67498ce598df44da340245c107e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Startet den Discovery-Dienst in einem Hintergrundthread.  <br /></td></tr>
+<tr class="separator:a004d67498ce598df44da340245c107e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad27b6c11e4cac10ade3a238a1c91fe63" id="r_ad27b6c11e4cac10ade3a238a1c91fe63"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad27b6c11e4cac10ade3a238a1c91fe63">send_join</a> (str handle, int port)</td></tr>
+<tr class="memdesc:ad27b6c11e4cac10ade3a238a1c91fe63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kündigt die eigene Anwesenheit im Netzwerk an.  <br /></td></tr>
+<tr class="separator:ad27b6c11e4cac10ade3a238a1c91fe63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a81b30924aaa9c7f5125dccd366f14a7f" id="r_a81b30924aaa9c7f5125dccd366f14a7f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81b30924aaa9c7f5125dccd366f14a7f">config</a> = toml.load(&quot;resources/config.toml&quot;)</td></tr>
+<tr class="memdesc:a81b30924aaa9c7f5125dccd366f14a7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konfiguration laden (Fehlende oder fehlerhafte Konfig wird abgefangen)  <br /></td></tr>
 <tr class="separator:a81b30924aaa9c7f5125dccd366f14a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac38d644deb052f56a3efae94e6041a94" id="r_ac38d644deb052f56a3efae94e6041a94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac38d644deb052f56a3efae94e6041a94">handle</a> = config.get(&quot;user&quot;, {}).get(&quot;handle&quot;, &quot;Unknown&quot;)</td></tr>
-<tr class="separator:ac38d644deb052f56a3efae94e6041a94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0aa97ffa8a9517aaaef75aca6b65382c" id="r_a0aa97ffa8a9517aaaef75aca6b65382c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0aa97ffa8a9517aaaef75aca6b65382c">PORT</a> = config.get(&quot;user&quot;, {}).get(&quot;ports&quot;, [5001])[0]</td></tr>
-<tr class="separator:a0aa97ffa8a9517aaaef75aca6b65382c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53bc3ff8fe5a96652e5f6bc400d3149c" id="r_a53bc3ff8fe5a96652e5f6bc400d3149c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53bc3ff8fe5a96652e5f6bc400d3149c">WHOIS_PORT</a> = config.get(&quot;network&quot;, {}).get(&quot;whoisport&quot;, 4000)</td></tr>
-<tr class="separator:a53bc3ff8fe5a96652e5f6bc400d3149c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14e2ab739346fda96614eb1da47e9044" id="r_a14e2ab739346fda96614eb1da47e9044"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14e2ab739346fda96614eb1da47e9044">HANDLE</a> = config.get(&quot;user&quot;, {}).get(&quot;handle&quot;, &quot;Unbekannt&quot;)</td></tr>
+<tr class="memdesc:a14e2ab739346fda96614eb1da47e9044"><td class="mdescLeft">&#160;</td><td class="mdescRight">Der eigene Handle aus der Konfiguration.  <br /></td></tr>
+<tr class="separator:a14e2ab739346fda96614eb1da47e9044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedeefcb93bf5b2ed915d29cc8da214b1" id="r_aedeefcb93bf5b2ed915d29cc8da214b1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedeefcb93bf5b2ed915d29cc8da214b1">PORT</a> = config.get(&quot;user&quot;, {}).get(&quot;ports&quot;, [5001])[0]</td></tr>
+<tr class="memdesc:aedeefcb93bf5b2ed915d29cc8da214b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Der Port für eingehende Discovery-Nachrichten.  <br /></td></tr>
+<tr class="separator:aedeefcb93bf5b2ed915d29cc8da214b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcefe6306f290ff2b7344592913cc7fd" id="r_abcefe6306f290ff2b7344592913cc7fd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcefe6306f290ff2b7344592913cc7fd">WHOIS_PORT</a> = config.get(&quot;network&quot;, {}).get(&quot;whoisport&quot;, 4000)</td></tr>
+<tr class="memdesc:abcefe6306f290ff2b7344592913cc7fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Der Port, auf dem Discovery-Anfragen empfangen werden.  <br /></td></tr>
+<tr class="separator:abcefe6306f290ff2b7344592913cc7fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd23f441d9d2fc98bfcca377640f2d8f" id="r_acd23f441d9d2fc98bfcca377640f2d8f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd23f441d9d2fc98bfcca377640f2d8f">BUFFER_SIZE</a> = 512</td></tr>
+<tr class="memdesc:acd23f441d9d2fc98bfcca377640f2d8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximale Puffergröße für UDP-Pakete.  <br /></td></tr>
 <tr class="separator:acd23f441d9d2fc98bfcca377640f2d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae844df2eb781578fb293cd470ed96293" id="r_ae844df2eb781578fb293cd470ed96293"><td class="memItemLeft" align="right" valign="top">dict&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae844df2eb781578fb293cd470ed96293">participants</a> = {}</td></tr>
+<tr class="memdesc:ae844df2eb781578fb293cd470ed96293"><td class="mdescLeft">&#160;</td><td class="mdescRight">In-Memory-Verzeichnis: {handle: (ip, port)}.  <br /></td></tr>
 <tr class="separator:ae844df2eb781578fb293cd470ed96293"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="acc40d1bbc24b38cccab6c4c8308f4b99" name="acc40d1bbc24b38cccab6c4c8308f4b99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc40d1bbc24b38cccab6c4c8308f4b99">&#9670;&#160;</a></span>broadcast()</h2>
+<a id="a8c78d50d1420f8df68651443b1a20dd0" name="a8c78d50d1420f8df68651443b1a20dd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c78d50d1420f8df68651443b1a20dd0">&#9670;&#160;</a></span>broadcast()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">discovery.broadcast </td>
+          <td class="memname"> None discovery.broadcast </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>msg</em></span></td><td>)</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Broadcasts a message to all participants in the network. </p>
+<p>Sendet <code>message</code> als UDP-Broadcast an WHOIS_PORT. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Nachricht, die als UTF-8 gesendet wird. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a0f42cd6ff77f45ea25c091445094ff13" name="a0f42cd6ff77f45ea25c091445094ff13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f42cd6ff77f45ea25c091445094ff13">&#9670;&#160;</a></span>handle_join()</h2>
+<a id="a219a786c1621657eecf3c40898eda368" name="a219a786c1621657eecf3c40898eda368"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a219a786c1621657eecf3c40898eda368">&#9670;&#160;</a></span>handle_join()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">discovery.handle_join </td>
+          <td class="memname"> None discovery.handle_join </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>tokens</em></span>, </td>
+          <td class="paramtype">list[str]</td>          <td class="paramname"><span class="paramname"><em>tokens</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>addr</em></span>&#160;)</td>
+          <td class="paramtype">Tuple[str, int]</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>HANDLES Handles the JOIN command from a participant. </p>
+<p>Verarbeitet ein eingehendes JOIN-Kommando. </p>
+<p>Erwartetes Format: <code>JOIN &lt;handle&gt; &lt;port&gt;</code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tokens</td><td>Tokenisierte Nachricht als Liste von Strings. </td></tr>
+    <tr><td class="paramname">addr</td><td>Absenderadresse (IP, Port) des Sockets. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="acc62fff6baf4e86c23b4cf680f419115" name="acc62fff6baf4e86c23b4cf680f419115"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc62fff6baf4e86c23b4cf680f419115">&#9670;&#160;</a></span>handle_leave()</h2>
+<a id="a841fbb6bb0353b7bcea4d50addc996d8" name="a841fbb6bb0353b7bcea4d50addc996d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a841fbb6bb0353b7bcea4d50addc996d8">&#9670;&#160;</a></span>handle_leave()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">discovery.handle_leave </td>
+          <td class="memname"> None discovery.handle_leave </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>tokens</em></span>, </td>
+          <td class="paramtype">list[str]</td>          <td class="paramname"><span class="paramname"><em>tokens</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>addr</em></span>&#160;)</td>
+          <td class="paramtype">Tuple[str, int]</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles the LEAVE command from a participant. </p>
+<p>Verarbeitet ein eingehendes LEAVE-Kommando. </p>
+<p>Erwartetes Format: <code>LEAVE &lt;handle&gt;</code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tokens</td><td>Tokenisierte Nachricht als Liste von Strings. </td></tr>
+    <tr><td class="paramname">addr</td><td>Absenderadresse (IP, Port). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a21d734c4cc0411e1d7bfb924fa7ea9fc" name="a21d734c4cc0411e1d7bfb924fa7ea9fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21d734c4cc0411e1d7bfb924fa7ea9fc">&#9670;&#160;</a></span>handle_who()</h2>
+<a id="ae9ebfcc49b4be211712f71faf3aa58da" name="ae9ebfcc49b4be211712f71faf3aa58da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9ebfcc49b4be211712f71faf3aa58da">&#9670;&#160;</a></span>handle_who()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">discovery.handle_who </td>
+          <td class="memname"> None discovery.handle_who </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>addr</em></span></td><td>)</td>
+          <td class="paramtype">Tuple[str, int]</td>          <td class="paramname"><span class="paramname"><em>addr</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles the WHO command to list all known participants. </p>
+<p>Beantwortet ein WHO-Kommando mit allen bekannten Nutzern. </p>
+<p>Sendet eine <code>KNOWNUSERS</code>-Antwort direkt (Unicast) zurück. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>Absenderadresse (IP, Port) für die Antwort. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a81580e834d620291683c71036ec57192" name="a81580e834d620291683c71036ec57192"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81580e834d620291683c71036ec57192">&#9670;&#160;</a></span>listen()</h2>
+<a id="ad436042b230b5458aa6064ea86b2d420" name="ad436042b230b5458aa6064ea86b2d420"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad436042b230b5458aa6064ea86b2d420">&#9670;&#160;</a></span>listen()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">discovery.listen </td>
+          <td class="memname"> None discovery.listen </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -250,67 +283,84 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Listens for incoming discovery messages using the WHOIS_PORT such as JOIN, LEAVE, and WHO and handles them. </p>
+<p>Lauscht auf WHOIS_PORT auf Discovery-Kommandos (JOIN, LEAVE, WHO) in Endlosschleife. </p>
 
 </div>
 </div>
-<a id="abbb5b6b278b34f3f9432190adadebf14" name="abbb5b6b278b34f3f9432190adadebf14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbb5b6b278b34f3f9432190adadebf14">&#9670;&#160;</a></span>send_direct()</h2>
+<a id="a951a971f9951c43a25a905b865cc1932" name="a951a971f9951c43a25a905b865cc1932"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a951a971f9951c43a25a905b865cc1932">&#9670;&#160;</a></span>send_direct()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">discovery.send_direct </td>
+          <td class="memname"> None discovery.send_direct </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ip</em></span>, </td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>ip</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>message</em></span>&#160;)</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>message</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends a direct message to a specific IP and port. </p>
+<p>Sendet eine UDP-Nachricht direkt an ip:port. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip</td><td>Ziel-IP-Adresse (String) </td></tr>
+    <tr><td class="paramname">port</td><td>Ziel-Port (int) </td></tr>
+    <tr><td class="paramname">message</td><td>Inhalt der Nachricht (UTF-8 String) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="aa276fdb6d7fbf8b5125f51f1a667830a" name="aa276fdb6d7fbf8b5125f51f1a667830a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa276fdb6d7fbf8b5125f51f1a667830a">&#9670;&#160;</a></span>send_join()</h2>
+<a id="ad27b6c11e4cac10ade3a238a1c91fe63" name="ad27b6c11e4cac10ade3a238a1c91fe63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad27b6c11e4cac10ade3a238a1c91fe63">&#9670;&#160;</a></span>send_join()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">discovery.send_join </td>
+          <td class="memname"> None discovery.send_join </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>port</em></span>&#160;)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>port</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Kündigt die eigene Anwesenheit im Netzwerk an. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>Benutzername, unter dem man im Netzwerk bekannt sein will. </td></tr>
+    <tr><td class="paramname">port</td><td>Port, auf dem das eigene Programm Chatdaten empfängt. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a991193ec2ebce229d4b3917c0b53f6bd" name="a991193ec2ebce229d4b3917c0b53f6bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a991193ec2ebce229d4b3917c0b53f6bd">&#9670;&#160;</a></span>start_discovery_service()</h2>
+<a id="a004d67498ce598df44da340245c107e0" name="a004d67498ce598df44da340245c107e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a004d67498ce598df44da340245c107e0">&#9670;&#160;</a></span>start_discovery_service()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">discovery.start_discovery_service </td>
+          <td class="memname"> None discovery.start_discovery_service </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -318,7 +368,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Starts the discovery service which is used in <a class="el" href="cli__chat_8py.html" title="Diese Datei implementiert die Kommandozeilen-Schnittstelle (CLI) für den SLCP-Chat.">cli_chat.py</a> in a separate thread. </p>
+<p>Startet den Discovery-Dienst in einem Hintergrundthread. </p>
 
 </div>
 </div>
@@ -335,6 +385,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Maximale Puffergröße für UDP-Pakete. </p>
+
 </div>
 </div>
 <a id="a81b30924aaa9c7f5125dccd366f14a7f" name="a81b30924aaa9c7f5125dccd366f14a7f"></a>
@@ -349,19 +401,23 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Konfiguration laden (Fehlende oder fehlerhafte Konfig wird abgefangen) </p>
+
 </div>
 </div>
-<a id="ac38d644deb052f56a3efae94e6041a94" name="ac38d644deb052f56a3efae94e6041a94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac38d644deb052f56a3efae94e6041a94">&#9670;&#160;</a></span>handle</h2>
+<a id="a14e2ab739346fda96614eb1da47e9044" name="a14e2ab739346fda96614eb1da47e9044"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e2ab739346fda96614eb1da47e9044">&#9670;&#160;</a></span>HANDLE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">discovery.handle = config.get(&quot;user&quot;, {}).get(&quot;handle&quot;, &quot;Unknown&quot;)</td>
+          <td class="memname">str discovery.HANDLE = config.get(&quot;user&quot;, {}).get(&quot;handle&quot;, &quot;Unbekannt&quot;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Der eigene Handle aus der Konfiguration. </p>
 
 </div>
 </div>
@@ -377,33 +433,39 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>In-Memory-Verzeichnis: {handle: (ip, port)}. </p>
+
 </div>
 </div>
-<a id="a0aa97ffa8a9517aaaef75aca6b65382c" name="a0aa97ffa8a9517aaaef75aca6b65382c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0aa97ffa8a9517aaaef75aca6b65382c">&#9670;&#160;</a></span>PORT</h2>
+<a id="aedeefcb93bf5b2ed915d29cc8da214b1" name="aedeefcb93bf5b2ed915d29cc8da214b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedeefcb93bf5b2ed915d29cc8da214b1">&#9670;&#160;</a></span>PORT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">discovery.PORT = config.get(&quot;user&quot;, {}).get(&quot;ports&quot;, [5001])[0]</td>
+          <td class="memname">int discovery.PORT = config.get(&quot;user&quot;, {}).get(&quot;ports&quot;, [5001])[0]</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Der Port für eingehende Discovery-Nachrichten. </p>
+
 </div>
 </div>
-<a id="a53bc3ff8fe5a96652e5f6bc400d3149c" name="a53bc3ff8fe5a96652e5f6bc400d3149c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53bc3ff8fe5a96652e5f6bc400d3149c">&#9670;&#160;</a></span>WHOIS_PORT</h2>
+<a id="abcefe6306f290ff2b7344592913cc7fd" name="abcefe6306f290ff2b7344592913cc7fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcefe6306f290ff2b7344592913cc7fd">&#9670;&#160;</a></span>WHOIS_PORT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">discovery.WHOIS_PORT = config.get(&quot;network&quot;, {}).get(&quot;whoisport&quot;, 4000)</td>
+          <td class="memname">int discovery.WHOIS_PORT = config.get(&quot;network&quot;, {}).get(&quot;whoisport&quot;, 4000)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Der Port, auf dem Discovery-Anfragen empfangen werden. </p>
 
 </div>
 </div>

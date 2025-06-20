@@ -10,13 +10,19 @@ import platform
 # Pfad zur Projektwurzel ergänzen, damit "core" gefunden wird
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from core.udp_handler import UDPHandler  # Für Textnachrichten
-from core.image_handler import send_image, IMAGEPATH  # Für Bildversand
+from core.udp_handler import UDPHandler  
+from core.image_handler import send_image, IMAGEPATH  
 
+# @file chat_window.py
+#  @brief öffnet das GUI-Fenster mit PyQt5.
+#  @details Stellt Eingabe und Anzeige für Text- und Bildnachrichten bereit.
+#           Intern wird UDPHandler für Text und image_handler für Bilder genutzt.
 class ChatWindow(QtWidgets.QMainWindow):
+    # @brief Konstruktor für das Hauptfenster.
+    #  @param listen_port UDP-Port zum Empfang von Textnachrichten.
+    #  @param peers Liste von `(ip, port)`-Tupeln der Chat-Teilnehmer.
     def __init__(self, listen_port, peers):
         super().__init__()
-
         # Benutzername beim Start abfragen
         name, ok = QInputDialog.getText(self, "Benutzername", "Wie heißt du?")
         if ok and name.strip():
@@ -44,7 +50,9 @@ class ChatWindow(QtWidgets.QMainWindow):
 
         self.show()
 
-    ## Text senden
+    # @brief Sendet den Text aus dem Eingabefeld an alle Peers.
+    #  @details Fügt der eigenen Chatliste eine Nachrichten-Blase hinzu
+    #           und ruft `UDPHandler.send_message` auf.
     def send_message(self):
         text = self.lineEdit.text().strip()
         if text:
@@ -52,7 +60,8 @@ class ChatWindow(QtWidgets.QMainWindow):
             self.lineEdit.clear()
             self.udp.send_message(f"{self.username}: {text}", self.peers)
 
-    ## Eingehende Nachricht anzeigen
+    # @brief Callback für eingehende Nachrichten vom UDPHandler.
+    #  @param text Empfangener Nachrichtentext oder Bild-Header `IMG <name> <size>`.
     def receive_message(self, text):
         if text.startswith("IMG "):
             try:
@@ -65,6 +74,9 @@ class ChatWindow(QtWidgets.QMainWindow):
         elif text.strip() and not text.startswith("[IMAGE_RECEIVED]"):
             QtWidgets.QApplication.instance().postEvent(self, QStatusTipEvent(text))
 
+    # @brief Event-Handler für StatusTipEvents.
+    #  @details Erzeugt Bild- oder Text-Bubbles basierend auf Event-Inhalt.
+    #  @param Das eingehende qt-Event, das verarbeitet werden soll.
     def event(self, event):
         if isinstance(event, QStatusTipEvent):
             tip = event.tip()
@@ -76,9 +88,15 @@ class ChatWindow(QtWidgets.QMainWindow):
             return True
         return super().event(event)
 
+    # @brief Fügt eine Nachricht von einem anderen Nutzer hinzu.
+    #  @param text Der anzuzeigende Nachrichtentext.
     def add_foreign_message(self, text):
         self.add_chat_bubble(text, align="left", color="#eeeeee")
 
+    # @brief Erzeugt und zeigt eine Chat-Blase im GUI.
+    #  @param text Der anzuzeigende Text.
+    #  @param align Ausrichtung `left` oder `right`.
+    #  @param color Hintergrundfarbe als HEX-Code.
     def add_chat_bubble(self, text, align="left", color="#e6f2ff"):
         bubble_widget = QWidget()
         layout = QVBoxLayout()
@@ -108,6 +126,8 @@ class ChatWindow(QtWidgets.QMainWindow):
         self.listWidget.setItemWidget(item, bubble_widget)
         self.listWidget.scrollToBottom()
 
+    # @brief Fügt eine Bild-Blase für ein empfangenes Bild hinzu.
+    #  @param image_name Dateiname des empfangenen Bildes.
     def add_image_bubble(self, image_name):
         image_path = os.path.abspath(os.path.join(IMAGEPATH, image_name))
         if not os.path.exists(image_path):
@@ -147,6 +167,8 @@ class ChatWindow(QtWidgets.QMainWindow):
         self.listWidget.setItemWidget(item, bubble_widget)
         self.listWidget.scrollToBottom()
 
+    # @brief Öffnet ein Bild mit dem Standardprogramm.
+    #  @param image_path Absoluter Pfad zur Bilddatei.
     def open_image(self, image_path):
         try:
             if platform.system() == "Windows":
@@ -158,7 +180,7 @@ class ChatWindow(QtWidgets.QMainWindow):
         except Exception as e:
             QtWidgets.QMessageBox.warning(self, "Fehler", f"Bild konnte nicht geöffnet werden:\n{e}")
 
-   
+    # @brief Öffnet einen Dateidialog zur Bildauswahl und sendet das Bild.
     def send_image_dialog(self):
         dateipfad, _ = QFileDialog.getOpenFileName(self, "Bild auswählen", "", "Bilder (*.png *.jpg *.jpeg *.bmp)")
         if dateipfad:
@@ -166,7 +188,7 @@ class ChatWindow(QtWidgets.QMainWindow):
                 send_image(dateipfad, ip, port)
             self.add_chat_bubble(f"[Bild versendet: {os.path.basename(dateipfad)}]", align="right", color="#ccffcc")
 
-# Nur zum Testen direkt
+# @brief Öffnet die GUI.
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     fenster = ChatWindow(listen_port=4567, peers=[("127.0.0.1", 4568)])

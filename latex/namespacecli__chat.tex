@@ -1,149 +1,29 @@
 \doxysection{cli\+\_\+chat Namespace Reference}
 \hypertarget{namespacecli__chat}{}\label{namespacecli__chat}\index{cli\_chat@{cli\_chat}}
-\doxysubsubsection*{Functions}
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespacecli__chat_aa2828c0b12cd729f3a647962b5947218}{leave\+\_\+chat}} ()
-\begin{DoxyCompactList}\small\item\em Diese Funktion wird aufgerufen, wenn der Benutzer den Chat verlässt. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacecli__chat_a3062cc6437e0e83c35d0991f408b6421}{on\+\_\+message}} (message, addr)
-\begin{DoxyCompactList}\small\item\em Diese Funktion verarbeitet eingehende Nachrichten und führt dann individuelle Aktionen aus. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacecli__chat_aa7d7df9de059c1d9d5ca840fef5ee56c}{input\+\_\+loop}} ()
-\begin{DoxyCompactList}\small\item\em Diese Funktion führt eine Endlosschleife aus, in der der Benutzer Eingaben tätigen kann. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacecli__chat_af6f907b40f6d767c587f865c67a5bc35}{main}} ()
-\begin{DoxyCompactList}\small\item\em Die main-\/\+Funktion startet den Discovery-\/\+Service und die Chat-\/\+Funktionalität. \end{DoxyCompactList}\end{DoxyCompactItemize}
+class \mbox{\hyperlink{classcli__chat_1_1_chat_window}{Chat\+Window}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1}{config}} = toml.\+load("{}resources/config.\+toml"{})
-\begin{DoxyCompactList}\small\item\em Die Konfigurationsdatei wird eingelesen, um alle wichtigen Benutzereinstellungen zu laden. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacecli__chat_ac091417c19b8afe4374e39f2f67b66d4}{HANDLE}} = \mbox{\hyperlink{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1}{config}}\mbox{[}"{}user"{}\mbox{]}\mbox{[}"{}handle"{}\mbox{]}
+\mbox{\hyperlink{namespacecli__chat_a196108e35b7d365134157d356a4eb10b}{app}} = Qt\+Widgets.\+QApplication(sys.\+argv)
 \item 
-\mbox{\hyperlink{namespacecli__chat_a6ef90929e4ec2c44ed42f5e7f05857af}{PORT}} = \mbox{\hyperlink{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1}{config}}\mbox{[}"{}user"{}\mbox{]}\mbox{[}"{}port"{}\mbox{]}\mbox{[}0\mbox{]}
-\item 
-\mbox{\hyperlink{namespacecli__chat_a8fc4a9b41ecae467c5c03d5aeef4ac2a}{IMAGE\+\_\+\+PORT}} = \mbox{\hyperlink{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1}{config}}\mbox{[}"{}user"{}\mbox{]}.get("{}imageport"{}, 6000)
-\item 
-\mbox{\hyperlink{namespacecli__chat_a766e76b99241d6899f8a21c4ef346771}{WHOIS\+\_\+\+PORT}} = \mbox{\hyperlink{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1}{config}}\mbox{[}"{}network"{}\mbox{]}\mbox{[}"{}whoisport"{}\mbox{]}
-\item 
-\mbox{\hyperlink{namespacecli__chat_a3c75b1a7ff476688f7e466880660be75}{INACTIVE}} = \mbox{\hyperlink{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1}{config}}\mbox{[}"{}user"{}\mbox{]}\mbox{[}"{}inactive"{}\mbox{]}
-\item 
-\mbox{\hyperlink{namespacecli__chat_a896ae8f1e9c3c368f9f4bc8aa8bff1f6}{AUTOREPLYMSG}} = \mbox{\hyperlink{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1}{config}}\mbox{[}"{}user"{}\mbox{]}\mbox{[}"{}autoreply"{}\mbox{]}
-\item 
-\mbox{\hyperlink{namespacecli__chat_a68fff520750b09f3a7c6309ebc0272c4}{chat}} = SLCPChat(\mbox{\hyperlink{namespacecli__chat_ac091417c19b8afe4374e39f2f67b66d4}{HANDLE}}, \mbox{\hyperlink{namespacecli__chat_a6ef90929e4ec2c44ed42f5e7f05857af}{PORT}}, \mbox{\hyperlink{namespacecli__chat_a8fc4a9b41ecae467c5c03d5aeef4ac2a}{IMAGE\+\_\+\+PORT}}, \mbox{\hyperlink{namespacecli__chat_a766e76b99241d6899f8a21c4ef346771}{WHOIS\+\_\+\+PORT}})
-\begin{DoxyCompactList}\small\item\em Initialisierung des SLCPChat-\/\+Objekts mit den geladenen Konfigurationen. \end{DoxyCompactList}\end{DoxyCompactItemize}
-
-
-\doxysubsection{Function Documentation}
-\Hypertarget{namespacecli__chat_aa7d7df9de059c1d9d5ca840fef5ee56c}\index{cli\_chat@{cli\_chat}!input\_loop@{input\_loop}}
-\index{input\_loop@{input\_loop}!cli\_chat@{cli\_chat}}
-\doxysubsubsection{\texorpdfstring{input\_loop()}{input\_loop()}}
-{\footnotesize\ttfamily \label{namespacecli__chat_aa7d7df9de059c1d9d5ca840fef5ee56c} 
-cli\+\_\+chat.\+input\+\_\+loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-
-
-Diese Funktion führt eine Endlosschleife aus, in der der Benutzer Eingaben tätigen kann. 
-
-Sie verarbeitet die Eingaben des Benutzers, um verschiedene Chat-\/\+Kommandos auszuführen, wie JOIN, LEAVE, WHO, MSG und IMG und das Ändern der Konfiguration. Außerdem gibt es die Möglichkeit, per "{}\+HELP"{} eine Übersicht der verfügbaren Befehle zu erhalten. \Hypertarget{namespacecli__chat_aa2828c0b12cd729f3a647962b5947218}\index{cli\_chat@{cli\_chat}!leave\_chat@{leave\_chat}}
-\index{leave\_chat@{leave\_chat}!cli\_chat@{cli\_chat}}
-\doxysubsubsection{\texorpdfstring{leave\_chat()}{leave\_chat()}}
-{\footnotesize\ttfamily \label{namespacecli__chat_aa2828c0b12cd729f3a647962b5947218} 
-cli\+\_\+chat.\+leave\+\_\+chat (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-
-
-Diese Funktion wird aufgerufen, wenn der Benutzer den Chat verlässt. 
-
-Sie sendet eine LEAVE-\/\+Nachricht an den Discovery-\/\+Service und gibt eine Bestätigung aus. Im Falle eines Fehlers wird eine Fehlermeldung ausgegeben. \begin{DoxyNote}{Note}
-Sie wird durch die {\ttfamily atexit}-\/Bibliothek ausgeführt, um sicherzustellen, dass sie beim Beenden des Programms aufgerufen wird. 
-\end{DoxyNote}
-\Hypertarget{namespacecli__chat_af6f907b40f6d767c587f865c67a5bc35}\index{cli\_chat@{cli\_chat}!main@{main}}
-\index{main@{main}!cli\_chat@{cli\_chat}}
-\doxysubsubsection{\texorpdfstring{main()}{main()}}
-{\footnotesize\ttfamily \label{namespacecli__chat_af6f907b40f6d767c587f865c67a5bc35} 
-cli\+\_\+chat.\+main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-
-
-Die main-\/\+Funktion startet den Discovery-\/\+Service und die Chat-\/\+Funktionalität. 
-
-Sie startet Threads im "{}daemon"{}-\/Modus, um Nachrichten zu empfangen und Bilder zu senden, und wartet auf Benutzereingaben in einer Endlosschleife. \Hypertarget{namespacecli__chat_a3062cc6437e0e83c35d0991f408b6421}\index{cli\_chat@{cli\_chat}!on\_message@{on\_message}}
-\index{on\_message@{on\_message}!cli\_chat@{cli\_chat}}
-\doxysubsubsection{\texorpdfstring{on\_message()}{on\_message()}}
-{\footnotesize\ttfamily \label{namespacecli__chat_a3062cc6437e0e83c35d0991f408b6421} 
-cli\+\_\+chat.\+on\+\_\+message (\begin{DoxyParamCaption}\item[{}]{message}{, }\item[{}]{addr}{}\end{DoxyParamCaption})}
-
-
-
-Diese Funktion verarbeitet eingehende Nachrichten und führt dann individuelle Aktionen aus. 
-
-Sie überprüft, ob die Nachricht mit "{}\+KNOWNUSERS"{} beginnt, um die Liste der bekannten Benutzer zu aktualisieren. Hierzu wird dann eine Tabelle mithilfe der Pretty\+Table-\/\+Bibliothek erstellt und ausgegeben.
-
-Wenn die Nachricht nicht mit "{}\+KNOWNUSERS"{} beginnt, wird sie als normale Chat-\/\+Nachricht behandelt und ausgegeben. Dazu wird überprüft, ob der Nutzer inaktiv ist und somit eine automatische Antwort gesendet werden soll. Falls ja, wird die Abwesenheitsnachricht an den Absender zurück gesendet. 
-\begin{DoxyParams}{Parameters}
-{\em message} & Die empfangene Nachricht. \\
-\hline
-{\em addr} & Die Adresse des Absenders der Nachricht. \\
-\hline
-\end{DoxyParams}
+\mbox{\hyperlink{namespacecli__chat_ac851e47bccef9949f68b1bd7d265596f}{fenster}} = \mbox{\hyperlink{classcli__chat_1_1_chat_window}{Chat\+Window}}(listen\+\_\+port=4567, peers=\mbox{[}("{}127.\+0.\+0.\+1"{}, 4568)\mbox{]})
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Variable Documentation}
-\Hypertarget{namespacecli__chat_a896ae8f1e9c3c368f9f4bc8aa8bff1f6}\index{cli\_chat@{cli\_chat}!AUTOREPLYMSG@{AUTOREPLYMSG}}
-\index{AUTOREPLYMSG@{AUTOREPLYMSG}!cli\_chat@{cli\_chat}}
-\doxysubsubsection{\texorpdfstring{AUTOREPLYMSG}{AUTOREPLYMSG}}
-{\footnotesize\ttfamily \label{namespacecli__chat_a896ae8f1e9c3c368f9f4bc8aa8bff1f6} 
-cli\+\_\+chat.\+AUTOREPLYMSG = \mbox{\hyperlink{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1}{config}}\mbox{[}"{}user"{}\mbox{]}\mbox{[}"{}autoreply"{}\mbox{]}}
+\Hypertarget{namespacecli__chat_a196108e35b7d365134157d356a4eb10b}\index{cli\_chat@{cli\_chat}!app@{app}}
+\index{app@{app}!cli\_chat@{cli\_chat}}
+\doxysubsubsection{\texorpdfstring{app}{app}}
+{\footnotesize\ttfamily \label{namespacecli__chat_a196108e35b7d365134157d356a4eb10b} 
+cli\+\_\+chat.\+app = Qt\+Widgets.\+QApplication(sys.\+argv)}
 
-\Hypertarget{namespacecli__chat_a68fff520750b09f3a7c6309ebc0272c4}\index{cli\_chat@{cli\_chat}!chat@{chat}}
-\index{chat@{chat}!cli\_chat@{cli\_chat}}
-\doxysubsubsection{\texorpdfstring{chat}{chat}}
-{\footnotesize\ttfamily \label{namespacecli__chat_a68fff520750b09f3a7c6309ebc0272c4} 
-cli\+\_\+chat.\+chat = SLCPChat(\mbox{\hyperlink{namespacecli__chat_ac091417c19b8afe4374e39f2f67b66d4}{HANDLE}}, \mbox{\hyperlink{namespacecli__chat_a6ef90929e4ec2c44ed42f5e7f05857af}{PORT}}, \mbox{\hyperlink{namespacecli__chat_a8fc4a9b41ecae467c5c03d5aeef4ac2a}{IMAGE\+\_\+\+PORT}}, \mbox{\hyperlink{namespacecli__chat_a766e76b99241d6899f8a21c4ef346771}{WHOIS\+\_\+\+PORT}})}
-
-
-
-Initialisierung des SLCPChat-\/\+Objekts mit den geladenen Konfigurationen. 
-
-Dieses Objekt wird letztendlich verwendet, um Nachrichten zu senden, Bilder zu teilen und die Chat-\/\+Funktionalität zu verwalten. \Hypertarget{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1}\index{cli\_chat@{cli\_chat}!config@{config}}
-\index{config@{config}!cli\_chat@{cli\_chat}}
-\doxysubsubsection{\texorpdfstring{config}{config}}
-{\footnotesize\ttfamily \label{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1} 
-cli\+\_\+chat.\+config = toml.\+load("{}resources/config.\+toml"{})}
-
-
-
-Die Konfigurationsdatei wird eingelesen, um alle wichtigen Benutzereinstellungen zu laden. 
-
-Diese Einstellungen umfassen den Benutzernamen, die Ports für Nachrichten und Bilder sowie die Whois-\/\+Portnummer. \begin{DoxyNote}{Note}
-Für den Image-\/\+Port wird ein Standardwert von 6000 verwendet, falls nicht anders konfiguriert. 
-\end{DoxyNote}
-\Hypertarget{namespacecli__chat_ac091417c19b8afe4374e39f2f67b66d4}\index{cli\_chat@{cli\_chat}!HANDLE@{HANDLE}}
-\index{HANDLE@{HANDLE}!cli\_chat@{cli\_chat}}
-\doxysubsubsection{\texorpdfstring{HANDLE}{HANDLE}}
-{\footnotesize\ttfamily \label{namespacecli__chat_ac091417c19b8afe4374e39f2f67b66d4} 
-cli\+\_\+chat.\+HANDLE = \mbox{\hyperlink{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1}{config}}\mbox{[}"{}user"{}\mbox{]}\mbox{[}"{}handle"{}\mbox{]}}
-
-\Hypertarget{namespacecli__chat_a8fc4a9b41ecae467c5c03d5aeef4ac2a}\index{cli\_chat@{cli\_chat}!IMAGE\_PORT@{IMAGE\_PORT}}
-\index{IMAGE\_PORT@{IMAGE\_PORT}!cli\_chat@{cli\_chat}}
-\doxysubsubsection{\texorpdfstring{IMAGE\_PORT}{IMAGE\_PORT}}
-{\footnotesize\ttfamily \label{namespacecli__chat_a8fc4a9b41ecae467c5c03d5aeef4ac2a} 
-cli\+\_\+chat.\+IMAGE\+\_\+\+PORT = \mbox{\hyperlink{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1}{config}}\mbox{[}"{}user"{}\mbox{]}.get("{}imageport"{}, 6000)}
-
-\Hypertarget{namespacecli__chat_a3c75b1a7ff476688f7e466880660be75}\index{cli\_chat@{cli\_chat}!INACTIVE@{INACTIVE}}
-\index{INACTIVE@{INACTIVE}!cli\_chat@{cli\_chat}}
-\doxysubsubsection{\texorpdfstring{INACTIVE}{INACTIVE}}
-{\footnotesize\ttfamily \label{namespacecli__chat_a3c75b1a7ff476688f7e466880660be75} 
-cli\+\_\+chat.\+INACTIVE = \mbox{\hyperlink{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1}{config}}\mbox{[}"{}user"{}\mbox{]}\mbox{[}"{}inactive"{}\mbox{]}}
-
-\Hypertarget{namespacecli__chat_a6ef90929e4ec2c44ed42f5e7f05857af}\index{cli\_chat@{cli\_chat}!PORT@{PORT}}
-\index{PORT@{PORT}!cli\_chat@{cli\_chat}}
-\doxysubsubsection{\texorpdfstring{PORT}{PORT}}
-{\footnotesize\ttfamily \label{namespacecli__chat_a6ef90929e4ec2c44ed42f5e7f05857af} 
-cli\+\_\+chat.\+PORT = \mbox{\hyperlink{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1}{config}}\mbox{[}"{}user"{}\mbox{]}\mbox{[}"{}port"{}\mbox{]}\mbox{[}0\mbox{]}}
-
-\Hypertarget{namespacecli__chat_a766e76b99241d6899f8a21c4ef346771}\index{cli\_chat@{cli\_chat}!WHOIS\_PORT@{WHOIS\_PORT}}
-\index{WHOIS\_PORT@{WHOIS\_PORT}!cli\_chat@{cli\_chat}}
-\doxysubsubsection{\texorpdfstring{WHOIS\_PORT}{WHOIS\_PORT}}
-{\footnotesize\ttfamily \label{namespacecli__chat_a766e76b99241d6899f8a21c4ef346771} 
-cli\+\_\+chat.\+WHOIS\+\_\+\+PORT = \mbox{\hyperlink{namespacecli__chat_a0f7c120408a8c35398748ebe675fe0b1}{config}}\mbox{[}"{}network"{}\mbox{]}\mbox{[}"{}whoisport"{}\mbox{]}}
+\Hypertarget{namespacecli__chat_ac851e47bccef9949f68b1bd7d265596f}\index{cli\_chat@{cli\_chat}!fenster@{fenster}}
+\index{fenster@{fenster}!cli\_chat@{cli\_chat}}
+\doxysubsubsection{\texorpdfstring{fenster}{fenster}}
+{\footnotesize\ttfamily \label{namespacecli__chat_ac851e47bccef9949f68b1bd7d265596f} 
+cli\+\_\+chat.\+fenster = \mbox{\hyperlink{classcli__chat_1_1_chat_window}{Chat\+Window}}(listen\+\_\+port=4567, peers=\mbox{[}("{}127.\+0.\+0.\+1"{}, 4568)\mbox{]})}
 

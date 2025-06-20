@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sock_0',['sock',['../classslcp_1_1_s_l_c_p_chat.html#a47f58a21c636a84491efcd027dca57e5',1,'slcp::SLCPChat']]]
+  ['running_0',['running',['../classudp__handler_1_1_u_d_p_handler.html#afd49d58552ee641d70fb51e7e3c7e9ab',1,'udp_handler::UDPHandler']]]
 ];

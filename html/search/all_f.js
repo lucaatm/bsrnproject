@@ -1,17 +1,4 @@
 var searchData=
 [
-  ['save_5fconfig_0',['save_config',['../namespaceconfig__loader.html#a4dc5e2ccf994d757f88dcd25297fc2a8',1,'config_loader']]],
-  ['send_5fdirect_1',['send_direct',['../namespacediscovery.html#abbb5b6b278b34f3f9432190adadebf14',1,'discovery']]],
-  ['send_5fimage_2',['send_image',['../classslcp_1_1_s_l_c_p_chat.html#a10041d7a0c73229e9eddb5516186c4c3',1,'slcp.SLCPChat.send_image()'],['../namespaceimage__handler.html#a78d58578fc5a9cfc4cca68639b42c329',1,'image_handler.send_image()']]],
-  ['send_5fjoin_3',['send_join',['../classslcp_1_1_s_l_c_p_chat.html#a14474e677b9155e40edaba2542eb6802',1,'slcp.SLCPChat.send_join()'],['../namespacediscovery.html#aa276fdb6d7fbf8b5125f51f1a667830a',1,'discovery.send_join()']]],
-  ['send_5fmessage_4',['send_message',['../classslcp_1_1_s_l_c_p_chat.html#a6437f889fbd9b3a466abe53b26aff112',1,'slcp::SLCPChat']]],
-  ['slcp_5',['slcp',['../namespaceslcp.html',1,'']]],
-  ['slcp_2epy_6',['slcp.py',['../slcp_8py.html',1,'']]],
-  ['slcpchat_7',['SLCPChat',['../classslcp_1_1_s_l_c_p_chat.html',1,'slcp']]],
-  ['sock_8',['sock',['../classslcp_1_1_s_l_c_p_chat.html#a47f58a21c636a84491efcd027dca57e5',1,'slcp::SLCPChat']]],
-  ['start_5fdiscovery_5fservice_9',['start_discovery_service',['../namespacediscovery.html#a991193ec2ebce229d4b3917c0b53f6bd',1,'discovery']]],
-  ['start_5fsohal_10',['start_sohal',['../namespacestart__sohal.html',1,'']]],
-  ['start_5fsohal_2epy_11',['start_sohal.py',['../start__sohal_8py.html',1,'']]],
-  ['start_5fsumaya_12',['start_sumaya',['../namespacestart__sumaya.html',1,'']]],
-  ['start_5fsumaya_2epy_13',['start_sumaya.py',['../start__sumaya_8py.html',1,'']]]
+  ['thread_0',['thread',['../classudp__handler_1_1_u_d_p_handler.html#a7d2c67fc2b03ab89e36e9c2aaf9d2142',1,'udp_handler::UDPHandler']]]
 ];

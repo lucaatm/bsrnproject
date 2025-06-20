@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['whois_5fport_0',['WHOIS_PORT',['../namespacecli__chat.html#a766e76b99241d6899f8a21c4ef346771',1,'cli_chat.WHOIS_PORT'],['../namespacediscovery.html#a53bc3ff8fe5a96652e5f6bc400d3149c',1,'discovery.WHOIS_PORT']]],
-  ['whois_5fport_1',['whois_port',['../classslcp_1_1_s_l_c_p_chat.html#a98b78541b2b3dd0ffdb5a26078df66c9',1,'slcp::SLCPChat']]]
+  ['thread_0',['thread',['../classudp__handler_1_1_u_d_p_handler.html#a7d2c67fc2b03ab89e36e9c2aaf9d2142',1,'udp_handler::UDPHandler']]]
 ];
