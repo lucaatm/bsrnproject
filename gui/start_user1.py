@@ -12,8 +12,8 @@ if __name__ == "__main__":
 
     fenster = ChatWindow(
         
-        listen_port=4567,  # Sohals eigener Port
-        peers=[("127.0.0.1", 4568)]  # Sumayas Port
+        listen_port=4567,  # Port für user1
+        peers=[("127.0.0.1", 4568)]  # Port für user2 
     )
 
     sys.exit(app.exec_())
