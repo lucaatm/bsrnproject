@@ -49,7 +49,7 @@ def start_gui(username, port, peers):
 def main():
     print("Starte BSRN Chat")
     initialize_user()
-    print("1 = GUI starten (Sohal + Sumaya)")
+    print("1 = GUI starten")
     print("2 = CLI starten")
     auswahl = input("Auswahl (1/2): ").strip()
 
