@@ -27,7 +27,20 @@ class UDPHandler:
             while self.running:
                 try:
                     data, addr = sock.recvfrom(4096)
-                    message = data.decode("utf-8")
-                    self.on_receive_callback(message)
+
+                    try:
+                        # Versuche, als Text zu dekodieren
+                        message = data.decode("utf-8")
+                        # Nur für Textnachrichten und Bild-Header das Callback aufrufen
+                        if message.startswith("IMG "):
+                            self.on_receive_callback(message)
+                        elif message.strip() != "":
+                            # Nur wirklich lesbare Textnachrichten weitergeben
+                            self.on_receive_callback(message)
+                        # Alles andere ignorieren
+                    except UnicodeDecodeError:
+                        # Binärdaten (z. B. Bildinhalt) ignorieren, kein Callback!
+                        pass
+
                 except socket.timeout:
                     continue
