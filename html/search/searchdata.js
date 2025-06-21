@@ -1,11 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "_abcdefhilmoprstuw",
-  1: "csu",
-  2: "cdimsu",
-  3: "cdimsu",
-  4: "_abehilmoprs",
-  5: "abcfhiloprstuw"
+  0: "_abcdefgiklmnoprstu",
+  1: "cdgn",
+  2: "cdgimn",
+  3: "cdgimnr",
+  4: "_aceglmprsu",
+  5: "_bcefikloprtu",
+  6: "bcimsu"
 };
 
 var indexSectionNames =
@@ -15,7 +16,8 @@ var indexSectionNames =
   2: "namespaces",
   3: "files",
   4: "functions",
-  5: "variables"
+  5: "variables",
+  6: "pages"
 };
 
 var indexSectionLabels =
@@ -25,6 +27,7 @@ var indexSectionLabels =
   2: "Namespaces",
   3: "Files",
   4: "Functions",
-  5: "Variables"
+  5: "Variables",
+  6: "Pages"
 };
 

@@ -1,0 +1,242 @@
+\doxysection{gui.\+GUI Class Reference}
+\hypertarget{classgui_1_1_g_u_i}{}\label{classgui_1_1_g_u_i}\index{gui.GUI@{gui.GUI}}
+
+
+Tkinter-\/basierte grafische Oberfläche für den Chat.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a1738c9a696eb666f046f8108cfa64626}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classgui_1_1_g_u_i_ae0a078dfbe305cb9db8b8c67897f2849}{in\+\_\+q}}, \mbox{\hyperlink{classgui_1_1_g_u_i_a85ca1dd0d0344525417d6bccbc4c01c2}{out\+\_\+q}}, \mbox{\hyperlink{classgui_1_1_g_u_i_a9dd7240b1d5f721787a948bae86f1806}{username}}, \mbox{\hyperlink{classgui_1_1_g_u_i_ac925f62185aa0c3f094f9df1d489b747}{to\+\_\+disc}}=None, \mbox{\hyperlink{classgui_1_1_g_u_i_a693653bf61cd423ca949531e669d24dd}{from\+\_\+disc}}=None)
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_abbf60ff886b9f4d5d77c32f7ad5f5cec}{send\+\_\+msg}} (self)
+\begin{DoxyCompactList}\small\item\em Sendet eine Textnachricht an den ausgewählten Empfänger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_ae98d820971c9728b4ef6fe00f87ee841}{send\+\_\+img}} (self)
+\begin{DoxyCompactList}\small\item\em Sendet ein Bild an den ausgewählten Empfänger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_ad9aba4271a441744d8ec0def249bc63a}{send\+\_\+who}} (self)
+\begin{DoxyCompactList}\small\item\em Fordert mit WHO die aktuelle Teilnehmerliste an. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a175f2b86df73a0ccf8bde961f21677bb}{listen\+\_\+for\+\_\+messages}} (self)
+\begin{DoxyCompactList}\small\item\em Wartet auf Nachrichten aus der Queue und verarbeitet sie. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_aaa95155f7b5816aa57d4c74b48ebf77a}{append\+\_\+chat\+\_\+line}} (self, str text\+\_\+line)
+\begin{DoxyCompactList}\small\item\em Fügt eine neue Zeile zum Chat-\/\+Verlauf hinzu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a8c3627d5dfacc55d8fb8c2d20ceb36c5}{update\+\_\+users\+\_\+from\+\_\+line}} (self, str line)
+\begin{DoxyCompactList}\small\item\em Aktualisiert bekannte Nutzer aus einer empfangenen Zeile. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a49018fa81a03b96fd14196e4e9098eb4}{refresh\+\_\+recipient\+\_\+menu}} (self)
+\begin{DoxyCompactList}\small\item\em Aktualisiert das Empfänger-\/\+Dropdown-\/\+Menü basierend auf bekannten Nutzern. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a318d0814cb7a3ef61460f2dde80daf67}{leave\+\_\+chat}} (self)
+\begin{DoxyCompactList}\small\item\em Beendet den Chat sauber und schließt das GUI-\/\+Fenster. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_ae0a078dfbe305cb9db8b8c67897f2849}{in\+\_\+q}} = in\+\_\+q
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a85ca1dd0d0344525417d6bccbc4c01c2}{out\+\_\+q}} = out\+\_\+q
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a9dd7240b1d5f721787a948bae86f1806}{username}} = username
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_ac925f62185aa0c3f094f9df1d489b747}{to\+\_\+disc}} = to\+\_\+disc
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a693653bf61cd423ca949531e669d24dd}{from\+\_\+disc}} = from\+\_\+disc
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a589e8bea9ad8691aef3eb865ea2c3e50}{known\+\_\+users}} = set()
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a7f649cc52dadd89382a912ccc5638980}{root}} = tk.\+Tk()
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a12dab3b80aad9efd24d9167d906787de}{text\+\_\+area}} = Scrolled\+Text(self.\+root, state="{}disabled"{}, width=75, height=25, wrap=tk.\+WORD)
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a20991f53fd825a513fd68824e9c03835}{recipient\+\_\+var}} = tk.\+String\+Var()
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a2aad91b3f612f4a4a720cdf814ff3e09}{recipient\+\_\+menu}} = tk.\+Option\+Menu(self.\+root, self.\+recipient\+\_\+var, ())
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_a4ef7394ef14d256d160100a59d14ee47}{entry}} = tk.\+Entry(self.\+root, width=40)
+\item 
+\mbox{\hyperlink{classgui_1_1_g_u_i_ad28497a707b88a14dab50c4f364ad5ae}{leave\+\_\+chat}} = True).start()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Tkinter-\/basierte grafische Oberfläche für den Chat. 
+
+Stellt eine Benutzeroberfläche zur Verfügung, mit der Nachrichten gesendet und empfangen werden können. Unterstützt auch Bildversand per TCP und WHO-\/\+Anfragen. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgui_1_1_g_u_i_a1738c9a696eb666f046f8108cfa64626}\index{gui.GUI@{gui.GUI}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a1738c9a696eb666f046f8108cfa64626} 
+gui.\+GUI.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{in\+\_\+q}{, }\item[{}]{out\+\_\+q}{, }\item[{}]{username}{, }\item[{}]{to\+\_\+disc}{ = {\ttfamily None}, }\item[{}]{from\+\_\+disc}{ = {\ttfamily None}}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgui_1_1_g_u_i_aaa95155f7b5816aa57d4c74b48ebf77a}\index{gui.GUI@{gui.GUI}!append\_chat\_line@{append\_chat\_line}}
+\index{append\_chat\_line@{append\_chat\_line}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{append\_chat\_line()}{append\_chat\_line()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_aaa95155f7b5816aa57d4c74b48ebf77a} 
+gui.\+GUI.\+append\+\_\+chat\+\_\+line (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{text\+\_\+line}{}\end{DoxyParamCaption})}
+
+
+
+Fügt eine neue Zeile zum Chat-\/\+Verlauf hinzu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text\+\_\+line} & Die Textzeile, die angezeigt werden soll. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classgui_1_1_g_u_i_a318d0814cb7a3ef61460f2dde80daf67}\index{gui.GUI@{gui.GUI}!leave\_chat@{leave\_chat}}
+\index{leave\_chat@{leave\_chat}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{leave\_chat()}{leave\_chat()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a318d0814cb7a3ef61460f2dde80daf67} 
+gui.\+GUI.\+leave\+\_\+chat (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Beendet den Chat sauber und schließt das GUI-\/\+Fenster. 
+
+\Hypertarget{classgui_1_1_g_u_i_a175f2b86df73a0ccf8bde961f21677bb}\index{gui.GUI@{gui.GUI}!listen\_for\_messages@{listen\_for\_messages}}
+\index{listen\_for\_messages@{listen\_for\_messages}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{listen\_for\_messages()}{listen\_for\_messages()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a175f2b86df73a0ccf8bde961f21677bb} 
+gui.\+GUI.\+listen\+\_\+for\+\_\+messages (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Wartet auf Nachrichten aus der Queue und verarbeitet sie. 
+
+\Hypertarget{classgui_1_1_g_u_i_a49018fa81a03b96fd14196e4e9098eb4}\index{gui.GUI@{gui.GUI}!refresh\_recipient\_menu@{refresh\_recipient\_menu}}
+\index{refresh\_recipient\_menu@{refresh\_recipient\_menu}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{refresh\_recipient\_menu()}{refresh\_recipient\_menu()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a49018fa81a03b96fd14196e4e9098eb4} 
+gui.\+GUI.\+refresh\+\_\+recipient\+\_\+menu (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Aktualisiert das Empfänger-\/\+Dropdown-\/\+Menü basierend auf bekannten Nutzern. 
+
+\Hypertarget{classgui_1_1_g_u_i_ae98d820971c9728b4ef6fe00f87ee841}\index{gui.GUI@{gui.GUI}!send\_img@{send\_img}}
+\index{send\_img@{send\_img}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{send\_img()}{send\_img()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_ae98d820971c9728b4ef6fe00f87ee841} 
+gui.\+GUI.\+send\+\_\+img (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Sendet ein Bild an den ausgewählten Empfänger. 
+
+Wandelt das Bild in base64 um und sendet es per TCP an den Zielport + 100. \Hypertarget{classgui_1_1_g_u_i_abbf60ff886b9f4d5d77c32f7ad5f5cec}\index{gui.GUI@{gui.GUI}!send\_msg@{send\_msg}}
+\index{send\_msg@{send\_msg}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{send\_msg()}{send\_msg()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_abbf60ff886b9f4d5d77c32f7ad5f5cec} 
+gui.\+GUI.\+send\+\_\+msg (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Sendet eine Textnachricht an den ausgewählten Empfänger. 
+
+Holt sich IP/\+Port aus der Discovery-\/\+Queue und sendet per UDP. \Hypertarget{classgui_1_1_g_u_i_ad9aba4271a441744d8ec0def249bc63a}\index{gui.GUI@{gui.GUI}!send\_who@{send\_who}}
+\index{send\_who@{send\_who}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{send\_who()}{send\_who()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_ad9aba4271a441744d8ec0def249bc63a} 
+gui.\+GUI.\+send\+\_\+who (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Fordert mit WHO die aktuelle Teilnehmerliste an. 
+
+\Hypertarget{classgui_1_1_g_u_i_a8c3627d5dfacc55d8fb8c2d20ceb36c5}\index{gui.GUI@{gui.GUI}!update\_users\_from\_line@{update\_users\_from\_line}}
+\index{update\_users\_from\_line@{update\_users\_from\_line}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{update\_users\_from\_line()}{update\_users\_from\_line()}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a8c3627d5dfacc55d8fb8c2d20ceb36c5} 
+gui.\+GUI.\+update\+\_\+users\+\_\+from\+\_\+line (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{str}]{line}{}\end{DoxyParamCaption})}
+
+
+
+Aktualisiert bekannte Nutzer aus einer empfangenen Zeile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Die eingehende Nachricht (z.\+ B. WHO oder Systemmeldung). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgui_1_1_g_u_i_a4ef7394ef14d256d160100a59d14ee47}\index{gui.GUI@{gui.GUI}!entry@{entry}}
+\index{entry@{entry}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{entry}{entry}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a4ef7394ef14d256d160100a59d14ee47} 
+gui.\+GUI.\+entry = tk.\+Entry(self.\+root, width=40)}
+
+\Hypertarget{classgui_1_1_g_u_i_a693653bf61cd423ca949531e669d24dd}\index{gui.GUI@{gui.GUI}!from\_disc@{from\_disc}}
+\index{from\_disc@{from\_disc}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{from\_disc}{from\_disc}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a693653bf61cd423ca949531e669d24dd} 
+gui.\+GUI.\+from\+\_\+disc = from\+\_\+disc}
+
+\Hypertarget{classgui_1_1_g_u_i_ae0a078dfbe305cb9db8b8c67897f2849}\index{gui.GUI@{gui.GUI}!in\_q@{in\_q}}
+\index{in\_q@{in\_q}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{in\_q}{in\_q}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_ae0a078dfbe305cb9db8b8c67897f2849} 
+gui.\+GUI.\+in\+\_\+q = in\+\_\+q}
+
+\Hypertarget{classgui_1_1_g_u_i_a589e8bea9ad8691aef3eb865ea2c3e50}\index{gui.GUI@{gui.GUI}!known\_users@{known\_users}}
+\index{known\_users@{known\_users}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{known\_users}{known\_users}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a589e8bea9ad8691aef3eb865ea2c3e50} 
+gui.\+GUI.\+known\+\_\+users = set()}
+
+\Hypertarget{classgui_1_1_g_u_i_ad28497a707b88a14dab50c4f364ad5ae}\index{gui.GUI@{gui.GUI}!leave\_chat@{leave\_chat}}
+\index{leave\_chat@{leave\_chat}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{leave\_chat}{leave\_chat}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_ad28497a707b88a14dab50c4f364ad5ae} 
+gui.\+GUI.\+leave\+\_\+chat = True).start()}
+
+\Hypertarget{classgui_1_1_g_u_i_a85ca1dd0d0344525417d6bccbc4c01c2}\index{gui.GUI@{gui.GUI}!out\_q@{out\_q}}
+\index{out\_q@{out\_q}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{out\_q}{out\_q}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a85ca1dd0d0344525417d6bccbc4c01c2} 
+gui.\+GUI.\+out\+\_\+q = out\+\_\+q}
+
+\Hypertarget{classgui_1_1_g_u_i_a2aad91b3f612f4a4a720cdf814ff3e09}\index{gui.GUI@{gui.GUI}!recipient\_menu@{recipient\_menu}}
+\index{recipient\_menu@{recipient\_menu}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{recipient\_menu}{recipient\_menu}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a2aad91b3f612f4a4a720cdf814ff3e09} 
+gui.\+GUI.\+recipient\+\_\+menu = tk.\+Option\+Menu(self.\+root, self.\+recipient\+\_\+var, ())}
+
+\Hypertarget{classgui_1_1_g_u_i_a20991f53fd825a513fd68824e9c03835}\index{gui.GUI@{gui.GUI}!recipient\_var@{recipient\_var}}
+\index{recipient\_var@{recipient\_var}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{recipient\_var}{recipient\_var}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a20991f53fd825a513fd68824e9c03835} 
+gui.\+GUI.\+recipient\+\_\+var = tk.\+String\+Var()}
+
+\Hypertarget{classgui_1_1_g_u_i_a7f649cc52dadd89382a912ccc5638980}\index{gui.GUI@{gui.GUI}!root@{root}}
+\index{root@{root}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{root}{root}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a7f649cc52dadd89382a912ccc5638980} 
+gui.\+GUI.\+root = tk.\+Tk()}
+
+\Hypertarget{classgui_1_1_g_u_i_a12dab3b80aad9efd24d9167d906787de}\index{gui.GUI@{gui.GUI}!text\_area@{text\_area}}
+\index{text\_area@{text\_area}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{text\_area}{text\_area}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a12dab3b80aad9efd24d9167d906787de} 
+gui.\+GUI.\+text\+\_\+area = Scrolled\+Text(self.\+root, state="{}disabled"{}, width=75, height=25, wrap=tk.\+WORD)}
+
+\Hypertarget{classgui_1_1_g_u_i_ac925f62185aa0c3f094f9df1d489b747}\index{gui.GUI@{gui.GUI}!to\_disc@{to\_disc}}
+\index{to\_disc@{to\_disc}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{to\_disc}{to\_disc}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_ac925f62185aa0c3f094f9df1d489b747} 
+gui.\+GUI.\+to\+\_\+disc = to\+\_\+disc}
+
+\Hypertarget{classgui_1_1_g_u_i_a9dd7240b1d5f721787a948bae86f1806}\index{gui.GUI@{gui.GUI}!username@{username}}
+\index{username@{username}!gui.GUI@{gui.GUI}}
+\doxysubsubsection{\texorpdfstring{username}{username}}
+{\footnotesize\ttfamily \label{classgui_1_1_g_u_i_a9dd7240b1d5f721787a948bae86f1806} 
+gui.\+GUI.\+username = username}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/\mbox{\hyperlink{gui_8py}{gui.\+py}}\end{DoxyCompactItemize}

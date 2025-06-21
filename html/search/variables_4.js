@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['handle_0',['HANDLE',['../namespacecli__chat.html#ac091417c19b8afe4374e39f2f67b66d4',1,'cli_chat.HANDLE'],['../namespacediscovery.html#a14e2ab739346fda96614eb1da47e9044',1,'discovery.HANDLE']]],
-  ['handle_1',['handle',['../classslcp_1_1_s_l_c_p_chat.html#a5ccfaa0ae0158b761426956182f2fa51',1,'slcp::SLCPChat']]]
+  ['from_5fdisc_0',['from_disc',['../classcli_1_1_c_l_i.html#a2df2b1daa3814fc631025728fd047e4d',1,'cli.CLI.from_disc'],['../classgui_1_1_g_u_i.html#a693653bf61cd423ca949531e669d24dd',1,'gui.GUI.from_disc'],['../classnetwork_1_1_network.html#aa85d64627052ec1064c56db2b17e3e47',1,'network.Network.from_disc']]],
+  ['from_5fnet_1',['from_net',['../classcli_1_1_c_l_i.html#a96ec263fe2634987b7909d31eaade325',1,'cli::CLI']]]
 ];

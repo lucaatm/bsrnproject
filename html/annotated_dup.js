@@ -1,12 +1,15 @@
 var annotated_dup =
 [
-    [ "chat_window", "namespacechat__window.html", [
-      [ "ChatWindow", "classchat__window_1_1_chat_window.html", "classchat__window_1_1_chat_window" ]
+    [ "cli", "namespacecli.html", [
+      [ "CLI", "classcli_1_1_c_l_i.html", "classcli_1_1_c_l_i" ]
     ] ],
-    [ "slcp", "namespaceslcp.html", [
-      [ "SLCPChat", "classslcp_1_1_s_l_c_p_chat.html", "classslcp_1_1_s_l_c_p_chat" ]
+    [ "discovery", "namespacediscovery.html", [
+      [ "Discovery", "classdiscovery_1_1_discovery.html", "classdiscovery_1_1_discovery" ]
     ] ],
-    [ "udp_handler", "namespaceudp__handler.html", [
-      [ "UDPHandler", "classudp__handler_1_1_u_d_p_handler.html", "classudp__handler_1_1_u_d_p_handler" ]
+    [ "gui", "namespacegui.html", [
+      [ "GUI", "classgui_1_1_g_u_i.html", "classgui_1_1_g_u_i" ]
+    ] ],
+    [ "network", "namespacenetwork.html", [
+      [ "Network", "classnetwork_1_1_network.html", "classnetwork_1_1_network" ]
     ] ]
 ];

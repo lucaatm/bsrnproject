@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['chatwindow_0',['ChatWindow',['../classchat__window_1_1_chat_window.html',1,'chat_window']]]
+  ['cli_0',['CLI',['../classcli_1_1_c_l_i.html',1,'cli']]]
 ];

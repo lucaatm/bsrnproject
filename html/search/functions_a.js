@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['receive_5fimage_0',['receive_image',['../namespaceimage__handler.html#a32204305452143840a2624270aa2b6ae',1,'image_handler']]],
-  ['receive_5fimages_1',['receive_images',['../classslcp_1_1_s_l_c_p_chat.html#a685681b1fc042068de49b1fdfb479789',1,'slcp::SLCPChat']]],
-  ['receive_5fmessage_2',['receive_message',['../classchat__window_1_1_chat_window.html#a40c4d39d40523b8d7f640169c10c916e',1,'chat_window::ChatWindow']]],
-  ['request_5fwho_3',['request_who',['../classslcp_1_1_s_l_c_p_chat.html#ac4394ab68f0878dbe948704dad9f4469',1,'slcp::SLCPChat']]]
+  ['update_5fusers_5ffrom_5fline_0',['update_users_from_line',['../classgui_1_1_g_u_i.html#a8c3627d5dfacc55d8fb8c2d20ceb36c5',1,'gui::GUI']]]
 ];

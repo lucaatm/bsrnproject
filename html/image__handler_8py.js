@@ -1,8 +1,6 @@
 var image__handler_8py =
 [
-    [ "image_handler.receive_image", "namespaceimage__handler.html#a32204305452143840a2624270aa2b6ae", null ],
-    [ "image_handler.send_image", "namespaceimage__handler.html#a78d58578fc5a9cfc4cca68639b42c329", null ],
-    [ "image_handler.BUFFER_SIZE", "namespaceimage__handler.html#a0d2a18d8c39a16bc30388918a8483cf0", null ],
-    [ "image_handler.config", "namespaceimage__handler.html#a949822c2358c12bf48bd24729e2b9ce7", null ],
-    [ "image_handler.IMAGEPATH", "namespaceimage__handler.html#ac253e13236c0c5f598beafd1a15f6e40", null ]
+    [ "image_handler.chunk_image_data", "namespaceimage__handler.html#ad1136a9c4bc39a0c55020798a1553f0b", null ],
+    [ "image_handler.load_image_as_bytes", "namespaceimage__handler.html#a76ade01d44dc9826016faa32c63659f3", null ],
+    [ "image_handler.save_and_open_image", "namespaceimage__handler.html#a08c69165670fa18516188d79a4d96e0b", null ]
 ];

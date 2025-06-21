@@ -1,0 +1,128 @@
+\doxysection{discovery.\+Discovery Class Reference}
+\hypertarget{classdiscovery_1_1_discovery}{}\label{classdiscovery_1_1_discovery}\index{discovery.Discovery@{discovery.Discovery}}
+
+
+Verarbeitet JOIN/\+LEAVE/\+WHO/\+MSG/\+IMG Kommandos von Teilnehmern.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdiscovery_1_1_discovery_a2179d53e963805e9ad1fe8a098fe560d}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, in\+\_\+queue, out\+\_\+queue, \mbox{\hyperlink{classdiscovery_1_1_discovery_a67ef556800fd84d6c36c7d4516686222}{imagepath}})
+\begin{DoxyCompactList}\small\item\em Konstruktor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdiscovery_1_1_discovery_a09222a413d5853104bf7a97c5b6baf08}{run}} (self)
+\begin{DoxyCompactList}\small\item\em Hauptschleife zur Verarbeitung von Nachrichten. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdiscovery_1_1_discovery_ad1c8713b54747c9d0db3ff68addb87a0}{in\+\_\+q}} = in\+\_\+queue
+\begin{DoxyCompactList}\small\item\em Eingangs-\/\+Queue vom Network-\/\+Prozess. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdiscovery_1_1_discovery_a213592834587c9c10a905da154f079d0}{out\+\_\+q}} = out\+\_\+queue
+\begin{DoxyCompactList}\small\item\em Ausgangs-\/\+Queue zur CLI. \end{DoxyCompactList}\item 
+dict \mbox{\hyperlink{classdiscovery_1_1_discovery_af47a6d8d8c9260a8d28c9d6fdeac84eb}{participants}} = \{\}
+\begin{DoxyCompactList}\small\item\em Bekannte Teilnehmer (handle → (IP, Port)) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdiscovery_1_1_discovery_a67ef556800fd84d6c36c7d4516686222}{imagepath}} = imagepath
+\begin{DoxyCompactList}\small\item\em Speicherort für empfangene Bilder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+dict \mbox{\hyperlink{classdiscovery_1_1_discovery_a7f7f275ebc72f4720c800f120209744c}{\+\_\+incoming\+\_\+chunks}} = \{\}
+\begin{DoxyCompactList}\small\item\em Zwischenspeicher für Bilddaten-\/\+Chunks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Verarbeitet JOIN/\+LEAVE/\+WHO/\+MSG/\+IMG Kommandos von Teilnehmern. 
+
+Verwaltet Teilnehmerliste und leitet Nachrichten an CLI weiter. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdiscovery_1_1_discovery_a2179d53e963805e9ad1fe8a098fe560d}\index{discovery.Discovery@{discovery.Discovery}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!discovery.Discovery@{discovery.Discovery}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classdiscovery_1_1_discovery_a2179d53e963805e9ad1fe8a098fe560d} 
+discovery.\+Discovery.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{in\+\_\+queue}{, }\item[{}]{out\+\_\+queue}{, }\item[{}]{imagepath}{}\end{DoxyParamCaption})}
+
+
+
+Konstruktor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+queue} & Queue für eingehende Nachrichten \\
+\hline
+{\em out\+\_\+queue} & Queue für Ausgaben an CLI \\
+\hline
+{\em imagepath} & Pfad zum Speichern empfangener Bilder \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdiscovery_1_1_discovery_a09222a413d5853104bf7a97c5b6baf08}\index{discovery.Discovery@{discovery.Discovery}!run@{run}}
+\index{run@{run}!discovery.Discovery@{discovery.Discovery}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{classdiscovery_1_1_discovery_a09222a413d5853104bf7a97c5b6baf08} 
+discovery.\+Discovery.\+run (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Hauptschleife zur Verarbeitung von Nachrichten. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdiscovery_1_1_discovery_a7f7f275ebc72f4720c800f120209744c}\index{discovery.Discovery@{discovery.Discovery}!\_incoming\_chunks@{\_incoming\_chunks}}
+\index{\_incoming\_chunks@{\_incoming\_chunks}!discovery.Discovery@{discovery.Discovery}}
+\doxysubsubsection{\texorpdfstring{\_incoming\_chunks}{\_incoming\_chunks}}
+{\footnotesize\ttfamily \label{classdiscovery_1_1_discovery_a7f7f275ebc72f4720c800f120209744c} 
+dict discovery.\+Discovery.\+\_\+incoming\+\_\+chunks = \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Zwischenspeicher für Bilddaten-\/\+Chunks. 
+
+\Hypertarget{classdiscovery_1_1_discovery_a67ef556800fd84d6c36c7d4516686222}\index{discovery.Discovery@{discovery.Discovery}!imagepath@{imagepath}}
+\index{imagepath@{imagepath}!discovery.Discovery@{discovery.Discovery}}
+\doxysubsubsection{\texorpdfstring{imagepath}{imagepath}}
+{\footnotesize\ttfamily \label{classdiscovery_1_1_discovery_a67ef556800fd84d6c36c7d4516686222} 
+discovery.\+Discovery.\+imagepath = imagepath}
+
+
+
+Speicherort für empfangene Bilder. 
+
+\Hypertarget{classdiscovery_1_1_discovery_ad1c8713b54747c9d0db3ff68addb87a0}\index{discovery.Discovery@{discovery.Discovery}!in\_q@{in\_q}}
+\index{in\_q@{in\_q}!discovery.Discovery@{discovery.Discovery}}
+\doxysubsubsection{\texorpdfstring{in\_q}{in\_q}}
+{\footnotesize\ttfamily \label{classdiscovery_1_1_discovery_ad1c8713b54747c9d0db3ff68addb87a0} 
+discovery.\+Discovery.\+in\+\_\+q = in\+\_\+queue}
+
+
+
+Eingangs-\/\+Queue vom Network-\/\+Prozess. 
+
+\Hypertarget{classdiscovery_1_1_discovery_a213592834587c9c10a905da154f079d0}\index{discovery.Discovery@{discovery.Discovery}!out\_q@{out\_q}}
+\index{out\_q@{out\_q}!discovery.Discovery@{discovery.Discovery}}
+\doxysubsubsection{\texorpdfstring{out\_q}{out\_q}}
+{\footnotesize\ttfamily \label{classdiscovery_1_1_discovery_a213592834587c9c10a905da154f079d0} 
+discovery.\+Discovery.\+out\+\_\+q = out\+\_\+queue}
+
+
+
+Ausgangs-\/\+Queue zur CLI. 
+
+\Hypertarget{classdiscovery_1_1_discovery_af47a6d8d8c9260a8d28c9d6fdeac84eb}\index{discovery.Discovery@{discovery.Discovery}!participants@{participants}}
+\index{participants@{participants}!discovery.Discovery@{discovery.Discovery}}
+\doxysubsubsection{\texorpdfstring{participants}{participants}}
+{\footnotesize\ttfamily \label{classdiscovery_1_1_discovery_af47a6d8d8c9260a8d28c9d6fdeac84eb} 
+dict discovery.\+Discovery.\+participants = \{\}}
+
+
+
+Bekannte Teilnehmer (handle → (IP, Port)) 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/\mbox{\hyperlink{discovery_8py}{discovery.\+py}}\end{DoxyCompactItemize}

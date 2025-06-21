@@ -110,7 +110,7 @@ $(function(){initNavTree('main_8py.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>Startskript für den BSRN Chat mit GUI-/CLI-Auswahl.  
+<p>Einstiegspunkt für das BSRN-Chatprogramm.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -120,24 +120,35 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6470dc00293701240ae057b3f7d69aae" id="r_a6470dc00293701240ae057b3f7d69aae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a6470dc00293701240ae057b3f7d69aae">main.initialize_user</a> ()</td></tr>
-<tr class="memdesc:a6470dc00293701240ae057b3f7d69aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erstellt eine Standard-Konfigurationsdatei, falls nicht vorhanden.  <br /></td></tr>
-<tr class="separator:a6470dc00293701240ae057b3f7d69aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add0f8841c73145fbc4149b2b731a713f" id="r_add0f8841c73145fbc4149b2b731a713f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#add0f8841c73145fbc4149b2b731a713f">main.start_gui</a> (username, port, peers)</td></tr>
-<tr class="memdesc:add0f8841c73145fbc4149b2b731a713f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Startet eine GUI-Instanz in diesem Prozess.  <br /></td></tr>
-<tr class="separator:add0f8841c73145fbc4149b2b731a713f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b9eae1c4502de4bcd9d7e92d5e7b682" id="r_a1b9eae1c4502de4bcd9d7e92d5e7b682"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a1b9eae1c4502de4bcd9d7e92d5e7b682">main.load_config</a> ()</td></tr>
+<tr class="memdesc:a1b9eae1c4502de4bcd9d7e92d5e7b682"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lädt Konfigurationsdatei.  <br /></td></tr>
+<tr class="separator:a1b9eae1c4502de4bcd9d7e92d5e7b682"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c3334290d4e3f82f0d4e6107230d458" id="r_a7c3334290d4e3f82f0d4e6107230d458"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a7c3334290d4e3f82f0d4e6107230d458">main.save_config</a> (cfg)</td></tr>
+<tr class="memdesc:a7c3334290d4e3f82f0d4e6107230d458"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speichert Konfiguration in Datei.  <br /></td></tr>
+<tr class="separator:a7c3334290d4e3f82f0d4e6107230d458"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adff6f182d12ad2e96486782d467a9604" id="r_adff6f182d12ad2e96486782d467a9604"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#adff6f182d12ad2e96486782d467a9604">main.prompt_missing_config</a> (cfg)</td></tr>
+<tr class="memdesc:adff6f182d12ad2e96486782d467a9604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fragt fehlende Konfiguration vom Benutzer ab.  <br /></td></tr>
+<tr class="separator:adff6f182d12ad2e96486782d467a9604"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a347dd09d3e21705fa2cb9aabbfbb96c6" id="r_a347dd09d3e21705fa2cb9aabbfbb96c6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a347dd09d3e21705fa2cb9aabbfbb96c6">main.get_lockfile_path</a> ()</td></tr>
+<tr class="memdesc:a347dd09d3e21705fa2cb9aabbfbb96c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt Pfad zur Lockdatei zurück.  <br /></td></tr>
+<tr class="separator:a347dd09d3e21705fa2cb9aabbfbb96c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa59171ec8c9effddb2de9bdaedb1c6b4" id="r_aa59171ec8c9effddb2de9bdaedb1c6b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#aa59171ec8c9effddb2de9bdaedb1c6b4">main.check_discovery_alive</a> (lockfile_path)</td></tr>
+<tr class="memdesc:aa59171ec8c9effddb2de9bdaedb1c6b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prüft, ob Discovery-Prozess läuft.  <br /></td></tr>
+<tr class="separator:aa59171ec8c9effddb2de9bdaedb1c6b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3140e9a5b6a71ffbf498198cfc471b88" id="r_a3140e9a5b6a71ffbf498198cfc471b88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a3140e9a5b6a71ffbf498198cfc471b88">main.main</a> ()</td></tr>
-<tr class="memdesc:a3140e9a5b6a71ffbf498198cfc471b88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hauptfunktion mit Auswahl zwischen GUI und CLI.  <br /></td></tr>
+<tr class="memdesc:a3140e9a5b6a71ffbf498198cfc471b88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Startet CLI, Netzwerk und optional Discovery-Prozess.  <br /></td></tr>
 <tr class="separator:a3140e9a5b6a71ffbf498198cfc471b88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a84cf41708442c975b79cd28e5a682d25" id="r_a84cf41708442c975b79cd28e5a682d25"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a84cf41708442c975b79cd28e5a682d25">main.CONFIG_PATH</a> = &quot;resources/config.toml&quot;</td></tr>
+<tr class="memitem:a84cf41708442c975b79cd28e5a682d25" id="r_a84cf41708442c975b79cd28e5a682d25"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a84cf41708442c975b79cd28e5a682d25">main.CONFIG_PATH</a> = &quot;config/config.toml&quot;</td></tr>
 <tr class="separator:a84cf41708442c975b79cd28e5a682d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada52b9d40a6839807da55e4536f1cf60" id="r_ada52b9d40a6839807da55e4536f1cf60"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#ada52b9d40a6839807da55e4536f1cf60">main.LOCKFILE_NAME</a> = &quot;discovery.lock&quot;</td></tr>
+<tr class="separator:ada52b9d40a6839807da55e4536f1cf60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Startskript für den BSRN Chat mit GUI-/CLI-Auswahl. </p>
-<p>Lädt oder initialisiert die Konfiguration, fragt den Benutzernamen ab und startet wahlweise zwei GUI-Clients parallel oder den CLI-Modus. </p>
+<div class="textblock"><p>Einstiegspunkt für das BSRN-Chatprogramm. </p>
+<p>Initialisiert Konfiguration, Prüft auf Discovery-Prozess, startet CLI und Netzwerk-Komponenten. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

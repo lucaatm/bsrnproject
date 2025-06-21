@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['event_0',['event',['../classchat__window_1_1_chat_window.html#ae253b8139ffe31acd170c4436a12718e',1,'chat_window::ChatWindow']]]
+  ['extract_5fusername_0',['extract_username',['../namespacegui.html#ac1875955b94c5ba9c5d7f710b2dbed24',1,'gui']]]
 ];

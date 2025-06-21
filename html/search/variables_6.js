@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['listen_5fport_0',['listen_port',['../classudp__handler_1_1_u_d_p_handler.html#aab156cad7436fc1ea4b952847f6f2435',1,'udp_handler.UDPHandler.listen_port'],['../classchat__window_1_1_chat_window.html#a3db93b8e42bb570be5c0b30025ad98a3',1,'chat_window.ChatWindow.listen_port']]]
+  ['known_5fusers_0',['known_users',['../classgui_1_1_g_u_i.html#a589e8bea9ad8691aef3eb865ea2c3e50',1,'gui::GUI']]]
 ];

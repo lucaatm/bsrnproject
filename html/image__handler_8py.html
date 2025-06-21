@@ -104,13 +104,12 @@ $(function(){initNavTree('image__handler_8py.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">image_handler.py File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Diese Datei enthält Funktionen zum Senden und Empfangen von Bildern über UDP.  
+<p>Funktionen zum Speichern, Öffnen und Verarbeiten von Bildern.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -120,26 +119,18 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a78d58578fc5a9cfc4cca68639b42c329" id="r_a78d58578fc5a9cfc4cca68639b42c329"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimage__handler.html#a78d58578fc5a9cfc4cca68639b42c329">image_handler.send_image</a> (image_path, target_ip, target_port)</td></tr>
-<tr class="memdesc:a78d58578fc5a9cfc4cca68639b42c329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sendet ein Bild über UDP an die angegebene IP-Adresse und den Port.  <br /></td></tr>
-<tr class="separator:a78d58578fc5a9cfc4cca68639b42c329"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32204305452143840a2624270aa2b6ae" id="r_a32204305452143840a2624270aa2b6ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimage__handler.html#a32204305452143840a2624270aa2b6ae">image_handler.receive_image</a> (callback=None, port=6000, save_dir=<a class="el" href="namespaceimage__handler.html#ac253e13236c0c5f598beafd1a15f6e40">IMAGEPATH</a>)</td></tr>
-<tr class="memdesc:a32204305452143840a2624270aa2b6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empfängt Bilder über UDP und speichert sie im angegebenen Verzeichnis.  <br /></td></tr>
-<tr class="separator:a32204305452143840a2624270aa2b6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a949822c2358c12bf48bd24729e2b9ce7" id="r_a949822c2358c12bf48bd24729e2b9ce7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimage__handler.html#a949822c2358c12bf48bd24729e2b9ce7">image_handler.config</a> = toml.load(&quot;resources/config.toml&quot;)</td></tr>
-<tr class="memdesc:a949822c2358c12bf48bd24729e2b9ce7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Die Konfigurationsdatei wird eingelesen, um alle wichtigen Benutzereinstellungen zu laden.  <br /></td></tr>
-<tr class="separator:a949822c2358c12bf48bd24729e2b9ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d2a18d8c39a16bc30388918a8483cf0" id="r_a0d2a18d8c39a16bc30388918a8483cf0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimage__handler.html#a0d2a18d8c39a16bc30388918a8483cf0">image_handler.BUFFER_SIZE</a> = 512</td></tr>
-<tr class="separator:a0d2a18d8c39a16bc30388918a8483cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac253e13236c0c5f598beafd1a15f6e40" id="r_ac253e13236c0c5f598beafd1a15f6e40"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimage__handler.html#ac253e13236c0c5f598beafd1a15f6e40">image_handler.IMAGEPATH</a> = <a class="el" href="namespaceimage__handler.html#a949822c2358c12bf48bd24729e2b9ce7">config</a>[&quot;image&quot;][&quot;imagepath&quot;]</td></tr>
-<tr class="separator:ac253e13236c0c5f598beafd1a15f6e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c69165670fa18516188d79a4d96e0b" id="r_a08c69165670fa18516188d79a4d96e0b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimage__handler.html#a08c69165670fa18516188d79a4d96e0b">image_handler.save_and_open_image</a> (sender, binary_data, imagepath)</td></tr>
+<tr class="memdesc:a08c69165670fa18516188d79a4d96e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speichert ein Bild und öffnet es im Standardprogramm.  <br /></td></tr>
+<tr class="separator:a08c69165670fa18516188d79a4d96e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76ade01d44dc9826016faa32c63659f3" id="r_a76ade01d44dc9826016faa32c63659f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimage__handler.html#a76ade01d44dc9826016faa32c63659f3">image_handler.load_image_as_bytes</a> (path)</td></tr>
+<tr class="memdesc:a76ade01d44dc9826016faa32c63659f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lädt ein Bild als Bytes aus einer Datei.  <br /></td></tr>
+<tr class="separator:a76ade01d44dc9826016faa32c63659f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1136a9c4bc39a0c55020798a1553f0b" id="r_ad1136a9c4bc39a0c55020798a1553f0b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimage__handler.html#ad1136a9c4bc39a0c55020798a1553f0b">image_handler.chunk_image_data</a> (b64_string, max_size=512)</td></tr>
+<tr class="memdesc:ad1136a9c4bc39a0c55020798a1553f0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teilt einen base64-String in kleinere Stücke.  <br /></td></tr>
+<tr class="separator:ad1136a9c4bc39a0c55020798a1553f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Diese Datei enthält Funktionen zum Senden und Empfangen von Bildern über UDP. </p>
-<p>Sie ermöglicht das einfache Teilen von Bildern zwischen Benutzern in einem Netzwerk. </p><dl class="section note"><dt>Note</dt><dd>Diese Datei wird in SLCPChat verwendet, um Bilder zu senden und zu empfangen. </dd></dl>
+<div class="textblock"><p>Funktionen zum Speichern, Öffnen und Verarbeiten von Bildern. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

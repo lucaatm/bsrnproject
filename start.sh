@@ -1,7 +1,8 @@
 #!/bin/bash
+# Installiert die Abhängigkeiten und startet das Projekt
 
-# Installiere notwendige Pakete aus requirements.txt
+echo "📦 Installiere benötigte Pakete..."
 pip install -r requirements.txt
 
-# Starte das Python-Programm
+echo "🚀 Starte das Chat-Programm..."
 python3 main.py

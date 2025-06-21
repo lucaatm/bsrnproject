@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['on_5fmessage_0',['on_message',['../namespacecli__chat.html#a3062cc6437e0e83c35d0991f408b6421',1,'cli_chat']]],
-  ['on_5freceive_5fcallback_1',['on_receive_callback',['../classudp__handler_1_1_u_d_p_handler.html#a6956343541e4aa5e946d4fa8dcc9d0f4',1,'udp_handler::UDPHandler']]],
-  ['open_5fimage_2',['open_image',['../classchat__window_1_1_chat_window.html#a2ffb05d421889684229dabde42e06ed2',1,'chat_window::ChatWindow']]]
+  ['main_0',['main',['../namespacemain.html',1,'main'],['../namespacemain.html#a3140e9a5b6a71ffbf498198cfc471b88',1,'main.main()']]],
+  ['main_2epy_1',['main.py',['../main_8py.html',1,'']]],
+  ['mit_20slcp_20und_20ipc_2',['BSRN Chat mit SLCP und IPC',['../md__r_e_a_d_m_e.html',1,'']]]
 ];

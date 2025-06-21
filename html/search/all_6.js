@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['fenster_0',['fenster',['../namespacechat__window.html#a8e10433ffa88f2563b7d4234d8c8d7d4',1,'chat_window.fenster'],['../namespacestart__user1.html#a6209fcbaf48c6f89f2914a20effb97e9',1,'start_user1.fenster'],['../namespacestart__user2.html#a87fcaa6b04379f3f701ff88c3b57605d',1,'start_user2.fenster']]]
+  ['from_5fdisc_0',['from_disc',['../classcli_1_1_c_l_i.html#a2df2b1daa3814fc631025728fd047e4d',1,'cli.CLI.from_disc'],['../classgui_1_1_g_u_i.html#a693653bf61cd423ca949531e669d24dd',1,'gui.GUI.from_disc'],['../classnetwork_1_1_network.html#aa85d64627052ec1064c56db2b17e3e47',1,'network.Network.from_disc']]],
+  ['from_5fnet_1',['from_net',['../classcli_1_1_c_l_i.html#a96ec263fe2634987b7909d31eaade325',1,'cli::CLI']]]
 ];

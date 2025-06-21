@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['_5f_5finit_5f_5f_0',['__init__',['../classslcp_1_1_s_l_c_p_chat.html#a5fb308558e262b063a0e360d2d6c7303',1,'slcp.SLCPChat.__init__()'],['../classudp__handler_1_1_u_d_p_handler.html#a960cd247f398768c4f36aea80b912a00',1,'udp_handler.UDPHandler.__init__()'],['../classchat__window_1_1_chat_window.html#a454974b8a1c0dd29cd5f8cd2d7b8dbc0',1,'chat_window.ChatWindow.__init__()']]],
-  ['_5freceive_5floop_1',['_receive_loop',['../classudp__handler_1_1_u_d_p_handler.html#aad98a86e9ac7f031d6e40cfdadb85511',1,'udp_handler::UDPHandler']]]
+  ['_5f_5finit_5f_5f_0',['__init__',['../classcli_1_1_c_l_i.html#a69a50291123632ab82e9506232312a05',1,'cli.CLI.__init__()'],['../classdiscovery_1_1_discovery.html#a2179d53e963805e9ad1fe8a098fe560d',1,'discovery.Discovery.__init__()'],['../classgui_1_1_g_u_i.html#a1738c9a696eb666f046f8108cfa64626',1,'gui.GUI.__init__()'],['../classnetwork_1_1_network.html#af74c4952013adbe48a63dc7b65385321',1,'network.Network.__init__()']]],
+  ['_5fnetwork_5flistener_1',['_network_listener',['../classcli_1_1_c_l_i.html#a792e88e55f6ac171b19b8cec994601e3',1,'cli::CLI']]],
+  ['_5fsend_5fbroadcast_2',['_send_broadcast',['../classnetwork_1_1_network.html#a4e5f5f52285b2f9f4ff1c7743c309d37',1,'network::Network']]],
+  ['_5fsend_5funicast_3',['_send_unicast',['../classnetwork_1_1_network.html#afe8200bf4c47771cbb00f6a207a1ba43',1,'network::Network']]]
 ];

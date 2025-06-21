@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['slcpchat_0',['SLCPChat',['../classslcp_1_1_s_l_c_p_chat.html',1,'slcp']]]
+  ['discovery_0',['Discovery',['../classdiscovery_1_1_discovery.html',1,'discovery']]]
 ];

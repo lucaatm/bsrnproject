@@ -1,0 +1,161 @@
+\doxysection{cli.\+CLI Class Reference}
+\hypertarget{classcli_1_1_c_l_i}{}\label{classcli_1_1_c_l_i}\index{cli.CLI@{cli.CLI}}
+
+
+Command-\/\+Line Interface des BSRN-\/\+Chatprogramms.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcli_1_1_c_l_i_a69a50291123632ab82e9506232312a05}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classcli_1_1_c_l_i_a28470728cb6191d6dfd430b339223015}{username}}, \mbox{\hyperlink{classcli_1_1_c_l_i_ab7cdd66d262a005916f416d98e225f79}{to\+\_\+net}}, \mbox{\hyperlink{classcli_1_1_c_l_i_a249927579a8b61cd27e52acc83697c47}{to\+\_\+disc}}, \mbox{\hyperlink{classcli_1_1_c_l_i_a96ec263fe2634987b7909d31eaade325}{from\+\_\+net}}, \mbox{\hyperlink{classcli_1_1_c_l_i_a2df2b1daa3814fc631025728fd047e4d}{from\+\_\+disc}}, \mbox{\hyperlink{classcli_1_1_c_l_i_a5ec3e5d8ff24587359016ea0b8c59f47}{config}})
+\begin{DoxyCompactList}\small\item\em Konstruktor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcli_1_1_c_l_i_adb6ce110be68040e499587bcdc1745be}{run}} (self)
+\begin{DoxyCompactList}\small\item\em Startet die CLI-\/\+Eingabeschleife. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcli_1_1_c_l_i_a28470728cb6191d6dfd430b339223015}{username}} = username
+\begin{DoxyCompactList}\small\item\em Benutzername. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcli_1_1_c_l_i_ab7cdd66d262a005916f416d98e225f79}{to\+\_\+net}} = to\+\_\+net
+\begin{DoxyCompactList}\small\item\em Queue an Network. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcli_1_1_c_l_i_a249927579a8b61cd27e52acc83697c47}{to\+\_\+disc}} = to\+\_\+disc
+\begin{DoxyCompactList}\small\item\em Queue an Discovery. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcli_1_1_c_l_i_a96ec263fe2634987b7909d31eaade325}{from\+\_\+net}} = from\+\_\+net
+\begin{DoxyCompactList}\small\item\em Queue von Network. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcli_1_1_c_l_i_a2df2b1daa3814fc631025728fd047e4d}{from\+\_\+disc}} = from\+\_\+disc
+\begin{DoxyCompactList}\small\item\em Queue von Discovery. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcli_1_1_c_l_i_a5ec3e5d8ff24587359016ea0b8c59f47}{config}} = config
+\begin{DoxyCompactList}\small\item\em Konfigurationsdaten. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcli_1_1_c_l_i_a792e88e55f6ac171b19b8cec994601e3}{\+\_\+network\+\_\+listener}} (self)
+\begin{DoxyCompactList}\small\item\em Gibt eingehende Nachrichten formatiert aus. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Command-\/\+Line Interface des BSRN-\/\+Chatprogramms. 
+
+Ermöglicht das Senden von Nachrichten, Bildern und Steuerbefehlen durch Benutzereingabe. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcli_1_1_c_l_i_a69a50291123632ab82e9506232312a05}\index{cli.CLI@{cli.CLI}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!cli.CLI@{cli.CLI}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classcli_1_1_c_l_i_a69a50291123632ab82e9506232312a05} 
+cli.\+CLI.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{username}{, }\item[{}]{to\+\_\+net}{, }\item[{}]{to\+\_\+disc}{, }\item[{}]{from\+\_\+net}{, }\item[{}]{from\+\_\+disc}{, }\item[{}]{config}{}\end{DoxyParamCaption})}
+
+
+
+Konstruktor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & Benutzername \\
+\hline
+{\em to\+\_\+net} & Queue an Network \\
+\hline
+{\em to\+\_\+disc} & Queue an Discovery \\
+\hline
+{\em from\+\_\+net} & Queue von Network \\
+\hline
+{\em from\+\_\+disc} & Queue von Discovery \\
+\hline
+{\em config} & Konfiguration \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcli_1_1_c_l_i_a792e88e55f6ac171b19b8cec994601e3}\index{cli.CLI@{cli.CLI}!\_network\_listener@{\_network\_listener}}
+\index{\_network\_listener@{\_network\_listener}!cli.CLI@{cli.CLI}}
+\doxysubsubsection{\texorpdfstring{\_network\_listener()}{\_network\_listener()}}
+{\footnotesize\ttfamily \label{classcli_1_1_c_l_i_a792e88e55f6ac171b19b8cec994601e3} 
+cli.\+CLI.\+\_\+network\+\_\+listener (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Gibt eingehende Nachrichten formatiert aus. 
+
+\begin{DoxyVerb}Läuft im Hintergrund und gibt eingehende Nachrichten sofort aus.
+Behandelt alle Nachrichten, die über Network hereinkommen.
+\end{DoxyVerb}
+ \Hypertarget{classcli_1_1_c_l_i_adb6ce110be68040e499587bcdc1745be}\index{cli.CLI@{cli.CLI}!run@{run}}
+\index{run@{run}!cli.CLI@{cli.CLI}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{classcli_1_1_c_l_i_adb6ce110be68040e499587bcdc1745be} 
+cli.\+CLI.\+run (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Startet die CLI-\/\+Eingabeschleife. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classcli_1_1_c_l_i_a5ec3e5d8ff24587359016ea0b8c59f47}\index{cli.CLI@{cli.CLI}!config@{config}}
+\index{config@{config}!cli.CLI@{cli.CLI}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily \label{classcli_1_1_c_l_i_a5ec3e5d8ff24587359016ea0b8c59f47} 
+cli.\+CLI.\+config = config}
+
+
+
+Konfigurationsdaten. 
+
+\Hypertarget{classcli_1_1_c_l_i_a2df2b1daa3814fc631025728fd047e4d}\index{cli.CLI@{cli.CLI}!from\_disc@{from\_disc}}
+\index{from\_disc@{from\_disc}!cli.CLI@{cli.CLI}}
+\doxysubsubsection{\texorpdfstring{from\_disc}{from\_disc}}
+{\footnotesize\ttfamily \label{classcli_1_1_c_l_i_a2df2b1daa3814fc631025728fd047e4d} 
+cli.\+CLI.\+from\+\_\+disc = from\+\_\+disc}
+
+
+
+Queue von Discovery. 
+
+\Hypertarget{classcli_1_1_c_l_i_a96ec263fe2634987b7909d31eaade325}\index{cli.CLI@{cli.CLI}!from\_net@{from\_net}}
+\index{from\_net@{from\_net}!cli.CLI@{cli.CLI}}
+\doxysubsubsection{\texorpdfstring{from\_net}{from\_net}}
+{\footnotesize\ttfamily \label{classcli_1_1_c_l_i_a96ec263fe2634987b7909d31eaade325} 
+cli.\+CLI.\+from\+\_\+net = from\+\_\+net}
+
+
+
+Queue von Network. 
+
+\Hypertarget{classcli_1_1_c_l_i_a249927579a8b61cd27e52acc83697c47}\index{cli.CLI@{cli.CLI}!to\_disc@{to\_disc}}
+\index{to\_disc@{to\_disc}!cli.CLI@{cli.CLI}}
+\doxysubsubsection{\texorpdfstring{to\_disc}{to\_disc}}
+{\footnotesize\ttfamily \label{classcli_1_1_c_l_i_a249927579a8b61cd27e52acc83697c47} 
+cli.\+CLI.\+to\+\_\+disc = to\+\_\+disc}
+
+
+
+Queue an Discovery. 
+
+\Hypertarget{classcli_1_1_c_l_i_ab7cdd66d262a005916f416d98e225f79}\index{cli.CLI@{cli.CLI}!to\_net@{to\_net}}
+\index{to\_net@{to\_net}!cli.CLI@{cli.CLI}}
+\doxysubsubsection{\texorpdfstring{to\_net}{to\_net}}
+{\footnotesize\ttfamily \label{classcli_1_1_c_l_i_ab7cdd66d262a005916f416d98e225f79} 
+cli.\+CLI.\+to\+\_\+net = to\+\_\+net}
+
+
+
+Queue an Network. 
+
+\Hypertarget{classcli_1_1_c_l_i_a28470728cb6191d6dfd430b339223015}\index{cli.CLI@{cli.CLI}!username@{username}}
+\index{username@{username}!cli.CLI@{cli.CLI}}
+\doxysubsubsection{\texorpdfstring{username}{username}}
+{\footnotesize\ttfamily \label{classcli_1_1_c_l_i_a28470728cb6191d6dfd430b339223015} 
+cli.\+CLI.\+username = username}
+
+
+
+Benutzername. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/\mbox{\hyperlink{cli_8py}{cli.\+py}}\end{DoxyCompactItemize}

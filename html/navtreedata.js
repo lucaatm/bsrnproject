@@ -25,6 +25,10 @@
 var NAVTREE =
 [
   [ "BSRN Projekt", "index.html", [
+    [ "BSRN Chat mit SLCP und IPC", "md__r_e_a_d_m_e.html", [
+      [ "Befehle", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
+      [ "Start", "md__r_e_a_d_m_e.html#autotoc_md2", null ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -36,7 +40,6 @@ var NAVTREE =
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],

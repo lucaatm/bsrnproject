@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['broadcast_0',['broadcast',['../namespacediscovery.html#a8c78d50d1420f8df68651443b1a20dd0',1,'discovery']]],
-  ['buffer_5fsize_1',['BUFFER_SIZE',['../namespacediscovery.html#acd23f441d9d2fc98bfcca377640f2d8f',1,'discovery.BUFFER_SIZE'],['../namespaceimage__handler.html#a0d2a18d8c39a16bc30388918a8483cf0',1,'image_handler.BUFFER_SIZE'],['../namespaceslcp.html#a98e0b473c928f6c2903f791fdcd70c70',1,'slcp.BUFFER_SIZE']]]
+  ['befehle_0',['Befehle',['../md__r_e_a_d_m_e.html#autotoc_md1',1,'']]],
+  ['broadcast_5fudp_1',['broadcast_udp',['../classnetwork_1_1_network.html#a3ce58823246ed77d3afc621a23a67714',1,'network::Network']]],
+  ['bsrn_20chat_20mit_20slcp_20und_20ipc_2',['BSRN Chat mit SLCP und IPC',['../md__r_e_a_d_m_e.html',1,'']]]
 ];

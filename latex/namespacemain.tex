@@ -3,31 +3,73 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespacemain_a6470dc00293701240ae057b3f7d69aae}{initialize\+\_\+user}} ()
-\begin{DoxyCompactList}\small\item\em Erstellt eine Standard-\/\+Konfigurationsdatei, falls nicht vorhanden. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacemain_add0f8841c73145fbc4149b2b731a713f}{start\+\_\+gui}} (username, port, peers)
-\begin{DoxyCompactList}\small\item\em Startet eine GUI-\/\+Instanz in diesem Prozess. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a1b9eae1c4502de4bcd9d7e92d5e7b682}{load\+\_\+config}} ()
+\begin{DoxyCompactList}\small\item\em Lädt Konfigurationsdatei. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a7c3334290d4e3f82f0d4e6107230d458}{save\+\_\+config}} (cfg)
+\begin{DoxyCompactList}\small\item\em Speichert Konfiguration in Datei. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_adff6f182d12ad2e96486782d467a9604}{prompt\+\_\+missing\+\_\+config}} (cfg)
+\begin{DoxyCompactList}\small\item\em Fragt fehlende Konfiguration vom Benutzer ab. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a347dd09d3e21705fa2cb9aabbfbb96c6}{get\+\_\+lockfile\+\_\+path}} ()
+\begin{DoxyCompactList}\small\item\em Gibt Pfad zur Lockdatei zurück. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_aa59171ec8c9effddb2de9bdaedb1c6b4}{check\+\_\+discovery\+\_\+alive}} (lockfile\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Prüft, ob Discovery-\/\+Prozess läuft. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacemain_a3140e9a5b6a71ffbf498198cfc471b88}{main}} ()
-\begin{DoxyCompactList}\small\item\em Hauptfunktion mit Auswahl zwischen GUI und CLI. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Startet CLI, Netzwerk und optional Discovery-\/\+Prozess. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-str \mbox{\hyperlink{namespacemain_a84cf41708442c975b79cd28e5a682d25}{CONFIG\+\_\+\+PATH}} = "{}resources/config.\+toml"{}
+str \mbox{\hyperlink{namespacemain_a84cf41708442c975b79cd28e5a682d25}{CONFIG\+\_\+\+PATH}} = "{}config/config.\+toml"{}
+\item 
+str \mbox{\hyperlink{namespacemain_ada52b9d40a6839807da55e4536f1cf60}{LOCKFILE\+\_\+\+NAME}} = "{}discovery.\+lock"{}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{namespacemain_a6470dc00293701240ae057b3f7d69aae}\index{main@{main}!initialize\_user@{initialize\_user}}
-\index{initialize\_user@{initialize\_user}!main@{main}}
-\doxysubsubsection{\texorpdfstring{initialize\_user()}{initialize\_user()}}
-{\footnotesize\ttfamily \label{namespacemain_a6470dc00293701240ae057b3f7d69aae} 
-main.\+initialize\+\_\+user (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+\Hypertarget{namespacemain_aa59171ec8c9effddb2de9bdaedb1c6b4}\index{main@{main}!check\_discovery\_alive@{check\_discovery\_alive}}
+\index{check\_discovery\_alive@{check\_discovery\_alive}!main@{main}}
+\doxysubsubsection{\texorpdfstring{check\_discovery\_alive()}{check\_discovery\_alive()}}
+{\footnotesize\ttfamily \label{namespacemain_aa59171ec8c9effddb2de9bdaedb1c6b4} 
+main.\+check\+\_\+discovery\+\_\+alive (\begin{DoxyParamCaption}\item[{}]{lockfile\+\_\+path}{}\end{DoxyParamCaption})}
 
 
 
-Erstellt eine Standard-\/\+Konfigurationsdatei, falls nicht vorhanden. 
+Prüft, ob Discovery-\/\+Prozess läuft. 
 
-Legt {\ttfamily config.\+toml} mit Default-\/\+Werten an und fragt den Handle ab, falls dieser leer ist oder fehlt. \Hypertarget{namespacemain_a3140e9a5b6a71ffbf498198cfc471b88}\index{main@{main}!main@{main}}
+
+\begin{DoxyParams}{Parameters}
+{\em lockfile\+\_\+path} & Pfad zur Lockdatei \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True wenn Prozess läuft, sonst False 
+\end{DoxyReturn}
+\Hypertarget{namespacemain_a347dd09d3e21705fa2cb9aabbfbb96c6}\index{main@{main}!get\_lockfile\_path@{get\_lockfile\_path}}
+\index{get\_lockfile\_path@{get\_lockfile\_path}!main@{main}}
+\doxysubsubsection{\texorpdfstring{get\_lockfile\_path()}{get\_lockfile\_path()}}
+{\footnotesize\ttfamily \label{namespacemain_a347dd09d3e21705fa2cb9aabbfbb96c6} 
+main.\+get\+\_\+lockfile\+\_\+path (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gibt Pfad zur Lockdatei zurück. 
+
+\begin{DoxyReturn}{Returns}
+Absoluter Pfad zur temporären Lockdatei 
+\end{DoxyReturn}
+\Hypertarget{namespacemain_a1b9eae1c4502de4bcd9d7e92d5e7b682}\index{main@{main}!load\_config@{load\_config}}
+\index{load\_config@{load\_config}!main@{main}}
+\doxysubsubsection{\texorpdfstring{load\_config()}{load\_config()}}
+{\footnotesize\ttfamily \label{namespacemain_a1b9eae1c4502de4bcd9d7e92d5e7b682} 
+main.\+load\+\_\+config (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Lädt Konfigurationsdatei. 
+
+\begin{DoxyReturn}{Returns}
+Dictionary mit Konfigurationsdaten 
+\end{DoxyReturn}
+\Hypertarget{namespacemain_a3140e9a5b6a71ffbf498198cfc471b88}\index{main@{main}!main@{main}}
 \index{main@{main}!main@{main}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily \label{namespacemain_a3140e9a5b6a71ffbf498198cfc471b88} 
@@ -35,25 +77,36 @@ main.\+main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Hauptfunktion mit Auswahl zwischen GUI und CLI. 
+Startet CLI, Netzwerk und optional Discovery-\/\+Prozess. 
 
-Fragt den Benutzer, ob er eine oder zwei GUI-\/\+Fenster starten möchte oder in den CLI-\/\+Modus wechselt. \Hypertarget{namespacemain_add0f8841c73145fbc4149b2b731a713f}\index{main@{main}!start\_gui@{start\_gui}}
-\index{start\_gui@{start\_gui}!main@{main}}
-\doxysubsubsection{\texorpdfstring{start\_gui()}{start\_gui()}}
-{\footnotesize\ttfamily \label{namespacemain_add0f8841c73145fbc4149b2b731a713f} 
-main.\+start\+\_\+gui (\begin{DoxyParamCaption}\item[{}]{username}{, }\item[{}]{port}{, }\item[{}]{peers}{}\end{DoxyParamCaption})}
+\Hypertarget{namespacemain_adff6f182d12ad2e96486782d467a9604}\index{main@{main}!prompt\_missing\_config@{prompt\_missing\_config}}
+\index{prompt\_missing\_config@{prompt\_missing\_config}!main@{main}}
+\doxysubsubsection{\texorpdfstring{prompt\_missing\_config()}{prompt\_missing\_config()}}
+{\footnotesize\ttfamily \label{namespacemain_adff6f182d12ad2e96486782d467a9604} 
+main.\+prompt\+\_\+missing\+\_\+config (\begin{DoxyParamCaption}\item[{}]{cfg}{}\end{DoxyParamCaption})}
 
 
 
-Startet eine GUI-\/\+Instanz in diesem Prozess. 
+Fragt fehlende Konfiguration vom Benutzer ab. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em username} & Benutzer-\/\+Handle (wird aktuell nicht direkt genutzt). \\
+{\em cfg} & Konfigurations-\/\+Dictionary (wird direkt bearbeitet) \\
 \hline
-{\em port} & UDP-\/\+Port zum Empfang von Nachrichten. \\
-\hline
-{\em peers} & Liste von {\ttfamily (ip, port)}-\/Tupeln der Chat-\/\+Teilnehmer. \\
+\end{DoxyParams}
+\Hypertarget{namespacemain_a7c3334290d4e3f82f0d4e6107230d458}\index{main@{main}!save\_config@{save\_config}}
+\index{save\_config@{save\_config}!main@{main}}
+\doxysubsubsection{\texorpdfstring{save\_config()}{save\_config()}}
+{\footnotesize\ttfamily \label{namespacemain_a7c3334290d4e3f82f0d4e6107230d458} 
+main.\+save\+\_\+config (\begin{DoxyParamCaption}\item[{}]{cfg}{}\end{DoxyParamCaption})}
+
+
+
+Speichert Konfiguration in Datei. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cfg} & Konfigurations-\/\+Dictionary \\
 \hline
 \end{DoxyParams}
 
@@ -63,5 +116,11 @@ Startet eine GUI-\/\+Instanz in diesem Prozess.
 \index{CONFIG\_PATH@{CONFIG\_PATH}!main@{main}}
 \doxysubsubsection{\texorpdfstring{CONFIG\_PATH}{CONFIG\_PATH}}
 {\footnotesize\ttfamily \label{namespacemain_a84cf41708442c975b79cd28e5a682d25} 
-str main.\+CONFIG\+\_\+\+PATH = "{}resources/config.\+toml"{}}
+str main.\+CONFIG\+\_\+\+PATH = "{}config/config.\+toml"{}}
+
+\Hypertarget{namespacemain_ada52b9d40a6839807da55e4536f1cf60}\index{main@{main}!LOCKFILE\_NAME@{LOCKFILE\_NAME}}
+\index{LOCKFILE\_NAME@{LOCKFILE\_NAME}!main@{main}}
+\doxysubsubsection{\texorpdfstring{LOCKFILE\_NAME}{LOCKFILE\_NAME}}
+{\footnotesize\ttfamily \label{namespacemain_ada52b9d40a6839807da55e4536f1cf60} 
+str main.\+LOCKFILE\+\_\+\+NAME = "{}discovery.\+lock"{}}
 

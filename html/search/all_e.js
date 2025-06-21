@@ -1,20 +1,6 @@
 var searchData=
 [
-  ['save_5fconfig_0',['save_config',['../namespaceconfig__loader.html#a4dc5e2ccf994d757f88dcd25297fc2a8',1,'config_loader']]],
-  ['send_5fdirect_1',['send_direct',['../namespacediscovery.html#a951a971f9951c43a25a905b865cc1932',1,'discovery']]],
-  ['send_5fimage_2',['send_image',['../classslcp_1_1_s_l_c_p_chat.html#a8bf87b578693c9651b0ed17c1bfdaf27',1,'slcp.SLCPChat.send_image()'],['../namespaceimage__handler.html#a78d58578fc5a9cfc4cca68639b42c329',1,'image_handler.send_image()']]],
-  ['send_5fimage_5fdialog_3',['send_image_dialog',['../classchat__window_1_1_chat_window.html#a28696e280414bbe36affa7727b22525a',1,'chat_window.ChatWindow.send_image_dialog'],['../classchat__window_1_1_chat_window.html#a1538c17cb690b78115c68807a0c4555f',1,'chat_window.ChatWindow.send_image_dialog(self)']]],
-  ['send_5fjoin_4',['send_join',['../classslcp_1_1_s_l_c_p_chat.html#a7addb8983e09db09471be49b7ee9b106',1,'slcp.SLCPChat.send_join()'],['../namespacediscovery.html#ad27b6c11e4cac10ade3a238a1c91fe63',1,'discovery.send_join()']]],
-  ['send_5fmessage_5',['send_message',['../classchat__window_1_1_chat_window.html#a360258525b3f7b3d1cd02aa75d7dea03',1,'chat_window.ChatWindow.send_message'],['../classslcp_1_1_s_l_c_p_chat.html#a47bcfc1206f48cbf6cfc4039d586b115',1,'slcp.SLCPChat.send_message()'],['../classudp__handler_1_1_u_d_p_handler.html#a253e98d7e7ff412d5c8e782fbf2fbc23',1,'udp_handler.UDPHandler.send_message()'],['../classchat__window_1_1_chat_window.html#a72d1bb8df5baed5949cb4ace4c57e9dd',1,'chat_window.ChatWindow.send_message()']]],
-  ['slcp_6',['slcp',['../namespaceslcp.html',1,'']]],
-  ['slcp_2epy_7',['slcp.py',['../slcp_8py.html',1,'']]],
-  ['slcpchat_8',['SLCPChat',['../classslcp_1_1_s_l_c_p_chat.html',1,'slcp']]],
-  ['start_9',['start',['../classudp__handler_1_1_u_d_p_handler.html#a6b3551d524e54a855ed7ea26b14cb9fa',1,'udp_handler::UDPHandler']]],
-  ['start_5fdiscovery_5fservice_10',['start_discovery_service',['../namespacediscovery.html#a004d67498ce598df44da340245c107e0',1,'discovery']]],
-  ['start_5fgui_11',['start_gui',['../namespacemain.html#add0f8841c73145fbc4149b2b731a713f',1,'main']]],
-  ['start_5fuser1_12',['start_user1',['../namespacestart__user1.html',1,'']]],
-  ['start_5fuser1_2epy_13',['start_user1.py',['../start__user1_8py.html',1,'']]],
-  ['start_5fuser2_14',['start_user2',['../namespacestart__user2.html',1,'']]],
-  ['start_5fuser2_2epy_15',['start_user2.py',['../start__user2_8py.html',1,'']]],
-  ['stop_16',['stop',['../classudp__handler_1_1_u_d_p_handler.html#a3409c747c0f68233c6a68f9d59b3a277',1,'udp_handler::UDPHandler']]]
+  ['participants_0',['participants',['../classdiscovery_1_1_discovery.html#af47a6d8d8c9260a8d28c9d6fdeac84eb',1,'discovery.Discovery.participants'],['../classnetwork_1_1_network.html#ac9629b258835dd05acf211ed898a2c1f',1,'network.Network.participants']]],
+  ['port_1',['port',['../classnetwork_1_1_network.html#acdbdc01d5572b53f44f8058c28f6f9b2',1,'network::Network']]],
+  ['prompt_5fmissing_5fconfig_2',['prompt_missing_config',['../namespacemain.html#adff6f182d12ad2e96486782d467a9604',1,'main']]]
 ];
