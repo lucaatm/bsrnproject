@@ -1,80 +1,56 @@
-import socket
+## @file image_handler.py
+#  @brief Funktionen zum Speichern, Öffnen und Verarbeiten von Bildern.
+
 import os
 import platform
-import subprocess
-import toml
+import uuid
 
-config = toml.load("resources/config.toml")
+## @brief Speichert ein Bild und öffnet es im Standardprogramm.
+#  @param sender Name des Absenders
+#  @param binary_data Bilddaten als Bytes
+#  @param imagepath Zielordner zum Speichern
+#  @return Vollständiger Pfad der gespeicherten Datei oder None bei Fehler
+def save_and_open_image(sender, binary_data, imagepath):
+    try:
+        folder = os.path.abspath(imagepath)
+        os.makedirs(folder, exist_ok=True)
 
-BUFFER_SIZE = 512
-IMAGEPATH = config["image"]["imagepath"]
+        filename = f"{sender}_{uuid.uuid4().hex[:8]}.jpg"
+        full_path = os.path.join(folder, filename)
 
-## Sends an image to a target IP and port using UDP
-def send_image(image_path, target_ip, target_port):
-    if not os.path.isfile(image_path):
-        print(f"[Error] File not found: {image_path}")
-        return
+        with open(full_path, "wb") as f:
+            f.write(binary_data)
 
-    with open(image_path, "rb") as f:
-        image_data = f.read()
-
-    image_size = len(image_data)
-    image_name = os.path.basename(image_path)
-
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
-    
-    header_msg = f"IMG {image_name} {image_size}"
-    sock.sendto(header_msg.encode("utf-8"), (target_ip, target_port))
-
-    
-    for i in range(0, image_size, BUFFER_SIZE):
-        chunk = image_data[i:i + BUFFER_SIZE]
-        sock.sendto(chunk, (target_ip, target_port))
-
-    sock.close()
-    print(f"[Bild gesendet] {image_name} ({image_size} Bytes)")
-
-## Receives images sent via UDP and saves them to the specified directory
-def receive_image(callback=None, port=5002, save_dir=IMAGEPATH):
-    if not os.path.exists(save_dir):
-        os.makedirs(save_dir)
-
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.bind(("", port))
-    print(f"[Image-Handler] Listening on port: {port}...")
-
-    while True:
         try:
-            data, addr = sock.recvfrom(BUFFER_SIZE)
-            message = data.decode("utf-8", errors="ignore")
-
-            if message.startswith("IMG"):
-                _, image_name, image_size = message.split()
-                image_size = int(image_size)
-                image_path = os.path.join(save_dir, image_name)
-
-                with open(image_path, "wb") as f:
-                    bytes_received = 0
-                    while bytes_received < image_size:
-                        chunk, _ = sock.recvfrom(BUFFER_SIZE)
-                        f.write(chunk)
-                        bytes_received += len(chunk)
-
-                print(f"[Bild empfangen] Gespeichert als {image_path}")
-                if callback:
-                    callback(f"[Bild gespeichert unter: {image_path}]")
-
-                
-                try:
-                    if platform.system() == "Windows":
-                        os.startfile(image_path)
-                    elif platform.system() == "Darwin":
-                        subprocess.run(["open", image_path])
-                    else:
-                        subprocess.run(["xdg-open", image_path])
-                except Exception as e:
-                    print(f"[Bildanzeige fehlgeschlagen]: {e}")
-
+            if platform.system() == "Windows":
+                os.startfile(full_path)
+            elif platform.system() == "Darwin":
+                os.system(f"open \"{full_path}\"")
+            else:
+                os.system(f"xdg-open \"{full_path}\"")
         except Exception as e:
-            print(f"[Fehler beim Empfang]: {e}")
+            print(f"[⚠️ Fehler beim Öffnen des Bildes] {e}")
+
+        return full_path
+
+    except Exception as e:
+        print(f"[❌ Fehler beim Speichern des Bildes] {e}")
+        return None
+
+## @brief Lädt ein Bild als Bytes aus einer Datei.
+#  @param path Pfad zur Bilddatei
+#  @return Bilddaten oder None bei Fehler
+def load_image_as_bytes(path):
+    try:
+        with open(path, "rb") as f:
+            return f.read()
+    except Exception as e:
+        print(f"[❌ Fehler beim Laden der Bilddatei: {path}] {e}")
+        return None
+
+## @brief Teilt einen base64-String in kleinere Stücke.
+#  @param b64_string Base64-kodierte Bilddaten
+#  @param max_size Maximale Länge pro Stück (Standard: 512)
+#  @return Liste mit String-Chunks
+def chunk_image_data(b64_string, max_size=512):
+    return [b64_string[i:i+max_size] for i in range(0, len(b64_string), max_size)]

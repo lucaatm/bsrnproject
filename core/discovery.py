@@ -1,99 +1,96 @@
-import socket
-import threading
-import toml
+## @file discovery.py
+#  @brief Discovery-Modul für den BSRN-Chat
+#  @details Verwaltung von Chat-Teilnehmern, Nachrichten und Bildempfang via IPC.
+
 import time
+from multiprocessing import current_process
+from core.image_handler import save_and_open_image
+import base64
+import json
 
-try:
-    config = toml.load("resources/config.toml")
-except FileNotFoundError:
-    print("[Error] Configuration file not found. Using default settings.")
-    config = {"user": {"handle": "Unknown", "ports": [5001]}, "network": {"whoisport": 4000}}
-except toml.TomlDecodeError:
-    print("[Error] Malformed configuration file. Using default settings.")
-    config = {"user": {"handle": "Unknown", "ports": [5001]}, "network": {"whoisport": 4000}}
-handle = config.get("user", {}).get("handle", "Unknown")
-PORT = config.get("user", {}).get("ports", [5001])[0]
-WHOIS_PORT = config.get("network", {}).get("whoisport", 4000)
-BUFFER_SIZE = 512
+## @class Discovery
+#  @brief Verarbeitet JOIN/LEAVE/WHO/MSG/IMG Kommandos von Teilnehmern.
+#  @details Verwaltet Teilnehmerliste und leitet Nachrichten an CLI weiter.
+class Discovery:
+    ## @brief Konstruktor
+    #  @param in_queue Queue für eingehende Nachrichten
+    #  @param out_queue Queue für Ausgaben an CLI
+    #  @param imagepath Pfad zum Speichern empfangener Bilder
+    def __init__(self, in_queue, out_queue, imagepath):
+        ## @var self.in_q
+        #  @brief Eingangs-Queue vom Network-Prozess
+        self.in_q = in_queue
 
-participants = {}  
+        ## @var self.out_q
+        #  @brief Ausgangs-Queue zur CLI
+        self.out_q = out_queue
 
-## Broadcasts a message to all participants in the network
-def broadcast(msg):
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-    sock.sendto(msg.encode('utf-8'), ('255.255.255.255', WHOIS_PORT))
-    sock.close()
+        ## @var self.participants
+        #  @brief Bekannte Teilnehmer (handle → (IP, Port))
+        self.participants = {}
 
-## Sends a direct message to a specific IP and port
-def send_direct(ip, port, message):
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.sendto(message.encode('utf-8'), (ip, port))
-    sock.close()
+        ## @var self.imagepath
+        #  @brief Speicherort für empfangene Bilder
+        self.imagepath = imagepath
 
-## HANDLES
-## Handles the JOIN command from a participant
-def handle_join(tokens, addr):
-    if len(tokens) != 3:
-        return
-    handle = tokens[1]
-    try:
-        port = int(tokens[2])
-        participants[handle] = (addr[0], port)
-        print(f"[Discovery] {handle} just joined!")
-    except ValueError:
-        print("[Discovery] Invalid port in JOIN")
+        ## @var self._incoming_chunks
+        #  @brief Zwischenspeicher für Bilddaten-Chunks
+        self._incoming_chunks = {}
 
-## Handles the LEAVE command from a participant
-def handle_leave(tokens, addr):
-    if len(tokens) != 2:
-        return
-    handle = tokens[1]
-    if handle in participants:
-        del participants[handle]
-        print(f"[Discovery] {handle} just left!")
+    ## @brief Hauptschleife zur Verarbeitung von Nachrichten
+    def run(self):
+        print(f"[{current_process().name}] Discovery gestartet")
+        while True:
+            if not self.in_q.empty():
+                msg = self.in_q.get()
 
-## Handles the WHO command to list all known participants
-def handle_who(addr):
-    if not participants:
-        return
+                if not isinstance(msg, list) or len(msg) < 2:
+                    self.out_q.put("[Discovery] Ungültiges Format.")
+                    continue
 
-    # Send only to the requester (addr)
-    response = "KNOWNUSERS " + " ".join(f"{h} {ip} {p}" for h, (ip, p) in participants.items())
-    send_direct(addr[0], addr[1], response)
-    print(f"[Discovery] KNOWNUSERS sent to {addr[0]}:{addr[1]}")
+                command = msg[0]
+                handle = msg[1]
 
-## Listens for incoming discovery messages using the WHOIS_PORT such as JOIN, LEAVE, and WHO and handles them
-def listen():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    sock.bind(('', WHOIS_PORT))
-    print(f"[Discovery] Listening on port {WHOIS_PORT}")
+                if command == "JOIN" and len(msg) >= 4:
+                    handle, ip, port = msg[1], msg[2], msg[3]
+                    already_known = handle in self.participants and self.participants[handle] == (ip, port)
+                    self.participants[handle] = (ip, port)
+                    if not already_known:
+                        self.out_q.put(f"[System] {handle} ist dem Chat beigetreten.")
 
-    while True:
-        try:
-            data, addr = sock.recvfrom(BUFFER_SIZE)
-            message = data.decode('utf-8').strip()
-            tokens = message.split()
-            if not tokens:
-                continue
+                elif command == "LEAVE":
+                    if handle in self.participants:
+                        del self.participants[handle]
+                        self.out_q.put(f"[System] {handle} hat den Chat verlassen.")
 
-            command = tokens[0].upper()
-            if command == "JOIN":
-                handle_join(tokens, addr)
-            elif command == "LEAVE":
-                handle_leave(tokens, addr)
-            elif command == "WHO":
-                handle_who(addr)
-        except Exception as e:
-            print(f"[Discovery-Error] {e}")
+                elif command == "WHO":
+                    pass
+                
+                elif command == "MSG" and len(msg) >= 4:
+                    sender, target, text = msg[1], msg[2], msg[3]
+                
+                    self.out_q.put(f"[{sender}] {text}")
 
-## Starts the discovery service which is used in cli_chat.py in a separate thread
-def start_discovery_service():
-    thread = threading.Thread(target=listen, daemon=True)
-    thread.start()
+                elif command == "IMG" and len(msg) >= 4:
+                    sender, target, img_b64 = msg[1], msg[2], msg[3]
+                    try:
+                        image_data = base64.b64decode(img_b64)
+                    except Exception as e:
+                        self.out_q.put(f"[⚠️ Fehler beim Dekodieren des Bildes] {e}")
+                        continue
+                    path = save_and_open_image(sender, image_data, self.imagepath)
+                    self.out_q.put(f"[{sender}] Bild erhalten: {path}")
+                    self.out_q.put(f"[Hinweis] Bild gespeichert unter: {path}")
 
-# Sends a JOIN message to the network to announce the participant's handle and port, which is used in cli_chat.py
-def send_join(handle, port):
-    message = f"JOIN {handle} {port}"
-    broadcast(message)
+                elif command == "GET_QUEUE":
+                    target = msg[2]
+                    if target in self.participants:
+                        ip, port = self.participants[target]
+                        self.out_q.put(["FOUND", target, ip, port])
+                    else:
+                        self.out_q.put(["NOT_FOUND", target, None])
+
+            time.sleep(0.05)
+
+
+

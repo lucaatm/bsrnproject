@@ -1,0 +1,40 @@
+\doxysection{main.\+py File Reference}
+\hypertarget{main_8py}{}\label{main_8py}\index{main.py@{main.py}}
+
+
+Einstiegspunkt für das BSRN-\/\+Chatprogramm.  
+
+
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemain}{main}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacemain_a1b9eae1c4502de4bcd9d7e92d5e7b682}{main.\+load\+\_\+config}} ()
+\begin{DoxyCompactList}\small\item\em Lädt Konfigurationsdatei. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a7c3334290d4e3f82f0d4e6107230d458}{main.\+save\+\_\+config}} (cfg)
+\begin{DoxyCompactList}\small\item\em Speichert Konfiguration in Datei. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_adff6f182d12ad2e96486782d467a9604}{main.\+prompt\+\_\+missing\+\_\+config}} (cfg)
+\begin{DoxyCompactList}\small\item\em Fragt fehlende Konfiguration vom Benutzer ab. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a347dd09d3e21705fa2cb9aabbfbb96c6}{main.\+get\+\_\+lockfile\+\_\+path}} ()
+\begin{DoxyCompactList}\small\item\em Gibt Pfad zur Lockdatei zurück. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_aa59171ec8c9effddb2de9bdaedb1c6b4}{main.\+check\+\_\+discovery\+\_\+alive}} (lockfile\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Prüft, ob Discovery-\/\+Prozess läuft. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacemain_a3140e9a5b6a71ffbf498198cfc471b88}{main.\+main}} ()
+\begin{DoxyCompactList}\small\item\em Startet CLI, Netzwerk und optional Discovery-\/\+Prozess. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespacemain_a84cf41708442c975b79cd28e5a682d25}{main.\+CONFIG\+\_\+\+PATH}} = "{}config/config.\+toml"{}
+\item 
+str \mbox{\hyperlink{namespacemain_ada52b9d40a6839807da55e4536f1cf60}{main.\+LOCKFILE\+\_\+\+NAME}} = "{}discovery.\+lock"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Einstiegspunkt für das BSRN-\/\+Chatprogramm. 
+
+Initialisiert Konfiguration, Prüft auf Discovery-\/\+Prozess, startet CLI und Netzwerk-\/\+Komponenten. 

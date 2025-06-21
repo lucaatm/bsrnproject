@@ -1,0 +1,74 @@
+\doxysection{image\+\_\+handler Namespace Reference}
+\hypertarget{namespaceimage__handler}{}\label{namespaceimage__handler}\index{image\_handler@{image\_handler}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceimage__handler_a08c69165670fa18516188d79a4d96e0b}{save\+\_\+and\+\_\+open\+\_\+image}} (sender, binary\+\_\+data, imagepath)
+\begin{DoxyCompactList}\small\item\em Speichert ein Bild und öffnet es im Standardprogramm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceimage__handler_a76ade01d44dc9826016faa32c63659f3}{load\+\_\+image\+\_\+as\+\_\+bytes}} (path)
+\begin{DoxyCompactList}\small\item\em Lädt ein Bild als Bytes aus einer Datei. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceimage__handler_ad1136a9c4bc39a0c55020798a1553f0b}{chunk\+\_\+image\+\_\+data}} (b64\+\_\+string, max\+\_\+size=512)
+\begin{DoxyCompactList}\small\item\em Teilt einen base64-\/\+String in kleinere Stücke. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceimage__handler_ad1136a9c4bc39a0c55020798a1553f0b}\index{image\_handler@{image\_handler}!chunk\_image\_data@{chunk\_image\_data}}
+\index{chunk\_image\_data@{chunk\_image\_data}!image\_handler@{image\_handler}}
+\doxysubsubsection{\texorpdfstring{chunk\_image\_data()}{chunk\_image\_data()}}
+{\footnotesize\ttfamily \label{namespaceimage__handler_ad1136a9c4bc39a0c55020798a1553f0b} 
+image\+\_\+handler.\+chunk\+\_\+image\+\_\+data (\begin{DoxyParamCaption}\item[{}]{b64\+\_\+string}{, }\item[{}]{max\+\_\+size}{ = {\ttfamily 512}}\end{DoxyParamCaption})}
+
+
+
+Teilt einen base64-\/\+String in kleinere Stücke. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b64\+\_\+string} & Base64-\/kodierte Bilddaten \\
+\hline
+{\em max\+\_\+size} & Maximale Länge pro Stück (Standard\+: 512) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Liste mit String-\/\+Chunks 
+\end{DoxyReturn}
+\Hypertarget{namespaceimage__handler_a76ade01d44dc9826016faa32c63659f3}\index{image\_handler@{image\_handler}!load\_image\_as\_bytes@{load\_image\_as\_bytes}}
+\index{load\_image\_as\_bytes@{load\_image\_as\_bytes}!image\_handler@{image\_handler}}
+\doxysubsubsection{\texorpdfstring{load\_image\_as\_bytes()}{load\_image\_as\_bytes()}}
+{\footnotesize\ttfamily \label{namespaceimage__handler_a76ade01d44dc9826016faa32c63659f3} 
+image\+\_\+handler.\+load\+\_\+image\+\_\+as\+\_\+bytes (\begin{DoxyParamCaption}\item[{}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Lädt ein Bild als Bytes aus einer Datei. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Pfad zur Bilddatei \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Bilddaten oder None bei Fehler 
+\end{DoxyReturn}
+\Hypertarget{namespaceimage__handler_a08c69165670fa18516188d79a4d96e0b}\index{image\_handler@{image\_handler}!save\_and\_open\_image@{save\_and\_open\_image}}
+\index{save\_and\_open\_image@{save\_and\_open\_image}!image\_handler@{image\_handler}}
+\doxysubsubsection{\texorpdfstring{save\_and\_open\_image()}{save\_and\_open\_image()}}
+{\footnotesize\ttfamily \label{namespaceimage__handler_a08c69165670fa18516188d79a4d96e0b} 
+image\+\_\+handler.\+save\+\_\+and\+\_\+open\+\_\+image (\begin{DoxyParamCaption}\item[{}]{sender}{, }\item[{}]{binary\+\_\+data}{, }\item[{}]{imagepath}{}\end{DoxyParamCaption})}
+
+
+
+Speichert ein Bild und öffnet es im Standardprogramm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & Name des Absenders \\
+\hline
+{\em binary\+\_\+data} & Bilddaten als Bytes \\
+\hline
+{\em imagepath} & Zielordner zum Speichern \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vollständiger Pfad der gespeicherten Datei oder None bei Fehler 
+\end{DoxyReturn}
