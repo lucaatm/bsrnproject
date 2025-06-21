@@ -1,3 +1,11 @@
+##
+# @file udp_handler.py
+# @brief Implementierung eines einfachen UDP-Kommunikationshandlers.
+#
+# Diese Datei definiert die Klasse `UDPHandler`, die für das Empfangen und Senden
+# von Nachrichten über das UDP-Protokoll zuständig ist. Sie unterstützt den Empfang 
+# von Textnachrichten und erkennt spezielle Header wie `IMG ` zur Bildverarbeitung.
+
 import socket
 import threading
 

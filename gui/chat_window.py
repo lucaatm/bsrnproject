@@ -1,3 +1,8 @@
+## @file chat_window.py
+# @brief Öffnet das GUI-Fenster mit PyQt5.
+# @details Stellt Eingabe und Anzeige für Text- und Bildnachrichten bereit.
+#        Intern wird UDPHandler für Text und image_handler für Bilder genutzt.
+
 import sys
 import os
 from PyQt5 import QtWidgets, uic
@@ -13,10 +18,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from core.udp_handler import UDPHandler  
 from core.image_handler import send_image, IMAGEPATH  
 
-# @file chat_window.py
-#  @brief öffnet das GUI-Fenster mit PyQt5.
-#  @details Stellt Eingabe und Anzeige für Text- und Bildnachrichten bereit.
-#           Intern wird UDPHandler für Text und image_handler für Bilder genutzt.
 class ChatWindow(QtWidgets.QMainWindow):
     # @brief Konstruktor für das Hauptfenster.
     #  @param listen_port UDP-Port zum Empfang von Textnachrichten.

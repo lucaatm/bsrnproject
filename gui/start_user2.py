@@ -1,7 +1,7 @@
-# @file start_user2.py
+## @file start_user2.py
 # @brief Programmstart für die Chat-Anwendung mit PyQt5.
 # @details Fügt den Projektpfad zur Module-Suche hinzu, startet die QApplication
-#          und öffnet ein ChatWindow mit vordefinierten Parametern.
+#         und öffnet ein ChatWindow mit vordefinierten Parametern.
 
 import sys
 import os

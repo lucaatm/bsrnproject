@@ -1,4 +1,4 @@
-## @file slcp_chat.py
+## @file slcp.py
 # @brief Einfache Chat-Klasse (SLCPChat) für das Chat-Projekt.
 # @details Diese Klasse kapselt die komplette Chatlogik für einen Nutzer:
 #          - **JOIN/LEAVE/WHO** werden an den Discovery-Dienst weitergeleitet.
