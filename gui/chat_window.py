@@ -139,22 +139,33 @@ class ChatWindow(QtWidgets.QMainWindow):
         layout = QVBoxLayout()
         layout.setContentsMargins(10, 5, 10, 5)
 
-        label = QLabel(f"[Bild empfangen: {image_name}]")
-        label.setWordWrap(True)
-        label.setStyleSheet(
-            """
-            QLabel {
-                border: 1px solid #99ff99;
-                border-radius: 12px;
-                padding: 8px;
-                background-color: #eeeeee;
-                max-width: 400px;
-            }
-            """
-        )
-        label.setAlignment(Qt.AlignLeft)
-        layout.addWidget(label, alignment=Qt.AlignLeft)
+        # Bildvorschau anzeigen (max 200x200)
+        from PyQt5.QtGui import QPixmap
+        pixmap = QPixmap(image_path)
+        if not pixmap.isNull():
+            thumbnail = pixmap.scaled(200, 200, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+            image_label = QLabel()
+            image_label.setPixmap(thumbnail)
+            image_label.setAlignment(Qt.AlignLeft)
+            layout.addWidget(image_label, alignment=Qt.AlignLeft)
+        else:
+            label = QLabel(f"[Bild empfangen: {image_name}]")
+            label.setWordWrap(True)
+            label.setStyleSheet(
+                """
+                QLabel {
+                    border: 1px solid #99ff99;
+                    border-radius: 12px;
+                    padding: 8px;
+                    background-color: #eeeeee;
+                    max-width: 400px;
+                }
+                """
+            )
+            label.setAlignment(Qt.AlignLeft)
+            layout.addWidget(label, alignment=Qt.AlignLeft)
 
+        # Button zum Öffnen des Bildes
         button = QtWidgets.QPushButton("Bild öffnen")
         button.setStyleSheet("padding: 4px; font-size: 12px;")
         button.clicked.connect(lambda: self.open_image(image_path))
