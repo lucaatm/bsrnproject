@@ -1,196 +1,226 @@
-# @file chat_chat.py
-#  @brief öffnet das GUI-Fenster mit PyQt5.
-#  @details Stellt Eingabe und Anzeige für Text- und Bildnachrichten bereit.
-#           Intern wird UDPHandler für Text und image_handler für Bilder genutzt.
+## @file cli_chat.py
+# @brief Diese Datei implementiert die Kommandozeilen-Schnittstelle (CLI) für den SLCP-Chat.
+# Sie ermöglicht es Benutzern, Nachrichten zu senden, Bilder zu teilen und die Chat-Konfiguration zu ändern. 
 
-import sys
-import os
-from PyQt5 import QtWidgets, uic
-from PyQt5.QtWidgets import QListWidgetItem, QLabel, QWidget, QVBoxLayout, QInputDialog, QFileDialog
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QStatusTipEvent
-import subprocess
-import platform
+import threading
+import toml
+import atexit
+from core.slcp import SLCPChat
+import core.discovery as discovery
+import time
+from prettytable import PrettyTable
+from config.config_loader import save_config
 
-# Pfad zur Projektwurzel ergänzen, damit "core" gefunden wird
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+## Die Konfigurationsdatei wird eingelesen, um alle wichtigen Benutzereinstellungen zu laden.
+# @details Diese Einstellungen umfassen den Benutzernamen, die Ports für Nachrichten und Bilder sowie die Whois-Portnummer.
+## @note Für den Image-Port wird ein Standardwert von 6000 verwendet, falls nicht anders konfiguriert.
+config = toml.load("resources/config.toml")
 
-from core.udp_handler import UDPHandler  
-from core.image_handler import send_image, IMAGEPATH  
+HANDLE = config["user"]["handle"]
+PORT = config["user"]["port"][0]
+IMAGE_PORT = config["user"].get("imageport", 6000)
+WHOIS_PORT = config["network"]["whoisport"]
+INACTIVE = config["user"]["inactive"]
+AUTOREPLYMSG = config["user"]["autoreply"]
 
-class ChatWindow(QtWidgets.QMainWindow):
-    # @brief Konstruktor für das Hauptfenster.
-    #  @param listen_port UDP-Port zum Empfang von Textnachrichten.
-    #  @param peers Liste von `(ip, port)`-Tupeln der Chat-Teilnehmer.
-    def __init__(self, listen_port, peers):
-        super().__init__()
-        # Benutzername beim Start abfragen
-        name, ok = QInputDialog.getText(self, "Benutzername", "Wie heißt du?")
-        if ok and name.strip():
-            self.username = name.strip()
+## Initialisierung des SLCPChat-Objekts mit den geladenen Konfigurationen.
+# Dieses Objekt wird letztendlich verwendet, um Nachrichten zu senden, Bilder zu teilen und die Chat-Funktionalität zu verwalten.
+chat = SLCPChat(HANDLE, PORT, IMAGE_PORT, WHOIS_PORT)
+
+## @brief Diese Funktion wird aufgerufen, wenn der Benutzer den Chat verlässt.
+# @details Sie sendet eine LEAVE-Nachricht an den Discovery-Service und gibt eine Bestätigung aus. Im Falle eines Fehlers wird eine Fehlermeldung ausgegeben.
+# @note Sie wird durch die `atexit`-Bibliothek ausgeführt, um sicherzustellen, dass sie beim Beenden des Programms aufgerufen wird.
+
+def leave_chat():
+    try:
+        chat.leave()
+        print(f"[{HANDLE}] You just left!")
+    except Exception as e:
+        print(f"[Error] Could not leave. {e}")
+
+atexit.register(leave_chat)
+
+## @brief Diese Funktion verarbeitet eingehende Nachrichten und führt dann individuelle Aktionen aus.
+# @details Sie überprüft, ob die Nachricht mit "KNOWNUSERS" beginnt, um die Liste der bekannten Benutzer zu aktualisieren. Hierzu wird dann eine Tabelle mithilfe der PrettyTable-Bibliothek erstellt und ausgegeben.
+# @details Wenn die Nachricht nicht mit "KNOWNUSERS" beginnt, wird sie als normale Chat-Nachricht behandelt und ausgegeben. Dazu wird überprüft, ob der Nutzer inaktiv ist und somit eine automatische Antwort gesendet werden soll. Falls ja, wird die Abwesenheitsnachricht an den Absender zurück gesendet.
+# @param message: Die empfangene Nachricht.
+# @param addr: Die Adresse des Absenders der Nachricht.
+
+def on_message(message, addr):
+    if message.startswith("KNOWNUSERS"):
+        users = chat.parse_knownusers(message)
+        print("Known users:")
+        t = PrettyTable(['Name', 'IP', "Port"])
+        for user in users:
+            t.add_row([user, users[user][0], users[user][1]])
+        print(t)
+    elif message.startswith(HANDLE):
+        print(f"{message}")
+    else:
+        print(f"{message}")
+
+        # Ruft außerdem die aktuelle Konfiguration ab, um zu überprüfen, ob der Benutzer inaktiv ist und eine automatische Antwort gesendet werden soll.
+        config = toml.load("resources/config.toml")
+        inactive = config["user"].get("inactive", False)
+        autoreplymsg = config["user"].get("autoreply", "")
+
+        if inactive:
+            sender_handle = message.split()[0].replace(":", "")
+            if sender_handle != HANDLE:
+                success, error = chat.send_message(sender_handle, autoreplymsg)
+                
+                if not success:
+                    try:
+                        chat.sock.sendto(f"{HANDLE}: {autoreplymsg}".encode(), addr)
+                        print(f"[AutoReply] Nachricht an {sender_handle} gesendet: {autoreplymsg}")
+                    except Exception as e:
+                        print(f"[AutoReply-Error] {e}")
+
+## @brief Diese Funktion führt eine Endlosschleife aus, in der der Benutzer Eingaben tätigen kann.
+# @details Sie verarbeitet die Eingaben des Benutzers, um verschiedene Chat-Kommandos auszuführen, wie JOIN, LEAVE, WHO, MSG und IMG und das Ändern der Konfiguration. Außerdem gibt es die Möglichkeit, per "HELP" eine Übersicht der verfügbaren Befehle zu erhalten.
+def input_loop():
+    print("\nYou already joined the chat as '" + HANDLE + "'. Enter 'WHO' to see other online users.")
+    print("Use 'MSG <Handle> <Message>' to send a message, or 'IMG <Handle> <ImagePath>' to send an image.")
+    print("Enter 'LEAVE' to leave, 'JOIN' to join the chat.")
+
+    while True:
+        user_input = input().strip()
+        if not user_input:
+            continue
+
+        parts = user_input.split(" ", 2)
+        command = parts[0].upper()
+
+        ## JOIN-Command
+        if command == "JOIN":
+            chat.send_join()
+        
+        ## LEAVE-Command
+        elif command == "LEAVE":
+            leave_chat()
+
+        ## WHO-Command
+        elif command == "WHO":
+            chat.request_who()
+
+        ## MSG-Command
+        elif command == "MSG" and len(parts) == 3:
+            _, recipient, message = parts
+            success, error = chat.send_message(recipient, message)
+            if not success:
+                print(error)
+
+        ## IMG-Command
+        elif command == "IMG" and len(parts) == 3:
+            _, recipient, image_path = parts
+            success, error = chat.send_image(recipient, image_path)
+            if not success:
+                print(error)
+
+        ## CONFIG-Commands
+        elif command == "CONFIG":
+
+            # Wenn die Nutzereingabe nicht den Anforderungen entsprichtm, wird eine Fehlermeldung angezeigt.
+            # @note Der Befehl muss mindestens drei Teile haben, z. B.: "CONFIG HANDLE MeinNutzername", niemals nur "CONFIG HANDLE".
+            if len(parts) < 3:
+                print('[Configuration] Invalid command. Try HELP for a list of commands.')
+                continue
+            subcommand = parts[1].upper()
+
+            # Konfiguration der verschiedenen Subcommands
+
+            ## Handle-Konfiguration
+            if subcommand == "HANDLE":
+                new_handle = parts[2].strip()
+                if new_handle:
+                    config["user"]["handle"] = new_handle
+                    save_config(config)
+                else:
+                    print("[Configuration] Invalid command. Use 'CONFIG Handle <Handle>'.")
+            
+            ## Port-Konfiguration
+            elif subcommand == "PORT":
+                try:
+                    new_port = int(parts[2].strip())
+                    config["user"]["port"] = [new_port]
+
+                    
+                    save_config(config)
+                    print(f"[Configuration] Port changed to {new_port}")
+                except ValueError:
+                    print("[Configuration] Invalid command. Use 'CONFIG Port <Port>'.")
+
+            ## ImagePort-Konfiguration
+            elif subcommand == "IMAGEPORT":
+                try:
+                    new_port = int(parts[2].strip())
+                    config["user"]["imageport"] = [new_port]
+                    save_config(config)
+                    print(f"[Configuration] Port changed to: {new_port}")
+                except ValueError:
+                    print("[Configuration] Invalid command. Use 'CONFIG Port <Port>'.")
+            
+            ## Inactive-Konfiguration
+            elif subcommand == "INACTIVE":
+
+                # wenn der Befehl "CONFIG Inactive ON" eingegeben wird, wird die automatische Antwort aktiviert.
+                if parts[2].upper() == "ON":
+                    config["user"]["inactive"] = True
+
+                # wenn der Befehl "CONFIG Inactive OFF" eingegeben wird, wird die automatische Antwort deaktiviert.
+                elif parts[2].upper() == "OFF":
+                    config["user"]["inactive"] = False
+
+                else:
+                    print("[Configuration] Invalid command. Use 'CONFIG Inactive ON' or 'CONFIG Inactive OFF'.")
+                    return
+
+                save_config(config)
+
+                status = "activated" if config["user"]["inactive"] else "deactivated"
+                print(f"[Configuration] Autoreply {status}.")
+
+            ## Autoreply-Konfiguration
+            elif subcommand == "AUTOREPLY":
+                new_message = parts[2].strip()
+                config["user"]["autoreply"] = new_message
+                
+                save_config(config)
+
+                print(f"[Configuration] Autoreply changed to: {new_message}")
+
+            else:
+                print("[Configuration] Invalid command. Try 'HELP' for a list of commands.")
+
+        ## HELP-Befehl
+        elif command == "HELP":
+            print("—————————————————————")
+            print("Commands available:")
+            print("—————————————————————")
+            print("JOIN\t\t\t\tJoin the chat.")
+            print("LEAVE\t\t\t\tLeave the chat.")
+            print("WHO\t\t\t\tShow all known users.")
+            print("MSG <Handle> <Message>\t\tSend a message to a specific user.")
+            print("IMG <Handle> <ImagePath>\tSend an image to a specific user.")
+            print("CONFIG Handle <Handle>\t\tChange your handle.")
+            print("CONFIG Port <Port>\t\tChange your port.")
+            print("CONFIG ImagePort <ImagePort>\tChange your image-port.")
+            print("CONFIG Inactive <ON/OFF>\tActivate/deactivate autoreply.")
+            print("CONFIG Autoreply <Message>\tChange the autoreply message.")
+            print("HELP\t\t\t\tShow this help page.")
+
         else:
-            self.username = "Unbekannt"
+            print("Unknown command.")
 
-        self.listen_port = listen_port
-        self.peers = peers
+## @brief Die main-Funktion startet den Discovery-Service und die Chat-Funktionalität.
+# @details Sie startet Threads im "daemon"-Modus, um Nachrichten zu empfangen und Bilder zu senden, und wartet auf Benutzereingaben in einer Endlosschleife.
+def main():
+    discovery.start_discovery_service()
+    threading.Thread(target=chat.listen_for_messages, args=(on_message,), daemon=True).start()
+    threading.Thread(target=chat.receive_images, daemon=True).start()
+    time.sleep(0.5)
+    chat.send_join()
+    input_loop()
 
-        # Lade die .ui-Datei
-        ui_datei = os.path.join(os.path.dirname(__file__), "guidesign_bsrn.ui")
-        uic.loadUi(ui_datei, self)
-
-        self.setWindowTitle(f"BSRN Chat – {self.username}")
-
-        # Button-Verbindungen
-        self.pushButton.clicked.connect(self.send_message)
-        self.pushButtonImage.clicked.connect(self.send_image_dialog)
-        self.lineEdit.returnPressed.connect(self.send_message)
-
-        # UDP-Empfänger starten
-        self.udp = UDPHandler(self.listen_port, self.receive_message)
-        self.udp.start()
-
-        self.show()
-
-    # @brief Sendet den Text aus dem Eingabefeld an alle Peers.
-    #  @details Fügt der eigenen Chatliste eine Nachrichten-Blase hinzu
-    #           und ruft `UDPHandler.send_message` auf.
-    def send_message(self):
-        text = self.lineEdit.text().strip()
-        if text:
-            self.add_chat_bubble(f"{self.username}: {text}", align="right", color="#ccffcc")
-            self.lineEdit.clear()
-            self.udp.send_message(f"{self.username}: {text}", self.peers)
-
-    # @brief Callback für eingehende Nachrichten vom UDPHandler.
-    #  @param text Empfangener Nachrichtentext oder Bild-Header `IMG <name> <size>`.
-    def receive_message(self, text):
-        if text.startswith("IMG "):
-            try:
-                _, image_name, image_size = text.split()
-                QtWidgets.QApplication.instance().postEvent(
-                    self, QStatusTipEvent(f"[IMAGE_RECEIVED]::{image_name}")
-                )
-            except Exception:
-                pass  
-        elif text.strip() and not text.startswith("[IMAGE_RECEIVED]"):
-            QtWidgets.QApplication.instance().postEvent(self, QStatusTipEvent(text))
-
-    # @brief Event-Handler für StatusTipEvents.
-    #  @details Erzeugt Bild- oder Text-Bubbles basierend auf Event-Inhalt.
-    #  @param Das eingehende qt-Event, das verarbeitet werden soll.
-    def event(self, event):
-        if isinstance(event, QStatusTipEvent):
-            tip = event.tip()
-            if tip.startswith("[IMAGE_RECEIVED]::"):
-                image_name = tip.split("::", 1)[1]
-                self.add_image_bubble(image_name)
-            else:
-                self.add_foreign_message(tip)
-            return True
-        return super().event(event)
-
-    # @brief Fügt eine Nachricht von einem anderen Nutzer hinzu.
-    #  @param text Der anzuzeigende Nachrichtentext.
-    def add_foreign_message(self, text):
-        self.add_chat_bubble(text, align="left", color="#eeeeee")
-
-    # @brief Erzeugt und zeigt eine Chat-Blase im GUI.
-    #  @param text Der anzuzeigende Text.
-    #  @param align Ausrichtung `left` oder `right`.
-    #  @param color Hintergrundfarbe als HEX-Code.
-    def add_chat_bubble(self, text, align="left", color="#e6f2ff"):
-        bubble_widget = QWidget()
-        layout = QVBoxLayout()
-        layout.setContentsMargins(10, 5, 10, 5)
-
-        label = QLabel(text)
-        label.setWordWrap(True)
-        label.setStyleSheet(
-            f"""
-            QLabel {{
-                border: 1px solid #99ff99;
-                border-radius: 12px;
-                padding: 8px;
-                background-color: {color};
-                max-width: 400px;
-            }}
-            """
-        )
-        label.setAlignment(Qt.AlignLeft if align == "left" else Qt.AlignRight)
-        layout.addWidget(label, alignment=Qt.AlignLeft if align == "left" else Qt.AlignRight)
-
-        bubble_widget.setLayout(layout)
-
-        item = QListWidgetItem()
-        item.setSizeHint(bubble_widget.sizeHint())
-        self.listWidget.addItem(item)
-        self.listWidget.setItemWidget(item, bubble_widget)
-        self.listWidget.scrollToBottom()
-
-    # @brief Fügt eine Bild-Blase für ein empfangenes Bild hinzu.
-    #  @param image_name Dateiname des empfangenen Bildes.
-    def add_image_bubble(self, image_name):
-        image_path = os.path.abspath(os.path.join(IMAGEPATH, image_name))
-        if not os.path.exists(image_path):
-            print(f"[WARN] Bild nicht gefunden: {image_path}")
-            return  
-
-        bubble_widget = QWidget()
-        layout = QVBoxLayout()
-        layout.setContentsMargins(10, 5, 10, 5)
-
-        label = QLabel(f"[Bild empfangen: {image_name}]")
-        label.setWordWrap(True)
-        label.setStyleSheet(
-            """
-            QLabel {
-                border: 1px solid #99ff99;
-                border-radius: 12px;
-                padding: 8px;
-                background-color: #eeeeee;
-                max-width: 400px;
-            }
-            """
-        )
-        label.setAlignment(Qt.AlignLeft)
-        layout.addWidget(label, alignment=Qt.AlignLeft)
-
-        button = QtWidgets.QPushButton("Bild öffnen")
-        button.setStyleSheet("padding: 4px; font-size: 12px;")
-        button.clicked.connect(lambda: self.open_image(image_path))
-        layout.addWidget(button, alignment=Qt.AlignLeft)
-
-        bubble_widget.setLayout(layout)
-
-        item = QListWidgetItem()
-        item.setSizeHint(bubble_widget.sizeHint())
-        self.listWidget.addItem(item)
-        self.listWidget.setItemWidget(item, bubble_widget)
-        self.listWidget.scrollToBottom()
-
-    # @brief Öffnet ein Bild mit dem Standardprogramm.
-    #  @param image_path Absoluter Pfad zur Bilddatei.
-    def open_image(self, image_path):
-        try:
-            if platform.system() == "Windows":
-                os.startfile(image_path)
-            elif platform.system() == "Darwin":
-                subprocess.run(["open", image_path])
-            else:
-                subprocess.run(["xdg-open", image_path])
-        except Exception as e:
-            QtWidgets.QMessageBox.warning(self, "Fehler", f"Bild konnte nicht geöffnet werden:\n{e}")
-
-    # @brief Öffnet einen Dateidialog zur Bildauswahl und sendet das Bild.
-    def send_image_dialog(self):
-        dateipfad, _ = QFileDialog.getOpenFileName(self, "Bild auswählen", "", "Bilder (*.png *.jpg *.jpeg *.bmp)")
-        if dateipfad:
-            for ip, port in self.peers:
-                send_image(dateipfad, ip, port)
-            self.add_chat_bubble(f"[Bild versendet: {os.path.basename(dateipfad)}]", align="right", color="#ccffcc")
-
-# @brief Öffnet die GUI.
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
-    fenster = ChatWindow(listen_port=4567, peers=[("127.0.0.1", 4568)])
-    sys.exit(app.exec_())
+    main()

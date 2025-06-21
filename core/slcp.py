@@ -1,9 +1,10 @@
-## @file slcp.py
+## @file slcp_chat.py
 # @brief Einfache Chat-Klasse (SLCPChat) für das Chat-Projekt.
 # @details Diese Klasse kapselt die komplette Chatlogik für einen Nutzer:
-# - **JOIN/LEAVE/WHO** werden an den Discovery-Dienst weitergeleitet.
-# - Textnachrichten und Bilder können an bekannte Nutzer gesendet werden.
-# - Eingehende Datagramme (Text) werden über einen Callback an die CLI weitergereicht.
+#          - **JOIN/LEAVE/WHO** werden an den Discovery-Dienst weitergeleitet.
+#          - Textnachrichten und Bilder können an bekannte Nutzer gesendet werden.
+#          - Eingehende Datagramme (Text) werden über einen Callback an die CLI weitergereicht.
+
 
 import socket
 import core.discovery as discovery

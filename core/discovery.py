@@ -45,7 +45,7 @@ participants: Dict[str, Tuple[str, int]] = {}
 def broadcast(message: str) -> None:
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-    sock.sendto(message.encode("utf-8"), ("255.255.255.255", WHOIS_PORT))
+    sock.sendto(message.encode("utf-8"), ("192.168.178.255", WHOIS_PORT))
     sock.close()
 
 ## @brief Sendet eine UDP-Nachricht direkt an ip:port.
