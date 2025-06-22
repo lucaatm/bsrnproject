@@ -12,7 +12,7 @@ from core.network import Network
 from core.discovery import Discovery
 
 CONFIG_PATH = "config/config.toml"
-LOCKFILE_NAME = "discovery.lock"
+LOCKFILE_NAME = "discovery_{port}.lock"
 
 ## @brief Lädt Konfigurationsdatei.
 #  @return Dictionary mit Konfigurationsdaten
@@ -45,8 +45,9 @@ def prompt_missing_config(cfg):
 
 ## @brief Gibt Pfad zur Lockdatei zurück.
 #  @return Absoluter Pfad zur temporären Lockdatei
-def get_lockfile_path():
-    return os.path.join(tempfile.gettempdir(), LOCKFILE_NAME)
+def get_lockfile_path(port):
+    import tempfile
+    return os.path.join(tempfile.gettempdir(), LOCKFILE_NAME.format(port=port))
 
 ## @brief Prüft, ob Discovery-Prozess läuft.
 #  @param lockfile_path Pfad zur Lockdatei
@@ -79,7 +80,7 @@ def main():
     disc_to_cli = Queue()
 
     # Discovery vorbereiten
-    lockfile_path = get_lockfile_path()
+    lockfile_path = get_lockfile_path(port)
     p_disc = None
     if not check_discovery_alive(lockfile_path):
         with open(lockfile_path, "w") as f:
